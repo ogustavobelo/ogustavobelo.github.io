@@ -1,0 +1,20 @@
+home:
+  appBarTitle: Create your User
+  chooseVehicle: Choose your Vehicle
+  yourNick: Your Nick
+  nick: Nick
+  create: Create
+  success:
+    userCreated: User created successfully!
+  errors:
+    unablePermission: Unable to get Permissions
+    unexpected: Unexpected error
+    emptyNick: Nick can\'t be empty
+    unableCreate: Unable to Create an User
+    unableList: Unable to List Connected Users
+vehicles:
+  car: Car
+  truck: Truck
+  police_car: Police Car
+  bus: Bus
+  unknown: Unknown
