@@ -4,15 +4,15 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "57f034e0a109a244882c90a86f1f809d",
-"index.html": "58d21cd1d9f25789c86d48bb04c35659",
-"/": "58d21cd1d9f25789c86d48bb04c35659",
-"main.dart.js": "9d7471271e814cfbc732c1e3a03007c6",
+"index.html": "372092d31895e5d8fd87ba2a03c2f7df",
+"/": "372092d31895e5d8fd87ba2a03c2f7df",
+"main.dart.js": "594b06278a0ebd32d3fcc466c831e5dc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "048e15d2598c24ecce46ec3468ee5570",
-"assets/AssetManifest.json": "583b98dc5f85b1185caaea1a5aa9e965",
-"assets/NOTICES": "216ff17112c65f80144163cdc7947404",
+"assets/AssetManifest.json": "31b8b9a3e81cf187a366cff3015f53aa",
+"assets/NOTICES": "23c4bb8885456e6e34cf045305b078bf",
 "assets/FontManifest.json": "5915ede5ce322888307786fd9e38f7ba",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
@@ -21,13 +21,14 @@ const RESOURCES = {
 "assets/assets/images/police_car.png": "70644d89b08bae03e1c132357e940746",
 "assets/assets/images/bus.png": "19b773142fbd8a1807079cb805af6a91",
 "assets/assets/images/truck.png": "1cb11a5b249d8a0ab4d182df99d4b69a",
-"assets/assets/images/min/unknown.png": "962e3694638cb551673b671b9129d247",
-"assets/assets/images/min/car.png": "f2d5c817ba3c7035d8d21789c304ae56",
-"assets/assets/images/min/police_car.png": "1d5e75bb3a9d4f9225d4dcf796a28743",
-"assets/assets/images/min/bus.png": "c4dd0c3c92df6cbfb66eab0576e2ce65",
-"assets/assets/images/min/truck.png": "a0ed895ce021ec2a9f53f519b3ef7756",
+"assets/assets/images/min/bus_min.png": "faeb206de1a7ff0cd8cfd17414532a2b",
+"assets/assets/images/min/car_min.png": "89655c97a587e966440e6b9fcba57309",
+"assets/assets/images/min/unknown_min.png": "89090d4de91ede89e81bc2bedb30b6b3",
+"assets/assets/images/min/truck_min.png": "1ad67e967278d6d5a2f11bbb3373cd09",
+"assets/assets/images/min/police_car_min.png": "8ec498bdcfb6163dd04a1d340817df68",
 "assets/assets/i18n/en_US.yaml": "4fcd203c9fd998ae85de8008a2c659d8",
-"assets/assets/fonts/press_start.ttf": "2c404fd06cd67770807d242b2d2e5a16"
+"assets/assets/fonts/press_start.ttf": "2c404fd06cd67770807d242b2d2e5a16",
+"assets/assets/animations/pin_rotation.flr": "58c13ece8488f21eb6fe9d9b2d1a64c2"
 };
 
 // The application shell files that are downloaded before a service worker can
