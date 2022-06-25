@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -14,7 +15,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/">
+  <base href="/planning-poker/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -27,49 +28,53 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>flutter_planning_poker</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '1203379387';
+    var serviceWorkerVersion = '1714104870';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
-<body>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <!-- Firebase Configuration -->
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCGB3LH4OKIU8vcjrOcll-0u3r-D3D45ss",
-        authDomain: "flutter-planning-poker.firebaseapp.com",
-        projectId: "flutter-planning-poker",
-        storageBucket: "flutter-planning-poker.appspot.com",
-        messagingSenderId: "1053624894633",
-        appId: "1:1053624894633:web:7260ddb35ff355213a15b8",
-        measurementId: "G-EE60H1B976"
-      };
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
-  
+<body>
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         }
-      }).then(function(engineInitializer) {
+      }).then(function (engineInitializer) {
         return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
+      }).then(function (appRunner) {
         return appRunner.runApp();
       });
     });
+
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <!-- Firebase Configuration -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCGB3LH4OKIU8vcjrOcll-0u3r-D3D45ss",
+      authDomain: "flutter-planning-poker.firebaseapp.com",
+      projectId: "flutter-planning-poker",
+      storageBucket: "flutter-planning-poker.appspot.com",
+      messagingSenderId: "1053624894633",
+      appId: "1:1053624894633:web:7260ddb35ff355213a15b8",
+      measurementId: "G-EE60H1B976"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
 </body>
+
 </html>
