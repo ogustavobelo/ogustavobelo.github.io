@@ -12,3 +12,11 @@ other = "Pesquisa por"
 
 [updatedOnDate]
 other = "Atualizado em {{ .Date }}"
+
+# === 404.html ===
+[pageNotFound]
+other = "Página não encontrada"
+
+[pageNotFoundText]
+other = "A página que você está procurando não existe. Desculpe."
+# === 404.html ===
