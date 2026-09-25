@@ -1,0 +1,17 @@
+.special {
+  .single-title, .single-subtitle {
+    text-align: right;
+  }
+
+  .content {
+    text-align: justify;
+  }
+
+  @media (min-width: 768px) {
+    .single-title {
+      width: calc(100% - 200px - 1.5rem);
+      margin-left: calc(200px + 1.5rem);
+      text-align: left;
+    }
+  }
+}

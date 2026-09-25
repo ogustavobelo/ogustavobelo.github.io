@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+.vscode/
+
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# local/export data
+bear-data/
+
+# Python caches
+.pytest_cache/
+__pycache__/
+**/__pycache__/
+
+content/posts/.obsidian/

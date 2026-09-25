@@ -1,0 +1,13 @@
+{{- $backdrop := .Destination -}}
+{{- with dict "Path" .Destination "Resources" .Page.Resources | partial "function/resource.html" -}}
+    {{- $backdrop = .RelPermalink -}}
+{{- end -}}
+<figure class="image-frame">
+    <div class="image-backdrop" style="background-image: url('{{ $backdrop | safeURL }}');" aria-hidden="true"></div>
+    <div class="image-foreground">
+        {{- dict "Src" .Destination "Title" .Text "Resources" .Page.Resources | partial "plugin/image.html" -}}
+    </div>
+    {{- with .Title -}}
+        <figcaption class="image-caption">{{ . | safeHTML }}</figcaption>
+    {{- end -}}
+</figure>

@@ -1,0 +1,19 @@
+{{- $date := .Format "2 de January de 2006" -}}
+{{- $months := dict
+    "January" "Janeiro"
+    "February" "Fevereiro"
+    "March" "Março"
+    "April" "Abril"
+    "May" "Maio"
+    "June" "Junho"
+    "July" "Julho"
+    "August" "Agosto"
+    "September" "Setembro"
+    "October" "Outubro"
+    "November" "Novembro"
+    "December" "Dezembro"
+-}}
+{{- range $english, $portuguese := $months -}}
+    {{- $date = replace $date $english $portuguese -}}
+{{- end -}}
+{{- $date -}}

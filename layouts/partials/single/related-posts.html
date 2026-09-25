@@ -1,0 +1,35 @@
+{{- $config := .Site.Params.page.relatedPosts | default dict -}}
+{{- if ne $config.enable false -}}
+    {{- $limit := $config.limit | default 5 -}}
+    {{- $current := . -}}
+    {{- with .Params.tags -}}
+        {{- $relatedByTag := slice -}}
+        {{- range . -}}
+            {{- $tag := . -}}
+            {{- $posts := slice -}}
+            {{- range $current.Site.RegularPages.ByDate.Reverse -}}
+                {{- if and (ne .RelPermalink $current.RelPermalink) (in .Params.tags $tag) -}}
+                    {{- $posts = $posts | append . -}}
+                {{- end -}}
+            {{- end -}}
+            {{- if gt (len $posts) 0 -}}
+                {{- $relatedByTag = $relatedByTag | append (dict "name" $tag "posts" (first $limit $posts)) -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if gt (len $relatedByTag) 0 -}}
+            <aside class="related-posts" aria-label="{{ T "relatedPosts" }}">
+                <h2 class="related-posts-title">{{ T "relatedPosts" }}</h2>
+                {{- range $relatedByTag -}}
+                    <section class="related-posts-group">
+                        <h3><a href="{{ (printf "/tags/%v" (.name | urlize)) | relLangURL }}">#{{ .name | lower }}</a></h3>
+                        <ul>
+                            {{- range .posts -}}
+                                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            {{- end -}}
+                        </ul>
+                    </section>
+                {{- end -}}
+            </aside>
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

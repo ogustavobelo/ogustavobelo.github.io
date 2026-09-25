@@ -1,0 +1,14 @@
+[relatedPosts]
+other = "Postagens relacionadas"
+
+[searchPlaceholder]
+other = "Pesquisar títulos ou conteúdos..."
+
+[noResultsFound]
+other = "Nenhum resultado encontrado"
+
+[searchBy]
+other = "Pesquisa por"
+
+[updatedOnDate]
+other = "Atualizado em {{ .Date }}"

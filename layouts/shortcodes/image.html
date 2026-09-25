@@ -1,0 +1,41 @@
+{{- $options := cond .IsNamedParams (.Get "src") (.Get 0) | dict "Src" -}}
+{{- $options = cond .IsNamedParams (.Get "alt") (.Get 1) | .Page.RenderString | dict "Alt" | merge $options -}}
+{{- $caption := cond .IsNamedParams (.Get "caption") (.Get 2) | .Page.RenderString -}}
+{{- $options = dict "Caption" $caption | merge $options -}}
+{{- $class := cond .IsNamedParams (.Get "class") "" -}}
+
+{{- if .IsNamedParams -}}
+    {{- $options = dict "Title" (.Get "title") | merge $options -}}
+    {{- $options = dict "SrcSmall" (.Get "src_s") | merge $options -}}
+    {{- $options = dict "SrcLarge" (.Get "src_l") | merge $options -}}
+    {{- $options = dict "Height" (.Get "height") | merge $options -}}
+    {{- $options = dict "Width" (.Get "width") | merge $options -}}
+    {{- $options = .Get "linked" | ne false | dict "Linked" | merge $options -}}
+    {{- $options = dict "Rel" (.Get "rel") | merge $options -}}
+{{- else -}}
+    {{- $options = cond $caption true false | dict "Linked" | merge $options -}}
+{{- end -}}
+
+{{- $options = dict "Resources" .Page.Resources | merge $options -}}
+{{- $backdrop := cond .IsNamedParams (.Get "src") (.Get 0) -}}
+{{- with dict "Path" $backdrop "Resources" .Page.Resources | partial "function/resource.html" -}}
+    {{- $backdrop = .RelPermalink -}}
+{{- end -}}
+
+{{- if eq $class "image-frame" -}}
+    <div class="image-frame">
+        <div class="image-backdrop" style="background-image: url('{{ $backdrop | safeURL }}');"></div>
+        <div class="image-foreground">
+            {{- partial "plugin/image.html" $options -}}
+        </div>
+    </div>
+{{- else if $caption -}}
+    <figure{{ with cond $.IsNamedParams ($.Get "class") "" }} class="{{ . }}"{{ end }}>
+        {{- partial "plugin/image.html" $options -}}
+        <figcaption class="image-caption">
+            {{- $caption | safeHTML -}}
+        </figcaption>
+    </figure>
+{{- else -}}
+    {{- partial "plugin/image.html" $options -}}
+{{- end -}}
