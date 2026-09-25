@@ -21,7 +21,11 @@
                 <h2 class="related-posts-title">{{ T "relatedPosts" }}</h2>
                 {{- range $relatedByTag -}}
                     <section class="related-posts-group">
-                        <h3><a href="{{ (printf "/tags/%v" (.name | urlize)) | relLangURL }}">#{{ .name | lower }}</a></h3>
+                        {{- $tagName := .name -}}
+                        {{- $tagPath := partialCached "function/path.html" .name .name -}}
+                        {{- with $current.Site.GetPage "taxonomy" (printf "tags/%v" $tagPath) -}}
+                            <h3><a href="{{ .RelPermalink }}">#{{ $tagName | lower }}</a></h3>
+                        {{- end -}}
                         <ul>
                             {{- range .posts -}}
                                 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
