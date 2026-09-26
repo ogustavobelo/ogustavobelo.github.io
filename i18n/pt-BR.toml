@@ -14,7 +14,7 @@ other = "Pesquisa por"
 other = "Atualizado em {{ .Date }}"
 
 [contactNote]
-other = "Optei por não ter interação por comentários, se quiser trocar uma ideia, me mande um <a href=\"mailto:{{ .Email }}\">e-mail</a>."
+other = "Optei por não ter interação por comentários, se quiser trocar uma ideia, me mande um <a href=\"mailto:{{ .Email }}\" data-goatcounter-click=\"contato-email\" data-goatcounter-title=\"Nota de contato: e-mail\">e-mail</a>."
 
 # === 404.html ===
 [pageNotFound]

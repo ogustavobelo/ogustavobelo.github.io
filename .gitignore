@@ -16,3 +16,5 @@ __pycache__/
 **/__pycache__/
 
 content/posts/.obsidian/
+# Personal Hugo settings (see config/_default/params.toml.example)
+config/_default/params.toml

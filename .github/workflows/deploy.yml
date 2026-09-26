@@ -26,6 +26,9 @@ jobs:
           extended: true
 
       - name: Build site
+        env:
+          HUGO_PARAMS_SOCIAL_EMAIL: ${{ vars.BLOG_EMAIL }}
+          HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
         run: hugo --gc --minify
 
       - name: Deploy to GitHub Pages

@@ -1,3 +1,4 @@
+import os
 import subprocess
 from pathlib import Path
 
@@ -22,6 +23,11 @@ def build_site(tmp_path):
         capture_output=True,
         text=True,
         check=False,
+        env={
+            **os.environ,
+            "HUGO_PARAMS_SOCIAL_EMAIL": "leitor@example.com",
+            "HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE": "blog-de-teste",
+        },
     )
 
     assert result.returncode == 0, result.stderr
@@ -55,3 +61,15 @@ def test_hugo_tag_links_resolve_to_generated_term_pages(tmp_path):
 
     assert tag_page.is_file()
     assert '<h3><a href="/tags/filmes/">#filmes</a></h3>' in post_page
+
+
+def test_hugo_post_page_loads_goatcounter_and_tracks_contact_email(tmp_path):
+    destination = build_site(tmp_path)
+    post_page = (
+        destination / "posts" / "2025" / "03" / "04" / "flow" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert 'src="https://gc.zgo.at/count.js"' in post_page
+    assert 'data-goatcounter="https://blog-de-teste.goatcounter.com/count"' in post_page
+    assert 'href="mailto:leitor@example.com"' in post_page
+    assert 'data-goatcounter-click="contato-email"' in post_page

@@ -1,0 +1,9 @@
+# Personal settings for local builds (hugo server / hugo).
+# Copy to config/_default/params.toml (gitignored) and fill in your values.
+# In the deploy these come from environment variables instead; see README.md.
+
+[social]
+email = 'you@example.com'
+
+[analytics.goatcounter]
+code = 'your-site-code'

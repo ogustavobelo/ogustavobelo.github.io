@@ -21,7 +21,35 @@ enabled:
 hugo server --buildDrafts
 ```
 
-Hugo prints the local URL when the server starts. To run the automated tests,
+Hugo prints the local URL when the server starts.
+
+### Personal settings
+
+Values that identify the blog owner are not committed, so a fork starts clean
+and can set its own. If a value is missing, the related feature is simply not
+rendered.
+
+| Setting | Purpose | Environment variable | GitHub Actions variable |
+|---|---|---|---|
+| `social.email` | E-mail linked in the contact note at the end of each post | `HUGO_PARAMS_SOCIAL_EMAIL` | `BLOG_EMAIL` |
+| `analytics.goatcounter.code` | GoatCounter site code (`xxx` in `xxx.goatcounter.com`) | `HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE` | `GOATCOUNTER_CODE` |
+
+**Locally**, copy the example file and fill in your values. Hugo merges it with
+`hugo.toml` on every `hugo server` and `hugo` run:
+
+```sh
+cp config/_default/params.toml.example config/_default/params.toml
+```
+
+`config/_default/params.toml` is gitignored. GoatCounter is only loaded in
+production builds, so `hugo server` never counts visits.
+
+**In the deploy**, create the GitHub Actions variables under
+**Settings → Secrets and variables → Actions → Variables**; the deploy workflow
+passes them to the build as environment variables. Environment variables always
+take precedence over the local file.
+
+To run the automated tests,
 install `pytest` and run:
 
 ```sh

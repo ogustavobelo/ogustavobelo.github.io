@@ -65,9 +65,16 @@ hugo = false
 author = true
 copyright = true
 
+# Personal values (contact e-mail, GoatCounter code) are not committed so forks don't inherit them.
+# Locally they come from config/_default/params.toml (gitignored; copy params.toml.example).
+# In the deploy they come from environment variables filled by GitHub Actions repository variables:
+#   HUGO_PARAMS_SOCIAL_EMAIL                 -> e-mail shown in the post contact note
+#   HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE   -> GoatCounter site code (xxx in xxx.goatcounter.com)
 [params.social]
-Email = 'ogustavobelo@gmail.com'
 RSS = ''
+
+[params.analytics]
+enable = true
 
 # language code ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "pt-br"
@@ -77,7 +84,6 @@ languageName = "Português"
 # Author config
 [author]
   name = "Gustavo Belo"
-  email = "ogustavobelo@gmail.com"
   link = "https://gustavobelo.com"
 
 # Menu config
