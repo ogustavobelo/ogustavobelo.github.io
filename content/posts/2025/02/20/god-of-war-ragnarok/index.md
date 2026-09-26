@@ -3,6 +3,7 @@ title = "God of War - Ragnarok"
 date = "2025-02-20T18:28:00+00:00"
 draft = false
 tags = ["arthur", "jogos", "ps5", "review"]
+aliases = ["/god-of-war-ragnarok/"]
 bear_uid = "rLIoDQtKGzBIdRYJguzH"
 +++
 

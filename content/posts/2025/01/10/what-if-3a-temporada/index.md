@@ -3,6 +3,7 @@ title = "What if (3a temporada)"
 date = "2025-01-10T13:35:00+00:00"
 draft = false
 tags = ["disney-plus", "review", "series"]
+aliases = ["/what-if-3a-temporada/"]
 bear_uid = "TCpgJbteKEGcYyGjUBgB"
 +++
 

@@ -3,6 +3,7 @@ title = "Crítica ou Opinião"
 date = "2025-01-29T19:26:00+00:00"
 draft = false
 tags = ["desabafo", "ensaios"]
+aliases = ["/critica-ou-opiniao/"]
 bear_uid = "EXYMFSqbaJpteyqNCouF"
 +++
 

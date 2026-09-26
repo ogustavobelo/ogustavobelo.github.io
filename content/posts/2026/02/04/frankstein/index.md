@@ -3,6 +3,7 @@ title = "Frankstein"
 date = "2026-02-04T23:43:58.717608+00:00"
 draft = false
 tags = ["review", "filmes", "netflix"]
+aliases = ["/frankstein/"]
 bear_uid = "UqVKJekQIxZujFEJtawq"
 +++
 

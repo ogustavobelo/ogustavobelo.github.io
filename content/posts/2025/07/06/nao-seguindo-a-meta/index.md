@@ -3,6 +3,7 @@ title = "Não seguindo a meta"
 date = "2025-07-06T16:33:00+00:00"
 draft = false
 tags = ["metas", "rotina"]
+aliases = ["/nao-seguindo-a-meta/"]
 bear_uid = "upfVhCNwLsIbgWIrwVBG"
 +++
 

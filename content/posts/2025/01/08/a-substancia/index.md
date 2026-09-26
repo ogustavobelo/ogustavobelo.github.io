@@ -3,6 +3,7 @@ title = "A Substância"
 date = "2025-01-08T18:49:00+00:00"
 draft = false
 tags = ["filmes", "review"]
+aliases = ["/a-substancia/"]
 bear_uid = "tnctxFEoKuJVKvhQiIjI"
 +++
 

@@ -3,6 +3,7 @@ title = "Damasco"
 date = "2025-03-10T19:56:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/damasco/"]
 bear_uid = "IokZBVwRSUAfwghGhDxk"
 +++
 

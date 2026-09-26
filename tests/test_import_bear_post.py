@@ -82,6 +82,7 @@ def test_build_hugo_post_creates_front_matter_and_converts_tab_links(tmp_path):
     assert 'date = "2026-01-05T20:26:00+00:00"' in post_text
     assert 'draft = false' in post_text
     assert 'tags = ["leituras", "livros", "review"]' in post_text
+    assert 'aliases = ["/a-cabeca-do-santo/"]' in post_text
     assert '[este texto](https://example.com/artigo)' in post_text
     assert '{{< image src="https://bear-images.sfo2.cdn.digitaloceanspaces.com/gustavobelo/a-cabeca-do-santo.webp" alt="a-cabeca-do-santo" class="image-frame" >}}' in post_text
 

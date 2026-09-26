@@ -3,6 +3,7 @@ title = "Li uma ruma de coisa"
 date = "2026-05-02T21:27:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/li-uma-ruma-de-coisa/"]
 bear_uid = "pMKLJSQnwyFYnBUBBXxR"
 +++
 

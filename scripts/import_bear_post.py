@@ -155,8 +155,11 @@ def build_hugo_post(record: dict[str, str]) -> str:
 
     if tags:
         lines.append(f"tags = {json.dumps(tags, ensure_ascii=False)}")
+    # Keep the old Bear URL (/{slug}/) working by redirecting it to the Hugo permalink.
+    aliases = [f"/{slug}/"]
     if alias:
-        lines.append(f'aliases = ["{toml_escape(alias)}"]')
+        aliases.append(alias)
+    lines.append(f"aliases = {json.dumps(aliases, ensure_ascii=False)}")
     if canonical_url:
         lines.append(f'canonicalURL = "{toml_escape(canonical_url)}"')
     if description:

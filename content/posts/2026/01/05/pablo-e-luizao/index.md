@@ -3,6 +3,7 @@ title = "Pablo e Luizão"
 date = "2026-01-05T13:06:00+00:00"
 draft = false
 tags = ["globo-play", "review", "series"]
+aliases = ["/pablo-e-luizao/"]
 bear_uid = "edfQIbvucYjWfHTtSBfD"
 +++
 

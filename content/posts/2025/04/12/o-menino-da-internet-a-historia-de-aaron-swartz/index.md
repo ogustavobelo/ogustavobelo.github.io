@@ -3,6 +3,7 @@ title = "O menino da Internet: A história de Aaron Swartz"
 date = "2025-04-12T00:49:00+00:00"
 draft = false
 tags = ["documentario", "review", "youtube"]
+aliases = ["/o-menino-da-internet-a-historia-de-aaron-swartz/"]
 bear_uid = "ejhcGiJQZbJvIXhndpZJ"
 +++
 

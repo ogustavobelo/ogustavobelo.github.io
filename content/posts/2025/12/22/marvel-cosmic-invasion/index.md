@@ -2,6 +2,7 @@
 title = "Marvel Cosmic Invasion"
 date = "2025-12-22T12:22:36.282335+00:00"
 draft = false
+aliases = ["/marvel-cosmic-invasion/"]
 bear_uid = "ShSsqaIubFHjFEdkvAcD"
 +++
 

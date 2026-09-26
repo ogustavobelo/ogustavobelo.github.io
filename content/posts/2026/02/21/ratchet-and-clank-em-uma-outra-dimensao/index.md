@@ -3,6 +3,7 @@ title = "Ratchet and Clank: em uma outra dimensão"
 date = "2026-02-21T15:45:16.837996+00:00"
 draft = false
 tags = ["review", "jogos", "ps5"]
+aliases = ["/ratchet-and-clank-em-uma-outra-dimensao/"]
 bear_uid = "qecfoqLeNXuQhaiPFMad"
 +++
 

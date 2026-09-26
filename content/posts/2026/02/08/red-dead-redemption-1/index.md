@@ -2,6 +2,7 @@
 title = "Red Dead Redemption 1"
 date = "2026-02-08T13:51:00+00:00"
 draft = false
+aliases = ["/red-dead-redemption-1/"]
 bear_uid = "qDwsNFDUjbzCuYwEGQNn"
 +++
 

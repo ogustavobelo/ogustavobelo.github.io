@@ -3,6 +3,7 @@ title = "Batman: Cruzado Encapusado"
 date = "2025-01-29T12:52:00+00:00"
 draft = false
 tags = ["prime-video", "review", "series"]
+aliases = ["/batman-cruzado-encapusado/"]
 bear_uid = "aiJaeKSLdiSTVeIpHdmK"
 +++
 

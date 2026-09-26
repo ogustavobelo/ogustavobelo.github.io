@@ -3,6 +3,7 @@ title = "Palestina - uma nação ocupada"
 date = "2025-03-31T22:30:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/palestina-uma-nacao-ocupada/"]
 bear_uid = "aqCxcnRKpwQrZKURioxH"
 +++
 

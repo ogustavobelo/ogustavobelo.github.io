@@ -3,6 +3,7 @@ title = "Ghostbusters - Mais Além"
 date = "2025-03-17T20:57:00+00:00"
 draft = false
 tags = ["filmes", "netflix", "review"]
+aliases = ["/ghostbusters-mais-alem/"]
 bear_uid = "zzVyIQsnUJmRnEwUHjvF"
 +++
 

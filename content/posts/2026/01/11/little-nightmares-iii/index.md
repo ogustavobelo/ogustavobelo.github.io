@@ -3,6 +3,7 @@ title = "Little Nightmares III"
 date = "2026-01-11T18:49:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/little-nightmares-iii/"]
 bear_uid = "TCPCouiCFpSdBVfPLXnk"
 +++
 

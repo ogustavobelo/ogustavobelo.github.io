@@ -3,6 +3,7 @@ title = "Superinteressante - maio/2025"
 date = "2025-06-29T12:58:00+00:00"
 draft = false
 tags = ["leituras", "review", "revistas", "superinteressante"]
+aliases = ["/superinteressante-maio2025/"]
 bear_uid = "yrXZrBgyAXGDBcrYXVPD"
 +++
 

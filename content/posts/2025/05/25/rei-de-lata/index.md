@@ -3,6 +3,7 @@ title = "Rei de lata"
 date = "2025-05-25T00:29:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/rei-de-lata/"]
 bear_uid = "zCFXjtiWBmTdNvjsaDBc"
 +++
 

@@ -3,6 +3,7 @@ title = "Seguindo a meta em janeiro"
 date = "2025-02-04T16:06:00+00:00"
 draft = false
 tags = ["metas", "rotina"]
+aliases = ["/seguindo-a-meta-em-janeiro/"]
 bear_uid = "bjfrmdbfUNnPDsZNWLNd"
 +++
 

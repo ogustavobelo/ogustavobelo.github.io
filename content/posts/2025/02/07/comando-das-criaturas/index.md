@@ -3,6 +3,7 @@ title = "Comando das Criaturas"
 date = "2025-02-07T21:50:00+00:00"
 draft = false
 tags = ["max", "review", "series"]
+aliases = ["/comando-das-criaturas/"]
 bear_uid = "MfzsQneiSvdHQbYTudpd"
 +++
 

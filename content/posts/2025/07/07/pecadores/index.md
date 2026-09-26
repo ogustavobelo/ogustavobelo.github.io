@@ -3,6 +3,7 @@ title = "Pecadores"
 date = "2025-07-07T23:58:00+00:00"
 draft = false
 tags = ["filmes", "max", "review"]
+aliases = ["/pecadores/"]
 bear_uid = "GMxQdFQtCmmdxMyvyQKn"
 +++
 

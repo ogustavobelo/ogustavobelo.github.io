@@ -3,6 +3,7 @@ title = "Magicka 2"
 date = "2025-01-05T13:23:00+00:00"
 draft = false
 tags = ["arthur", "jogos", "review"]
+aliases = ["/magicka-2/"]
 bear_uid = "HFHrMwVUXHnYDaMTUrPe"
 +++
 

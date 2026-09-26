@@ -3,6 +3,7 @@ title = "Ruptura - 2a temporada"
 date = "2025-03-24T12:25:00+00:00"
 draft = false
 tags = ["apple-tv", "review", "series"]
+aliases = ["/ruptura-2a-temporada/"]
 bear_uid = "WBVaXyCXGrbqwAfgEQZA"
 +++
 

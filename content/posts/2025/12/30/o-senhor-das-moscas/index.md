@@ -3,6 +3,7 @@ title = "O senhor das moscas"
 date = "2025-12-30T18:21:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/o-senhor-das-moscas/"]
 bear_uid = "bHdAyKxhcJzcWtNBdxqq"
 +++
 

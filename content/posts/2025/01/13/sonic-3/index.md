@@ -3,6 +3,7 @@ title = "Sonic 3"
 date = "2025-01-13T11:51:48.827790+00:00"
 draft = false
 tags = ["review", "filmes", "cinema", "arthur"]
+aliases = ["/sonic-3/"]
 bear_uid = "pCeCijXyKKURAcwuKese"
 +++
 

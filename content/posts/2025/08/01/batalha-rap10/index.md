@@ -3,6 +3,7 @@ title = "Batalha Rap10"
 date = "2025-08-01T21:52:42.677953+00:00"
 draft = false
 tags = ["review", "series", "youtube"]
+aliases = ["/batalha-rap10/"]
 bear_uid = "rXRBYTXVbCdbyDzGCCoY"
 +++
 

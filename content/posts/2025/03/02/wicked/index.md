@@ -3,6 +3,7 @@ title = "Wicked"
 date = "2025-03-02T12:35:00+00:00"
 draft = false
 tags = ["filmes", "prime-video", "review"]
+aliases = ["/wicked/"]
 bear_uid = "tLfiitrEoxHJvUimsocw"
 +++
 

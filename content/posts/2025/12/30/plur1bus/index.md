@@ -3,6 +3,7 @@ title = "PLUR1BUS"
 date = "2025-12-30T12:25:00+00:00"
 draft = false
 tags = ["review", "series", "apple-tv"]
+aliases = ["/plur1bus/"]
 bear_uid = "PigYiMwEUkZTaPeavags"
 +++
 

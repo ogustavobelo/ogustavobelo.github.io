@@ -3,6 +3,7 @@ title = "Quarto de despejo"
 date = "2026-02-07T12:52:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/quarto-de-despejo/"]
 bear_uid = "SZQdTyTfEmDtNohhudKd"
 +++
 

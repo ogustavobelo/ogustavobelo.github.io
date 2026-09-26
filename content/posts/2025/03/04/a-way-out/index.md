@@ -3,6 +3,7 @@ title = "A Way Out"
 date = "2025-03-04T12:58:00+00:00"
 draft = false
 tags = ["arthur", "jogos", "ps5", "review"]
+aliases = ["/a-way-out/"]
 bear_uid = "hakewhTXjUXxoWzQuaDY"
 +++
 

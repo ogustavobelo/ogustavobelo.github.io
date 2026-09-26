@@ -3,6 +3,7 @@ title = "Cyberpunk: Mercenários"
 date = "2025-05-22T19:13:04.925937+00:00"
 draft = false
 tags = ["review", "series", "netflix"]
+aliases = ["/cyberpunk-mercenarios/"]
 bear_uid = "dzQFZcqLwNHLTcBWzpiP"
 +++
 

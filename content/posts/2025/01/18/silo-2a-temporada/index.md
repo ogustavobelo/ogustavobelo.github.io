@@ -3,6 +3,7 @@ title = "Silo (2a temporada)"
 date = "2025-01-18T13:29:00+00:00"
 draft = false
 tags = ["apple-tv", "review", "series"]
+aliases = ["/silo-2a-temporada/"]
 bear_uid = "rEYHippuxuaESArcWhbH"
 +++
 

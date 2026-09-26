@@ -3,6 +3,7 @@ title = "Cinema e o EU virtual"
 date = "2025-01-20T13:31:00+00:00"
 draft = false
 tags = ["cinema", "desabafo", "ensaios"]
+aliases = ["/cinema-eu-virtual/"]
 bear_uid = "DhaMnuyarnrQQkpVydEJ"
 +++
 

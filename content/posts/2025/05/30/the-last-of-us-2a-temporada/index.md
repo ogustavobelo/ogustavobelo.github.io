@@ -3,6 +3,7 @@ title = "The last of us - 2a temporada"
 date = "2025-05-30T19:41:00.733594+00:00"
 draft = false
 tags = ["review", "series", "max"]
+aliases = ["/the-last-of-us-2a-temporada/"]
 bear_uid = "jKPvUwdgGefkFdMdfcPS"
 +++
 

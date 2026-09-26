@@ -3,6 +3,7 @@ title = "Tomb Raider (2013)"
 date = "2026-01-02T21:53:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/tomb-raider-2013/"]
 bear_uid = "YoMfxhxqAMkysMxxgbMr"
 +++
 

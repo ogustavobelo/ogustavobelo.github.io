@@ -3,6 +3,7 @@ title = "Coringa: delírio a dois"
 date = "2025-01-26T12:08:00+00:00"
 draft = false
 tags = ["review", "filmes", "max"]
+aliases = ["/coringa-delirio-a-dois/"]
 bear_uid = "ZPXuvnzrrIWBELQFtKeJ"
 +++
 

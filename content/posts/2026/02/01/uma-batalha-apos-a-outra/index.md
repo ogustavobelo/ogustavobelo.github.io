@@ -3,6 +3,7 @@ title = "Uma batalha após a outra"
 date = "2026-02-01T13:35:48.131653+00:00"
 draft = false
 tags = ["review", "filmes", "max"]
+aliases = ["/uma-batalha-apos-a-outra/"]
 bear_uid = "UBGjQHyqRGaszWJMBqqq"
 +++
 

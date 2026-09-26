@@ -3,6 +3,7 @@ title = "AstroBot"
 date = "2025-03-28T20:25:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/astrobot/"]
 bear_uid = "IdNIHUamGmnGcuLImtmW"
 +++
 

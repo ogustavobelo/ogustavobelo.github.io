@@ -3,6 +3,7 @@ title = "Meu GPS interno é quebrado"
 date = "2025-02-02T19:37:00+00:00"
 draft = false
 tags = ["desabafo", "ensaios"]
+aliases = ["/meu-gps-interno-e-quebrado/"]
 bear_uid = "JzZWDUSIVMbmmugftREj"
 +++
 

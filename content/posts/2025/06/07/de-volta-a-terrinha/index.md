@@ -3,6 +3,7 @@ title = "De volta a terrinha"
 date = "2025-06-07T14:52:00+00:00"
 draft = false
 tags = ["desabafos", "ensaios"]
+aliases = ["/de-volta-a-terrinha/"]
 bear_uid = "qrcLIqfEFVhYJhxwNuRo"
 +++
 

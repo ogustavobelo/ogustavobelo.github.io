@@ -3,6 +3,7 @@ title = "Preguiça de postar"
 date = "2026-01-07T12:50:00+00:00"
 draft = false
 tags = ["ensaios", "desabafos"]
+aliases = ["/preguica-de-postar/"]
 bear_uid = "ECNYvCPPBJyMUVanXzry"
 +++
 

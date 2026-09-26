@@ -3,6 +3,7 @@ title = "Horizon Zero Dawn"
 date = "2025-09-23T17:49:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/horizon-zero-dawn/"]
 bear_uid = "ZdqaunwIvrUgxUxqkiBa"
 +++
 

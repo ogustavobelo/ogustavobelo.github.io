@@ -3,6 +3,7 @@ title = "O Eternauta"
 date = "2025-05-08T16:26:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/o-eternauta/"]
 bear_uid = "sPxfNLqtxpuJwpDVQAcR"
 +++
 

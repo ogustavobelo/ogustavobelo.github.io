@@ -3,6 +3,7 @@ title = "Skeleton Crew"
 date = "2025-02-15T14:32:00+00:00"
 draft = false
 tags = ["disney-plus", "review", "series"]
+aliases = ["/skeleton-crew/"]
 bear_uid = "hgMUqvnYQhtqRbGjGvKE"
 +++
 

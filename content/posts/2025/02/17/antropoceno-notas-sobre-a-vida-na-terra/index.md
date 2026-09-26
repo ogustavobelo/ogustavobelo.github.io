@@ -3,6 +3,7 @@ title = "Antropoceno: Notas Sobre a Vida na Terra"
 date = "2025-02-17T13:34:00+00:00"
 draft = false
 tags = ["livros", "review", "leituras"]
+aliases = ["/antropoceno-notas-sobre-a-vida-na-terra/"]
 bear_uid = "YhsdMbwWTmwIVPArJeuq"
 +++
 

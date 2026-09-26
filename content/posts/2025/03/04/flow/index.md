@@ -3,6 +3,7 @@ title = "Flow"
 date = "2025-03-04T20:03:00+00:00"
 draft = false
 tags = ["filmes", "review"]
+aliases = ["/flow/"]
 bear_uid = "ZpHqosJmgrbrvaZJBcKu"
 +++
 

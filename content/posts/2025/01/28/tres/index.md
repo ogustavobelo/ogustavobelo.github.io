@@ -3,6 +3,7 @@ title = "Três"
 date = "2025-01-28T17:55:00+00:00"
 draft = false
 tags = ["livros", "review", "leituras"]
+aliases = ["/tres/"]
 bear_uid = "qVpFCyceNKCfdDwnSAhq"
 +++
 

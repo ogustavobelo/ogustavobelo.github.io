@@ -3,6 +3,7 @@ title = "Adolescência"
 date = "2025-03-27T12:47:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/adolescencia-netflix/"]
 bear_uid = "UFSHScxbMMyPPVMeGIQY"
 +++
 

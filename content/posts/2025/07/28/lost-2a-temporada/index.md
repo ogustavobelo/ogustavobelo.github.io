@@ -3,6 +3,7 @@ title = "Lost - 2a temporada"
 date = "2025-07-28T00:09:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/lost-2a-temporada/"]
 bear_uid = "XDBWCHWPrXybYYpHRLSA"
 +++
 

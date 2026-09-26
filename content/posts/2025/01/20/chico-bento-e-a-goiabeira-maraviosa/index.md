@@ -3,6 +3,7 @@ title = "Chico Bento e a Goiabeira Maraviósa"
 date = "2025-01-20T12:49:00+00:00"
 draft = false
 tags = ["cinema", "filmes", "review"]
+aliases = ["/chico-bento-e-a-goiabeira-maraviosa/"]
 bear_uid = "BNRLeAVEIEXgYvKgsxmt"
 +++
 

@@ -3,6 +3,7 @@ title = "A cabeça do santo"
 date = "2026-01-05T20:26:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/a-cabeca-do-santo/"]
 bear_uid = "EeYRLWghnzcHqpZAmahL"
 +++
 

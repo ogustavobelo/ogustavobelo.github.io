@@ -3,6 +3,7 @@ title = "Flores para Algernon"
 date = "2025-07-10T15:14:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/flores-para-algernon/"]
 bear_uid = "cwRDZUKCIIcpsscTsGGF"
 +++
 

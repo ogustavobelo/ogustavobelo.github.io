@@ -3,6 +3,7 @@ title = "A revolução dos bichos"
 date = "2025-05-02T13:55:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/a-revolucao-dos-bichos/"]
 bear_uid = "LycIaVQMItAXAPuwMbNX"
 +++
 

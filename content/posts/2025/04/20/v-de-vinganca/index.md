@@ -3,6 +3,7 @@ title = "V de Vingança"
 date = "2025-04-20T14:21:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/v-de-vinganca/"]
 bear_uid = "vRiDscRriIWpdWyhwjZm"
 +++
 

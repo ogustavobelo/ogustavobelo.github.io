@@ -3,6 +3,7 @@ title = "Demolidor - Netflix"
 date = "2025-03-14T12:17:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/demolidor-netflix/"]
 bear_uid = "oAhTrGsrTRFJxREmVhgD"
 +++
 

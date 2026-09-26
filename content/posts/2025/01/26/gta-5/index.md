@@ -3,6 +3,7 @@ title = "GTA 5"
 date = "2025-01-26T22:45:00+00:00"
 draft = false
 tags = ["arthur", "jogos", "ps5", "review"]
+aliases = ["/gta-5/"]
 bear_uid = "AJhEthRVxjiBtHkjxpcD"
 +++
 

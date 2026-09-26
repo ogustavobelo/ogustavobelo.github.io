@@ -3,6 +3,7 @@ title = "Quarteto Fantástico - primeiros passos"
 date = "2025-07-26T13:08:59.956346+00:00"
 draft = false
 tags = ["review", "filmes", "cinema"]
+aliases = ["/quarteto-fantastico-primeiros-passos/"]
 bear_uid = "AfZaLysHssfxjYdijfaE"
 +++
 

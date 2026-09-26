@@ -3,6 +3,7 @@ title = "O poder do hábito"
 date = "2025-04-27T12:55:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/o-poder-do-habito/"]
 bear_uid = "ActGJVPyMyBmmUvJzGPL"
 +++
 

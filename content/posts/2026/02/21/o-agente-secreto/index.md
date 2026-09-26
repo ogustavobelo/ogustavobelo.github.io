@@ -3,6 +3,7 @@ title = "O agente secreto"
 date = "2026-02-21T13:48:00+00:00"
 draft = false
 tags = ["cinema", "filmes", "review"]
+aliases = ["/o-agente-secreto/"]
 bear_uid = "BdEXLDLcqBbvzkzYerdg"
 +++
 

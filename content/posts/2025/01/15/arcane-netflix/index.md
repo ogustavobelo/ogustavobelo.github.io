@@ -3,6 +3,7 @@ title = "Arcane"
 date = "2025-01-15T13:01:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/arcane-netflix/"]
 bear_uid = "dSCdrokjyjUrgnSdSdVD"
 +++
 

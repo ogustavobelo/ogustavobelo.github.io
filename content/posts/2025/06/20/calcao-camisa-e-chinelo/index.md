@@ -3,6 +3,7 @@ title = "calção, camisa e chinelo"
 date = "2025-06-20T17:46:00+00:00"
 draft = false
 tags = ["desabafos", "ensaios"]
+aliases = ["/calcao-camisa-e-chinelo/"]
 bear_uid = "fnHCIkpMniXRxWGNUrIk"
 +++
 

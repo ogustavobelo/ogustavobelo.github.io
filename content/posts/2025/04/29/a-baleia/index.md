@@ -2,6 +2,7 @@
 title = "A baleia"
 date = "2025-04-29T20:59:00.579367+00:00"
 draft = false
+aliases = ["/a-baleia/"]
 bear_uid = "jnGoSwxaRKKQPZoSLIhb"
 +++
 

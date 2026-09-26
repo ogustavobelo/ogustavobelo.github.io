@@ -3,6 +3,7 @@ title = "Black Mirror - 7a temporada"
 date = "2025-04-19T21:53:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/black-mirror-7a-temporada/"]
 bear_uid = "qnAssCSHjFkVqVAgGYsL"
 +++
 

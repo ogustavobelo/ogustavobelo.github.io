@@ -3,6 +3,7 @@ title = "Split Fiction"
 date = "2025-03-30T12:11:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/split-fiction/"]
 bear_uid = "jTgCWitkkmeYRQJAzacT"
 +++
 

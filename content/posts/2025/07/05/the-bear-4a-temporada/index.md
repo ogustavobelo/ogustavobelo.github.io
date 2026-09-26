@@ -3,6 +3,7 @@ title = "The Bear - 4a temporada"
 date = "2025-07-05T15:31:00+00:00"
 draft = false
 tags = ["disney-plus", "review", "series"]
+aliases = ["/the-bear-4a-temporada/"]
 bear_uid = "VVQSFbDTraepfbCSbqnF"
 +++
 

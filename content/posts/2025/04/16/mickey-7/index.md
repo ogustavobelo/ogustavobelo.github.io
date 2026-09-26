@@ -3,6 +3,7 @@ title = "Mickey 7"
 date = "2025-04-16T17:40:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/mickey-7/"]
 bear_uid = "gSrsViARHTCfYxLTiTCG"
 +++
 

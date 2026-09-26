@@ -3,6 +3,7 @@ title = "All her fault"
 date = "2026-01-18T14:14:00+00:00"
 draft = false
 tags = ["prime-video", "review", "series"]
+aliases = ["/all-her-fault/"]
 bear_uid = "HyEXcYQswwKrRUaFGeFk"
 +++
 

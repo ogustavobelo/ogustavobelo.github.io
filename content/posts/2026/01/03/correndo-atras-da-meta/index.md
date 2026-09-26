@@ -3,6 +3,7 @@ title = "Correndo atrás da meta"
 date = "2026-01-03T16:05:00+00:00"
 draft = false
 tags = ["metas", "rotina"]
+aliases = ["/correndo-atras-da-meta/"]
 bear_uid = "YMeNMTjPuPJVYPLWpVhX"
 +++
 

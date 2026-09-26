@@ -3,6 +3,7 @@ title = "Elio"
 date = "2025-06-22T14:21:50.636073+00:00"
 draft = false
 tags = ["review", "filmes", "cinema"]
+aliases = ["/elio/"]
 bear_uid = "UodyPzobMRwkICwALydT"
 +++
 

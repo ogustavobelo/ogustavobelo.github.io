@@ -3,6 +3,7 @@ title = "Zootopia 2"
 date = "2025-12-07T12:36:00+00:00"
 draft = false
 tags = ["cinema", "filmes", "review"]
+aliases = ["/zootopia-2/"]
 bear_uid = "DTBPKVsGBsscJRzoXRuv"
 +++
 

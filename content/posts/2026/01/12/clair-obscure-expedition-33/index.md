@@ -3,6 +3,7 @@ title = "Clair Obscure - Expedition 33"
 date = "2026-01-12T18:01:00+00:00"
 draft = false
 tags = ["games", "ps5", "review"]
+aliases = ["/clair-obscure-expedition-33/"]
 bear_uid = "RoiupSzTergtThoaYPZp"
 +++
 

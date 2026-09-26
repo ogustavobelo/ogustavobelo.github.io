@@ -3,6 +3,7 @@ title = "O que mais gostei até aqui"
 date = "2025-07-11T18:01:00+00:00"
 draft = false
 tags = ["review"]
+aliases = ["/o-que-mais-gostei-ate-aqui/"]
 bear_uid = "ojqsQHbeFBLbigQYmnEj"
 +++
 

@@ -3,6 +3,7 @@ title = "Demolidor: renascido"
 date = "2025-04-18T13:34:12.551481+00:00"
 draft = false
 tags = ["series", "disney-plus", "review"]
+aliases = ["/demolidor-renascido/"]
 bear_uid = "mskExmSmcXkLuyYYZHbJ"
 +++
 

@@ -3,6 +3,7 @@ title = "Minecraft - o filme"
 date = "2025-04-06T14:44:00+00:00"
 draft = false
 tags = ["arthur", "cinema", "filmes", "review"]
+aliases = ["/minecraft-o-filme/"]
 bear_uid = "RKhCkMfSNmKrcJvUXPdS"
 +++
 

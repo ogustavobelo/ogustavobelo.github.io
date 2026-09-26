@@ -3,6 +3,7 @@ title = "Invencível - 3a temporada"
 date = "2025-03-22T14:07:00+00:00"
 draft = false
 tags = ["prime-video", "review", "series"]
+aliases = ["/invencivel-3a-temporada/"]
 bear_uid = "GhmHaSRLEfkqHuFEyxjb"
 +++
 

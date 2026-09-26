@@ -3,6 +3,7 @@ title = "Happy!"
 date = "2025-02-18T12:24:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/happy/"]
 bear_uid = "sckcBfuneUAguYvCpyVT"
 +++
 

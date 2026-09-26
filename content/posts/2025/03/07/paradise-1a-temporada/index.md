@@ -3,6 +3,7 @@ title = "Paradise - 1a temporada"
 date = "2025-03-07T23:03:00+00:00"
 draft = false
 tags = ["disney-plus", "review", "series"]
+aliases = ["/paradise-1a-temporada/"]
 bear_uid = "vuxxEkjpsMpUUdybkixM"
 +++
 

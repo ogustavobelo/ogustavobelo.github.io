@@ -3,6 +3,7 @@ title = "Mickey 17"
 date = "2025-04-30T17:43:00+00:00"
 draft = false
 tags = ["filmes", "review"]
+aliases = ["/mickey-17/"]
 bear_uid = "MBpfmvSdCYQqnhwVmtAR"
 +++
 

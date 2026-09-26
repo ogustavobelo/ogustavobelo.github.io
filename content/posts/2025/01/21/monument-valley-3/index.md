@@ -3,6 +3,7 @@ title = "Monument Valley 3"
 date = "2025-01-21T18:56:00+00:00"
 draft = false
 tags = ["jogos", "netflix", "review"]
+aliases = ["/monument-valley-3/"]
 bear_uid = "BWgULIRQRAjFUegPggWW"
 +++
 

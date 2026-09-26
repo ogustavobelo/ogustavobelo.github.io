@@ -3,6 +3,7 @@ title = "Anora"
 date = "2025-03-05T16:43:00+00:00"
 draft = false
 tags = ["filmes", "review"]
+aliases = ["/anora/"]
 bear_uid = "qeosawHJsWHTeMytUaiQ"
 +++
 

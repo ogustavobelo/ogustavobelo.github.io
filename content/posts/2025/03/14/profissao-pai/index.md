@@ -3,6 +3,7 @@ title = "Profissão pai"
 date = "2025-03-14T22:18:00+00:00"
 draft = false
 tags = ["arthur", "desabafo", "rotina"]
+aliases = ["/profissao-pai/"]
 bear_uid = "kuvxRgbbFnvsgkrNjMYn"
 +++
 

@@ -3,6 +3,7 @@ title = "Tirando a poeira"
 date = "2026-09-24T12:35:00+00:00"
 draft = false
 tags = ["desabafos", "ensaios"]
+aliases = ["/tirando-a-poeira/"]
 bear_uid = "cmgUHHcKiuwjBHkCwENG"
 +++
 

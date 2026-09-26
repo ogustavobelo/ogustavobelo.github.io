@@ -3,6 +3,7 @@ title = "O último reino"
 date = "2025-09-24T18:48:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/o-ultimo-reino/"]
 bear_uid = "QNDfgHHzNYjbgdTKdNjN"
 +++
 

@@ -3,6 +3,7 @@ title = "Fantasmas - 1a temporada"
 date = "2025-10-02T13:33:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/fantasmas-1a-temporada/"]
 bear_uid = "vAEuLSyZoTCZHEDmyTxU"
 +++
 

@@ -3,6 +3,7 @@ title = "Do que eu falo quando eu falo de corrida"
 date = "2026-01-24T13:54:00+00:00"
 draft = false
 tags = ["leituras", "livros", "review"]
+aliases = ["/do-que-eu-falo-quando-eu-falo-de-corrida/"]
 bear_uid = "uJxSyQhYGaIeodNYzMrP"
 +++
 

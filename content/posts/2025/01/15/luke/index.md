@@ -3,6 +3,7 @@ title = "Luke"
 date = "2025-01-15T12:05:00+00:00"
 draft = false
 tags = ["leituras", "quadrinhos", "review"]
+aliases = ["/luke/"]
 bear_uid = "nRYGIfMsqbdiChCNtZDb"
 +++
 

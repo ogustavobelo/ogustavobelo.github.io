@@ -3,6 +3,7 @@ title = "Ghost of Yotei"
 date = "2025-11-01T19:29:00+00:00"
 draft = false
 tags = ["jogos", "ps5", "review"]
+aliases = ["/ghost-of-yotei/"]
 bear_uid = "PSWhuQqEiaTWRqqonoKJ"
 +++
 

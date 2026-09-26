@@ -3,6 +3,7 @@ title = "Guerra culinária"
 date = "2025-04-09T12:59:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/guerra-culinaria/"]
 bear_uid = "cCrVcVcYAPBKGBGPLdCS"
 +++
 

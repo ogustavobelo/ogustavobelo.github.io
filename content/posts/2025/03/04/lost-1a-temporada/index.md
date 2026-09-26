@@ -3,6 +3,7 @@ title = "Lost - 1a temporada"
 date = "2025-03-04T12:26:00+00:00"
 draft = false
 tags = ["netflix", "review", "series"]
+aliases = ["/lost-1a-temporada/"]
 bear_uid = "MjAvtVriIZxAvqahLugy"
 +++
 

@@ -3,6 +3,7 @@ title = "A Noite que Mudou o Pop"
 date = "2025-02-21T12:44:35.874404+00:00"
 draft = false
 tags = ["review", "filmes", "netflix", "documentario"]
+aliases = ["/a-noite-que-mudou-o-pop/"]
 bear_uid = "sPWWFWIbpvFRDPGupnBI"
 +++
 

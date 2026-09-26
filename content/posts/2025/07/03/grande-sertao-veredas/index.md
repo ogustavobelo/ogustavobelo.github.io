@@ -3,6 +3,7 @@ title = "Grande Sertão: veredas"
 date = "2025-07-03T17:59:26.445238+00:00"
 draft = false
 tags = ["leituras", "review", "quadrinhos"]
+aliases = ["/grande-sertao-veredas/"]
 bear_uid = "JesuAuTfdFFnvRRWWgsd"
 +++
 

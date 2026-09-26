@@ -3,6 +3,7 @@ title = "Bugonia"
 date = "2026-03-02T19:47:51.744010+00:00"
 draft = false
 tags = ["review", "filmes"]
+aliases = ["/bugonia/"]
 bear_uid = "uwZbiGUcviafXFHYvIaf"
 +++
 

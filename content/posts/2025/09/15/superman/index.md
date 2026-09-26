@@ -3,6 +3,7 @@ title = "Superman"
 date = "2025-09-15T19:34:00+00:00"
 draft = false
 tags = ["filmes", "review"]
+aliases = ["/superman/"]
 bear_uid = "HjMTAKTPkTcVLVusEtpW"
 +++
 

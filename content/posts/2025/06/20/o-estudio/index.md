@@ -3,6 +3,7 @@ title = "O estúdio"
 date = "2025-06-20T16:32:00+00:00"
 draft = false
 tags = ["apple-tv", "review", "series"]
+aliases = ["/o-estudio/"]
 bear_uid = "FkakkwdsPRAiifXWiHRu"
 +++
 

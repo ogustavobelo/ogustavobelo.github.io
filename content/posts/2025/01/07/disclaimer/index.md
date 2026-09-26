@@ -3,6 +3,7 @@ title = "Disclaimer"
 date = "2025-01-07T12:09:00+00:00"
 draft = false
 tags = ["apple-tv", "review", "series"]
+aliases = ["/disclaimer/"]
 bear_uid = "EVAbYGmTNTHKAojGDRXn"
 +++
 

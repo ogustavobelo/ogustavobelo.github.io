@@ -3,6 +3,7 @@ title = "O manual do mago frugal"
 date = "2025-07-29T12:55:00+00:00"
 draft = false
 tags = ["#arthur", "leituras", "livros", "review"]
+aliases = ["/o-manual-do-mago-frugal/"]
 bear_uid = "JHzXcaSDMIHRdLIZaNqX"
 +++
 
