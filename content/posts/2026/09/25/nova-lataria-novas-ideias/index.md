@@ -1,6 +1,7 @@
 +++
 title = "Novo visual, novas ideias"
 date = "2026-09-25T18:08:19-03:00"
+lastmod = "2026-09-26T17:53:08-03:00"
 draft = false
 tags = ["tech", "open-source"]
 +++
@@ -14,6 +15,6 @@ Então, optei pela troca de tecnologia, neste caso sem o deslumbre do inovador m
 
 Com este sentimento de ["Tirando a poeira"]({{< ref "/posts/2026/01/07/preguica-de-postar/" >}}), eu resolvi dar uma chance. Gastar ali algumas horinhas (e alguns tokens) na migração do que já existe hoje. Olhe, vou contar para vocês, foi mais rápido que eu imaginava. Com menos de uma hora já tinha adaptado a interface para o que eu esperava. Como vocês podem notar, não tem nada de muito sofisticado. E esse tipo de atividade mexe com uma parte do cérebro que me anima. Ver as coisas se materializando na sua frente, do jeito que você planeja, sem limites para a imaginação, é exatamente o que eu mais amo na programação.
 
-Nesta nova versão sinto que estou mais perto do que eu desejo com este cantinho na internet. Agora tudo que eu produzi está arquivado e sob minha gestão, compartilhado de maneira pública, sendo passível até de leituras de LLMs locais sobre minhas divagações. Além de conseguir remover todos os limitantes impostos pela ferramenta anterior: agora tem uma sessão de recomendações por tags; as imagens anexadas não correm o risco de sair do ar; consigo embeddar todo tipo de mídia; permito compartilhamento das postagens de maneira facilita; e tudo mais que minha imaginação desejar.
+Nesta nova versão, sinto que estou mais perto do que eu desejo com este cantinho na internet. Agora tudo que eu produzi está arquivado e sob minha gestão, compartilhado de maneira pública, sendo passível até de leituras de LLMs locais sobre minhas divagações. Além de conseguir remover todos os limitantes impostos pela ferramenta anterior: agora tem uma sessão de recomendações por tags; as imagens anexadas não correm o risco de sair do ar; consigo embeddar todo tipo de mídia; permito compartilhamento das postagens de maneira facilitada; e tudo mais que minha imaginação desejar.
 
-Se interessar, deixei todo o [projeto do blog](https://github.com/ogustavobelo/ogustavobelo.github.io) open-source onde você pode baixar, fazer uma cópia, alterar, se inspirar, fazer o que quiser.
+Se interessar, deixei todo o [projeto do blog](https://github.com/ogustavobelo/ogustavobelo.github.io) open-source onde você pode baixar, fazer uma cópia, alterar, se inspirar, fazer o que quiser. Inclusive, deixei um script onde você pode adaptar todas as postagens exportadas do bearblog para este formato.
