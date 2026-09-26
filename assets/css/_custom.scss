@@ -100,6 +100,30 @@
     }
   }
 
+  .post-contact-note {
+    display: block;
+    margin: 2rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid $global-border-color;
+    color: $global-font-secondary-color;
+    font-size: 0.9rem;
+    font-style: italic;
+
+    [theme=dark] & {
+      border-top-color: $global-border-color-dark;
+      color: $global-font-secondary-color-dark;
+    }
+
+    a {
+      color: $accent-color;
+
+      &:hover {
+        color: $accent-hover-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .content {
     clear: both;
 

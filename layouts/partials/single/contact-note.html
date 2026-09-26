@@ -1,0 +1,6 @@
+{{- with .Site.Params.social.Email -}}
+    <aside class="post-contact-note">
+        <i class="far fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;
+        {{- dict "Email" . | T "contactNote" | safeHTML -}}
+    </aside>
+{{- end -}}
