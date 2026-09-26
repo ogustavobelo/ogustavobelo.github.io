@@ -34,6 +34,12 @@
                 {{- with .PublishDate -}}
                     <i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="{{ .Format "2006-01-02" }}">{{ partial "date.html" . }}</time>&nbsp;
                 {{- end -}}
+                {{- if ne (.Lastmod.Format "2006-01-02") (.PublishDate.Format "2006-01-02") -}}
+                    <span class="post-updated">
+                        <i class="fas fa-pen fa-fw" aria-hidden="true"></i>&nbsp;
+                        {{- dict "Date" (printf `<time datetime="%s">%s</time>` (.Lastmod.Format "2006-01-02") (partial "date.html" .Lastmod)) | T "updatedOnDate" | safeHTML -}}
+                    </span>
+                {{- end -}}
             </div>
         </div>
 

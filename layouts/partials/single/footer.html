@@ -5,6 +5,7 @@
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>
+                    {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") -}}
                     {{- with .Lastmod -}}
                         {{- dict "Date" (partial "date.html" .) | T "updatedOnDate" -}}
                         {{- if $.Site.Params.gitRepo -}}
@@ -14,6 +15,7 @@
                                 </a>
                             {{- end -}}
                         {{- end -}}
+                    {{- end -}}
                     {{- end -}}
                 </span>
             </div>
