@@ -94,6 +94,19 @@ edit these directories to fix the site; change the source and build it again.
   JSON-LD) is composed in `layouts/partials/head/`. Keep new metadata fields
   consistent with the existing `params.seo.*` and front matter conventions
   instead of introducing a parallel mechanism.
+- List pages (home, section, taxonomy, term) reuse one `Page` for every
+  paginated URL, so `.Permalink` always resolves to page 1. The canonical tag
+  in `layouts/partials/head/link.html` must use the active `.Paginator.URL`
+  for page 2+ instead of `.Permalink`.
+- Taxonomy term pages get a generated description (`layouts/partials/function/description.html`)
+  instead of the generic site default, and a term page backing fewer than 2
+  posts is marked `noindex, follow` in `layouts/_default/baseof.html` to keep
+  thin, single-post tag pages out of search results.
+- Post images render through `layouts/partials/plugin/image.html`, which uses
+  a JS-driven (lazysizes) placeholder swap for real browsers. It must keep a
+  `<noscript>` fallback with the real `src`/`srcset` and native
+  `loading="lazy"` so crawlers that don't execute JavaScript can still see and
+  index the image.
 
 ## Build and Publication
 
