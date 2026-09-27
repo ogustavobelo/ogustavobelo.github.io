@@ -16,7 +16,20 @@
     <link rel="manifest" href="/site.webmanifest">
 {{- end -}}
 
-<link rel="canonical" href="{{ .Permalink }}" />
+{{- /*
+List pages (home, section, taxonomy, term) reuse the same Page for every
+paginated URL, so .Permalink always resolves to page 1. Use the active
+pager's own URL for page 2+ so /page/2/ doesn't claim /page/1/'s canonical.
+*/ -}}
+{{- $canonical := .Permalink -}}
+{{- if in (slice "home" "section" "taxonomy" "term") .Kind -}}
+    {{- with .Paginator -}}
+        {{- if gt .PageNumber 1 -}}
+            {{- $canonical = .URL | absURL -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+<link rel="canonical" href="{{ $canonical }}" />
 {{- if .PrevInSection -}}
     <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
 {{- end -}}
