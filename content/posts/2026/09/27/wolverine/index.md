@@ -3,6 +3,8 @@ title = "Wolverine"
 date = "2026-09-27T10:01:58-03:00"
 draft = false
 tags = ["review", "jogos", "ps5"]
+description = "Review de Wolverine (2026) no PS5: virou meme antes de eu jogar, mas o combate cadenciado compensou. Nota 7, história esquecível à parte."
+images = ["wolverine-ps5-gameplay.webp"]
 +++
 
 {{< image src="wolverine-ps5-gameplay.webp" alt="wolverine" class="image-frame" >}}
