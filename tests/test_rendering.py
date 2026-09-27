@@ -89,3 +89,12 @@ def test_hugo_post_page_renders_share_links(tmp_path):
     assert f"url={encoded_url}%3Fref%3Dtelegram" in post_page
     assert 'class="post-share-copy" data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/"' in post_page
     assert 'data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/?ref=share"' in post_page
+
+
+def test_hugo_post_page_falls_back_to_site_image_for_link_previews(tmp_path):
+    destination = build_site(tmp_path)
+    post_page = (
+        destination / "posts" / "2026" / "09" / "25" / "nova-lataria-novas-ideias" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert '<meta property="og:image" content="https://www.gustavobelo.com/android-chrome-512x512.png">' in post_page

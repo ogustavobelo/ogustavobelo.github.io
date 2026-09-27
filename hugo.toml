@@ -14,6 +14,8 @@ tag = 'tags'
 [params]
 defaultTheme = 'auto'
 description = 'Reflexões, ideias e anotações sobre tecnologia, produtividade e curiosidade.'
+# Fallback og:image/twitter:image for link previews (WhatsApp, Telegram...) when a page has none.
+images = ['android-chrome-512x512.png']
 
 [params.header]
 desktopMode = 'fixed'
