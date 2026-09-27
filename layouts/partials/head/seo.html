@@ -20,7 +20,7 @@
 {{- if .IsHome -}}
     <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "WebSite",
         "url": "{{ .Permalink }}",
         {{- with .Site.Language.Locale -}}
@@ -36,6 +36,11 @@
             "description": {{ . | safeHTML }},
         {{- end -}}
         {{- $image := .Site.Params.seo.image -}}
+        {{- if not $image -}}
+            {{- with .Site.Params.images -}}
+                {{- $image = index . 0 -}}
+            {{- end -}}
+        {{- end -}}
         {{- with dict "Path" $image "Resources" .Resources | partial "function/resource.html" -}}
             "image": {
                 "@type": "ImageObject",
@@ -62,11 +67,30 @@
     }
     </script>
 
+{{- /* About page SEO */ -}}
+{{- else if and .IsPage (eq . (.Site.GetPage "/about")) -}}
+    {{- $authorName := .Site.Params.Author.name | default (T "author") -}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": {{ .Title | safeHTML }},
+        "url": "{{ .Permalink }}",
+        "inLanguage": "{{ .Site.Language.Locale }}",
+        "description": {{ partial "function/description.html" . | safeHTML }},
+        "mainEntity": {
+            "@type": "Person",
+            "name": {{ $authorName | safeHTML }},
+            "url": "{{ .Site.Params.Author.link | default .Site.Home.Permalink }}"
+        }
+    }
+    </script>
+
 {{- /* Page SEO */ -}}
 {{- else if .IsPage -}}
     <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": {{ .Title | safeHTML }},
         "inLanguage": "{{ .Site.Language.Locale }}",
@@ -83,8 +107,21 @@
                 {{- $images = slice "featured-image" -}}
             {{- end -}}
         {{- end -}}
-        {{- with .Site.Params.seo.image -}}
-            {{- $images = $images | default (slice .) -}}
+        {{- if not $images -}}
+            {{- with $params.images -}}
+                {{- $images = . -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if not $images -}}
+            {{- $siteImage := .Site.Params.seo.image -}}
+            {{- if not $siteImage -}}
+                {{- with .Site.Params.images -}}
+                    {{- $siteImage = index . 0 -}}
+                {{- end -}}
+            {{- end -}}
+            {{- with $siteImage -}}
+                {{- $images = slice . -}}
+            {{- end -}}
         {{- end -}}
         {{- with $images -}}
             "image": [
@@ -125,7 +162,7 @@
         {{- $publisher := .Params.author | default .Site.Params.Author.name | default (T "author") | dict "name" -}}
         {{- $publisher = $params.seo.publisher | default dict | merge $publisher -}}
         "publisher": {
-            "@type": "Organization",
+            "@type": "{{ $publisher.type | default "Person" }}",
             "name": {{ $publisher.name | safeHTML }}
             {{- $logo := $publisher.logoUrl -}}
             {{- with dict "Path" $logo "Resources" .Resources | partial "function/resource.html" -}}
@@ -147,7 +184,44 @@
                 "name": {{ . | safeHTML }}
             },
         {{- end -}}
-        "description": {{ .Description | safeHTML }}
+        "description": {{ partial "function/description.html" . | safeHTML }}
     }
     </script>
+
+    {{- /* Breadcrumbs for blog posts */ -}}
+    {{- if eq .Type "posts" -}}
+        {{- $section := .Site.GetPage "/posts" -}}
+        {{- $sectionTitle := "Notas" -}}
+        {{- $sectionURL := .Site.Home.Permalink | printf "%vposts/" -}}
+        {{- with $section -}}
+            {{- $sectionTitle = .Title -}}
+            {{- $sectionURL = .Permalink -}}
+        {{- end -}}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": {{ .Site.Title | safeHTML }},
+                    "item": "{{ .Site.Home.Permalink }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": {{ $sectionTitle | safeHTML }},
+                    "item": "{{ $sectionURL }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": {{ .Title | safeHTML }},
+                    "item": "{{ .Permalink }}"
+                }
+            ]
+        }
+        </script>
+    {{- end -}}
 {{- end -}}
