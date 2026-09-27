@@ -31,20 +31,24 @@ def toml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"')
 
 
-def build_post(title: str, tags: list[str], created_at: datetime) -> str:
+def build_post(
+    title: str, tags: list[str], created_at: datetime, description: str = ""
+) -> str:
     tag_text = ", ".join(f'"{toml_escape(tag)}"' for tag in tags)
-    return "\n".join(
-        [
-            "+++",
-            f'title = "{toml_escape(title)}"',
-            f'date = "{created_at.isoformat(timespec="seconds")}"',
-            "draft = true",
-            f"tags = [{tag_text}]",
-            "+++",
-            "",
-            "",
-        ]
-    )
+    lines = [
+        "+++",
+        f'title = "{toml_escape(title)}"',
+        f'date = "{created_at.isoformat(timespec="seconds")}"',
+        "draft = true",
+        f"tags = [{tag_text}]",
+    ]
+    description = description.strip()
+    if description:
+        # Used as the page's meta/OG/JSON-LD description; falls back to the
+        # post's own summary when left unset. See the content-authoring skill.
+        lines.append(f'description = "{toml_escape(description)}"')
+    lines += ["+++", "", ""]
+    return "\n".join(lines)
 
 
 def create_post(
@@ -52,6 +56,7 @@ def create_post(
     tags: list[str],
     repo_root: str | Path,
     created_at: datetime | None = None,
+    description: str = "",
 ) -> Path:
     title = title.strip()
     if not title:
@@ -75,7 +80,9 @@ def create_post(
         raise FileExistsError(f"The target post already exists: {output_file}")
 
     output_dir.mkdir(parents=True, exist_ok=False)
-    output_file.write_text(build_post(title, tags, current_time), encoding="utf-8")
+    output_file.write_text(
+        build_post(title, tags, current_time, description), encoding="utf-8"
+    )
     return output_file
 
 
@@ -91,7 +98,11 @@ def main() -> int:
     try:
         title = input("Post title: ")
         tags = parse_tags(input("Tags (comma-separated, optional): "))
-        output_file = create_post(title, tags, args.repo_root)
+        description = input(
+            "Description for search/social previews (optional, press Enter to"
+            " derive it from the post's own text later): "
+        )
+        output_file = create_post(title, tags, args.repo_root, description=description)
     except (EOFError, KeyboardInterrupt):
         print("\nPost creation cancelled.", file=sys.stderr)
         return 1

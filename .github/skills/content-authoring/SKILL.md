@@ -18,6 +18,14 @@ assets in this Hugo project.
 - Preserve the existing TOML front matter style and fields. Posts normally use
   `title`, `date`, `draft`, and `tags`; preserve source identifiers such as
   `bear_uid` when editing imported posts.
+- Set `description` in front matter when the post deserves a hand-written
+  meta/OG/JSON-LD description (e.g. a review or an essay with a strong hook);
+  otherwise the site derives one automatically from the post's own summary, so
+  leaving it unset is fine for shorter or more casual posts.
+- Set `images` (an array of page-bundle filenames) when a post has a photo
+  that should represent it in link previews and JSON-LD, e.g.
+  `images = ["cover.webp"]`. Without it, previews fall back to the site's
+  default image.
 - Keep the language of the editorial content consistent with the surrounding
   content. The repository documentation must remain in English, but do not
   translate a Portuguese post unless the user explicitly asks for it.

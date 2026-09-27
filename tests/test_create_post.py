@@ -54,6 +54,29 @@ def test_create_post_uses_brazil_local_date_and_writes_front_matter(tmp_path):
     )
 
 
+def test_create_post_includes_description_when_provided(tmp_path):
+    module = load_module()
+    created_at = datetime(2026, 9, 26, 1, 15, tzinfo=ZoneInfo("UTC"))
+
+    output = module.create_post(
+        "Uma nova ideia",
+        ["ensaios"],
+        tmp_path,
+        created_at,
+        description='Uma ideia com "aspas" e acentuação.',
+    )
+
+    assert output.read_text(encoding="utf-8") == (
+        "+++\n"
+        'title = "Uma nova ideia"\n'
+        'date = "2026-09-25T22:15:00-03:00"\n'
+        "draft = true\n"
+        'tags = ["ensaios"]\n'
+        'description = "Uma ideia com \\"aspas\\" e acentuação."\n'
+        "+++\n\n"
+    )
+
+
 def test_create_post_rejects_existing_bundle(tmp_path):
     module = load_module()
     created_at = datetime(2026, 9, 25, 12, 0, tzinfo=module.BRAZIL_TIMEZONE)
