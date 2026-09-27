@@ -20,6 +20,12 @@
 
 {{- $alt := .Alt | default $src -}}
 {{- $loading := resources.Get "svg/loading.svg" | minify -}}
+{{- /*
+lazysizes hides the real image behind data-src/data-srcset until its JS runs,
+so a crawler that doesn't execute JS (most search/AI bots) only ever sees the
+placeholder SVG. The <noscript> fallback below gives those agents a plain,
+indexable <img> with the real src/srcset and native loading="lazy".
+*/ -}}
 {{- if .Linked -}}
     <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
         <img
@@ -31,6 +37,15 @@
             alt="{{ $alt }}"
             {{- with $width }} width="{{ . }}"{{ end }}
             {{- with $height }} height="{{ . }}"{{ end }} />
+        <noscript>
+            <img
+                src="{{ $src | safeURL }}"
+                srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
+                alt="{{ $alt }}"
+                loading="lazy" decoding="async"
+                {{- with $width }} width="{{ . }}"{{ end }}
+                {{- with $height }} height="{{ . }}"{{ end }} />
+        </noscript>
     </a>
 {{- else -}}
     <img
@@ -43,4 +58,14 @@
         title="{{ .Title | default $alt }}"
         {{- with $width }} width="{{ . }}"{{ end }}
         {{- with $height }} height="{{ . }}"{{ end }} />
+    <noscript>
+        <img
+            src="{{ $src | safeURL }}"
+            srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
+            alt="{{ $alt }}"
+            title="{{ .Title | default $alt }}"
+            loading="lazy" decoding="async"
+            {{- with $width }} width="{{ . }}"{{ end }}
+            {{- with $height }} height="{{ . }}"{{ end }} />
+    </noscript>
 {{- end -}}
