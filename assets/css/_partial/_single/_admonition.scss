@@ -36,8 +36,19 @@
     right: .3rem;
   }
 
-  &.spoiler .admonition-title {
-    padding-left: .75rem;
+  &.spoiler {
+    background-color: rgba($accent-color, 0.1);
+    border-left-color: $accent-color;
+
+    .admonition-title {
+      padding-left: .75rem;
+      border-bottom-color: rgba($accent-color, 0.1);
+      background-color: opacify(rgba($accent-color, 0.1), 0.15);
+    }
+
+    &.open .admonition-title {
+      background-color: rgba($accent-color, 0.1);
+    }
   }
 
   @each $type, $color in $admonition-color-map {

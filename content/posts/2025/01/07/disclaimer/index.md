@@ -20,7 +20,7 @@ O uso da metalinguagem com literatura foi muito acertado. Seja os episódios div
 
 Há de se entender o aspecto sútil na mensagem final, que, na minha opinião, a interpretação sobre uma ótica feminina tende a ser muito mais expressiva do que a de qualquer homem.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Acompanhar uma mulher tendo sua vida virada de ponta a cabeça por uma 
 suposta história, apenas baseadas por evidências de morais e costumes, deve nos fazer refletir sobre como esse *modus-operandi* está enraizado na nossa cultura. A história contada sob a perspectiva da mãe do Jonathan já era evidência o suficiente para mostrar que toda aquela narrativa era falsa, ela não estava lá. Mesmo assim, somos levados a duvidar da Catherine ao longo de tudo, inclusive, na cena final onde o Nick aparece na foto, esse sentimento de dúvida volta. Por quê?
@@ -28,3 +28,5 @@ suposta história, apenas baseadas por evidências de morais e costumes, deve no
 É fácil criar paralelos com a vida real, a invisibilização da opinião da Catherine não nos soa estranho pois é muito presente no nosso dia a dia, seja pelo marido que quer ser o único homem na vida dela, ou do filho que não a respeita, ou do oportunista no trabalho que vai esperar qualquer brecha para diminuí-la, ou até mesmo ela mesma que se obrigou a esconder a violência sofrida pensando nos outros.
 
 Confesso que a mensagem da Apple Tv introdutória sobre violência sexual em todos os episódios quebrou um pouco da imersão. Eu desconfiava do final apenas por mostrar essa informação em todos os episódios.  Entendo a importância deste tipo de comunicação mas será que não deveria ser mostrado apenas no episódio que acontece?
+
+{{< /admonition >}}
