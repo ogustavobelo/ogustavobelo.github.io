@@ -1,6 +1,8 @@
 baseURL = 'https://www.gustavobelo.com/'
-locale = 'pt-br'
+locale = 'pt-BR'
+languageName = 'Português'
 title = 'Notas de uma mente inquieta'
+enableRobotsTXT = true
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -77,11 +79,6 @@ RSS = ''
 
 [params.analytics]
 enable = true
-
-# language code ["en", "zh-CN", "fr", "pl", ...]
-languageCode = "pt-br"
-# language name ["English", "简体中文", "Français", "Polski", ...]
-languageName = "Português"
 
 # Author config
 [author]
