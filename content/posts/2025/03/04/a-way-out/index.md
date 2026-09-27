@@ -17,6 +17,7 @@ Claramente é possível ver o nascimento das mecânicas geniais de IT2 sendo ger
 
 O plot twist da história é muito bom. Realmente eu fui pego de surpresa com o final. Então, vale a pena demais jogar até o final, até porque é rapidinho. Acho que levamos 6~8 horas para concluir.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 O Arthur ficou decepcionadíssimo com o final!! Ele estava jogando com o Leo então vê-lo sendo traído e morto (sim, eu peguei a arma primeiro 🤣) levou ele as lágrimas. Eu tentei de todo jeito não atirar no final mas não consegui. Eu acho que deveria ser um possível final, não me pareceu condizendo o Vincent matá-lo a toa daquele jeito após ter conhecido a família dele. Poderia ter dado um tiro não-letal e prendê-lo que ficaria tudo certo.
+{{< /admonition >}}

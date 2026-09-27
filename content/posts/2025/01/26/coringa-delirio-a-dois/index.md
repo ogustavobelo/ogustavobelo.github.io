@@ -45,7 +45,7 @@ Poderia o autor devolver as críticas apenas com um "vocês que não entenderam"
 Sobre esse tópico, recomendo este [vídeo do Ora, Thiago](https://www.youtube.com/watch?v=8SeumNE0tak).
 Não acho que foi isso que Todd Phillips fez. Acredito que ele responde a pergunta inicial trazendo um propósito a sua obra criada.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 Eu acredito que o diretor entendeu o impacto do primeiro filme. Ele entendeu as nuances criadas na promoção de um lunático. 
 Quando se cria uma história onde a premissa é a realidade, e você coloca uma pessoa comum como protagonista em um filme que ele luta contra o sistema matando pessoas, o impacto tende a ser negativo.
 O segundo filme toma controle da narrativa e suas consequências colocando um ponto final nesta visão distorcida.
@@ -53,3 +53,5 @@ O segundo filme toma controle da narrativa e suas consequências colocando um po
 No fim do filme, temos o Arthur Fleck sendo brutalmente assassinado por um psicopata piadista(joker). 
 
 O desejo do que ==poderia ser== esmagado pela realidade do que ==a vida é==.
+
+{{< /admonition >}}

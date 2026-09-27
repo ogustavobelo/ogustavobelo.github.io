@@ -18,7 +18,7 @@ Foi uma indicação mega acertada! O livro é muito gostosinho de ler. Ele é me
 
 Na [postagem sobre Split Fiction](https://www.gustavobelo.com/split-fiction/) eu divaguei um pouco sobre o que caracteriza uma fantasia ou uma obra de ficção científica. Este livro consegue estar nos 2 gêneros ao mesmo tempo, e essa é a grande sacada desta obra.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Eu adorei a ideia de que em um mundo (de ficção científica) com infinitas realidades paralelas, seria possível uma delas ter algo próximo do que nós consideramos como magia. Coloca-se isso na idade média e temos um casamento surreal de fantasia com ficção científica. Vikings lutando contra soldados com armas laser. Outro detalhe legal é a exploração de como coisas "básicas" como ilustrações realistas podem soar como magia para quem sequer viveu o período renascentista.
 Por outro lado, o final ser uma "briga de deuses" foi algo que achei meio bobo e despropositado. Dava para ter resolvido tudo ali na bravata e briga de espadas.
@@ -28,3 +28,5 @@ Os plot twists no geral foram bem anticlimáticos. A Jen estar viva não contrib
 Mas sinceramente, todos esses pontos negativos são bem minoritários considerando o público-alvo da obra.
 
 Descobri que este livro faz parte de uma saga de livros do Brandon Sanderson no mundo d'O caminhos dos reis, livro que já mencionei estar lendo anteriormente.
+
+{{< /admonition >}}

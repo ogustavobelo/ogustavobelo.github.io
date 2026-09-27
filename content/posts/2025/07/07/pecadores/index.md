@@ -12,7 +12,7 @@ bear_uid = "GMxQdFQtCmmdxMyvyQKn"
 
 Esse é uma daquelas obras que é muito difícil descrever sem acabar tropeçando em algum spoiler, então se você é do tipo que se importa mas quer saber se vale a pena dar uma chance: eu super recomendo! Inclusive, procura assistir com o mínimo de informação possível e garanto que irá se surpreender.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Não tem como imediatamente não relacionar com dois clássicos do Tarantino: Drink no Inferno e Django Livre. A estrutura em si já remete as obras do Quentin com essa ideia de misturar estilos e histórias formando algo muito maior. Quantas vezes já vimos a história do artista rebelde que resolve confrontar os pais conservadores? Ou daquele selfmade-man que volta para a cidade natal mostrar o que aprendeu na cidade grande. Ou a alegoria do período segregacionista estadunidense. Agora fazer tudo isto com uma história de vampiros caçadores é divertido demais.
 
@@ -31,3 +31,5 @@ Ou como [canta o Emicida](https://www.youtube.com/watch?v=zDPSq0e4gWA):
 
 > Existem mil formas de prisão <br>
 > Mas só uma de liberdade <br>
+
+{{< /admonition >}}

@@ -18,5 +18,7 @@ O filme trata-se de uma sátira sobre teóricos da conspiração. Especificament
 
 O filme adentra nesse aspecto. Apresenta-se a motivação que move os "vilões". É verossímil que traumas podem deturpar a mente de qualquer pessoa, a solidão também, isso tudo combinado com a rotina opressora de trabalho que nos é imposta é o tempero X para criação de Don's em potencial. Ou como Mano Brown já disse: [máquina de fazer vilão](https://genius.com/972375).
 
-Área com spoilers
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 *Eu me diverti horrores com o final. Dobrou a aposta e abraçou a piada inteiramente. O Don L tem uma letra que me marca muito: [uma frase muda o fim do filme](https://genius.com/Don-l-aquela-fe-lyrics). Para pra pensar, se o fim do filme é apresentado no começo, a mensagem do filme muda completamente. Ted é um herói tentando salvar o planeta.
+
+{{< /admonition >}}

@@ -30,10 +30,12 @@ E aí que chegamos na questão inicial sobre ficção-científica, acredito que 
 
 Assim como a História, seria a ficção-científica a ferramenta que temos para nos preparar para o futuro?
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 No fim, pra mim o Mickey7 não é o Mickey8, porém eu entendo que ele seja o Mickey1. Nós somos aquilo que fazemos, somos aquilo que vivemos, Mickey7 teve uma experiência de contato com os Rastejadores que alterou completamente quem ele é, e eu acho que ficou muito bem ilustrado pelos seus sonhos. Freud explica.
 
 Fiquei com um sentimento dúbio sobre o final, esperava mais. Não sei se foi só o meu desejo de continuar naquela trama, de saber se a terraformação funcionaria, mas apenas explicar que não existe o risco iminente do planeta explodir não foi o suficiente. E ainda mais, após a colônia concluída com sucesso, Mickey Barnes pode deixar de ser um prescindível?
 
 Outro ponto legal que fiquei imaginando é em como essa trama daria um jogo legal. A premissa inicial de poder morrer e voltar várias vezes, com ou sem o conhecimento adquirido, não soa fantástico para um jogo?
+
+{{< /admonition >}}

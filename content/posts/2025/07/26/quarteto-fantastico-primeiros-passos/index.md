@@ -21,10 +21,12 @@ Acho que os atores funcionaram muito bem nos personagens, desafio complicado com
 
 Foi um filme bonito, divertido e despretensioso, como mais filmes de heróis deveriam ser.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Quando eu falo que o tom do filme ficou muito bem encaixado, essa conclusão veio principalmente no final. Acho que a ideia de uma mãe dando a vida pelo filho e o bebê salvando a mãe teria ficado bem brega em outra narrativa, mas nessa aqui funcionou bem. Foi bem previsível, mas de um jeito legal, como se já conhecessemos aquele mundo tão bem que as peças se encaixam naturalmente. Diria que ficou a desejar só na atuação da Sue, não me pareceu convincente que ela usou tanto o poder a ponto de perder todas as suas forças.
 
 Não conheço a história do Franklin, já havia ouvido falar que ele é megapoderoso mesmo mas não sei exatamente em que escala, mas sempre é um problema que heróis poderosos demais atraem vilões ainda mais poderosos e vira um ciclo dragonballzístico chato. Vide o próprio Galactus, devorador de mundos e a porra toda, e quando foi derrotado fica um sentimento de "então ele não é tão forte asim...".
 
 Como eu mencionei, o que eu mais gostei da obra foi esse caráter cotidiano e modesto, sem grandes pretensões, só que na cena pós-crédito temos o cliffhanger para mais um grande universo que se conectará com tudo do MCU. Fiquei cansado de novo só de imaginar.
+
+{{< /admonition >}}

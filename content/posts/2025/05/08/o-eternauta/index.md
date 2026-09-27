@@ -21,7 +21,7 @@ Sobre a trama, como mencionei, já conhecia um pouco da história mas eu esperav
 
 Fiquei ansioso pela 2a temporada mas ainda mais por ler o quadrinho. Em breve compartilho por aqui a comparação com a obra original.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Tem algumas coisas que me deixaram muito encucado:
 - Por que o Lucas se mata daquele jeito? Ele estava sendo controlado pelos bichos? Por que não me parece que a ideação dos controlados seja necessariamente suicida.
@@ -31,3 +31,5 @@ Tem algumas coisas que me deixaram muito encucado:
 A ideia toda de um apocalipse me vem fazendo pensar ultimamente. Também estou acompanhando The Last Of Us e o Rei de Lata, e nesses casos você vê a diferença que faz o senso de comunidade nestes casos. Até mesmo nos lembrando sobre os períodos da pandemia de Covid e em como ter os parentes por perto foi algo muito importante para superar aquele momento, além de toda a logística de suprimentos e recursos naturais.
 Li um [artigo](https://sol2070.in/2025/04/naomi-klein-fascismo-fim-dos-tempos/) falando do crescimento dessa corrente sobrevivencialista na extrema-direita dos EUA.
 Será se faz sentido se preparar de alguma maneira para essas catástrofes? Será que ser otimista demais com o mundo pode ser fatal?
+
+{{< /admonition >}}

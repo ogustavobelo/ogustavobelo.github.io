@@ -25,10 +25,12 @@ Trago um destaque para a prova dos restaurantes, que achei a dinâmica muito bem
 
 Apostaria dinheiro que o MasterchefBR desse ano vai copiar várias das dinâmicas apresentadas no Guerra culinária.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Pra mim ficou óbvio que o chefe Edward Lee não ia ganhar. Eles não iam dar o prêmio de melhor chef da Coréia para um "americano". Se, como mencionei acima, o objetivo da obra é enaltecer a comida oriental, soaria um tiro pela culatra entregar isto para um cara com seu desenvolvimento profissional inteiramente no Ocidente. Mas vou ti dizer, que cara criativo da porra! Fiquei até com vontade de assistir o Iron Chef que ele ganha para ver ele explorando essas habilidades com pratos que eu conheço melhor. 
 
 Achei a prova do inferno do Tofu muito boa! Impressionante como eles conseguiram fazer tantas coisa diferentes com um ingrediente aparentemente sem graça.
 
 O Arthur começou a torcer para o Mafioso Napolitano desde o primeiro episódio, é impressionante esse super poder dele 🤣
+
+{{< /admonition >}}

@@ -27,7 +27,7 @@ A narrativa foca nas relações pai-filho e o controle sobre o seu destino. E is
 
 Achei o jogo bem mais desafiador que o primeiro, teve lutas contra alguns monstros que eu xinguei os desenvolvedores de todos os nomes possíveis porque eles apelaram demais. E assim como Kratos, vi o Arthur dominar a técnica e assumir seu próprio estilo com habilidades até admiráveis. Ele adorou a lança, por exemplo. Eu sou apegado as lâminas no caos desde sempre 🤣 
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Porra, as lutas com Thor são muito boas. Tanto a do começo, quanto a do final. A morte dele pelas mãos de Odin é surpreendentemente emocionante. Acho que contrasta bem com a história principal do Loki onde os desejos do pai podem matar(nesse caso literalmente) os anseios do filho. 
 
@@ -36,3 +36,5 @@ Confesso que eu jurava que o Kratos ia morrer no fim da história. Pra mim, o jo
 
 Acho que o jogo encerrou em aberto para continuações, certo? A cena dele vendo o futuro dele sendo adorado novamente traz alguma mensagem sobre isso? 
 Não li nada ainda sobre isso mas parece que o Kratos pode ir explorar outras mitologias em novas sequências. Tenho nada pra criticar o shape do pai mas ele ficando mais velho vai aguentar o tranco?
+
+{{< /admonition >}}

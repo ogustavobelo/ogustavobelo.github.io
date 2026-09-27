@@ -20,7 +20,7 @@ O enredo continuou na mesma toada de "precisamos encontrar nosso lugar no mundo 
 
 Não tenho como desejar que não tenha uma nova temporada porque já ficou evidente que teremos, o que eu espero é que os dilemas sejam renovados e, para isto, personagens sejam trocados.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Meu episódio favorito, novamente, foi o da reunião da família. Adorei o domínio que os criadores tiveram sobre a obra ao brincar com esta questão. Sempre esperamos que ao reunir os Berzatto seja aquela confusão maluca mas dessa vez vemos uma dinâmica diferente. Dessa vez é apresentado o lado bom, que é notado principalmente por aqueles que não tem uma família presente. Família é confusão mas também é companheirismo. Pode ter coisas ruins, pode ter coisas boas, mas só pode ter algo se forem presentes, e os Bears estão sempre lá.
 
@@ -31,3 +31,5 @@ O Carmy tava afogado em sua melancolia arrastando um peso que ele já não conse
 Achei super tímida as participações do Marcus que é um das melhores evoluções da série. Foi muito massa ele ter sido o profissional destaque mas acho que a relação com o pai dele poderia ter sido melhor explorada, ou o dilema dele com a criatividade vs prazos.
 
 Só eu fiquei com a sensação que o Ebraheim levaria um golpe?
+
+{{< /admonition >}}

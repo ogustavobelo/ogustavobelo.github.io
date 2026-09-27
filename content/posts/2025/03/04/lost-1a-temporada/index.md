@@ -22,7 +22,7 @@ Rapaz, e eu gostei dessa primeira temporada. Adorei a dinâmica em como eles vã
 
 Vou levar um tempo para assistir a próxima temporada. A série é muito densa e extensa, tornando a experiência cansativa. Pelo aspecto que mencionei anteriormente, sei que não vou me perder voltando tempos depois pois o mistério já foi apresentado. E como já sei que o final não é lá essas coisas, não tenho pressa para terminar.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Eu refleti sobre colocar ou não essa área de spoilers aqui. Quanto tempo é o prazo que falar sobre os acontecimentos de uma obra precisa ser escondido? Acho que com livros nós respeitamos isso com maior facilidade. Não partimos do pressuposto que a pessoa teria obrigação de saber o que rolou, então somos mais cuidadosos com os detalhes que contamos.
 Então, eu resolvi adicionar porque soaria contradizente ao que preguei no início, podemos sim consumir uma obra muitos anos depois e não necessariamente você sabe o que rolou só por causa que o tempo passou.
@@ -32,3 +32,4 @@ Adorei o personagem do Lock e em como ele é adicionado a trama. Ele é, aparent
 Acho que em um desafio como aquele, existem figuras essenciais a serem  preservadas: o médico, o sobrevivencialista, o cientista, o pau-pra-toda-obra. Irrita-me absurdamente em como eles não fazem essa preservação ao longo da convivência. Toda vida que o Jack arrisca a vida dele por bobagem ativa meu estado de "pqp que gente burra".
 
 Fico me perguntando quantas pessoas resolveram aprender sobre sobrevivência pelo impacto que Lost causou. Confesso que eu fiquei interessado 🤣
+{{< /admonition >}}

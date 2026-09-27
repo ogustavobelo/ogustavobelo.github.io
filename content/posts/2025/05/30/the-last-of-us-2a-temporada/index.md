@@ -19,7 +19,7 @@ Quando você assiste Game of Thrones, você está vendo a materialização do mu
 
 Não sei porque mas me lembrou um pouco minha relação com Laranja Mecânica, que eu acho o livro fenomenal e não gosto da adaptação cinematográfica. Sei que Kubrick é elogiadíssimo por este filme e até entendo. Só que no livro você entra na cabeça do Alex, você pensa que nem o Alex, e nenhuma obra audiovisual conseguirá converter esta imersão. Talvez seja isso que senti de TLOU 2.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 A morte do Joel no jogo é impactante. Mesmo você tendo recebido qualquer spoiler, viver aquelas cenas no jogo vão ti colocar num estado de tensão imediato. Se você não tem noção do que eu tô dizendo, [assiste este vídeo](https://www.youtube.com/watch?v=5PWW651ollE&pp=0gcJCbAJAYcqIYzv).
 
@@ -29,3 +29,5 @@ Para dizer que não gostei de nada, acho que a batalha do segundo episódio fez 
 
 Sobre a próxima temporada, mantenho o sentimento que sei que não vou gostar e mesmo assim assistirei para falar mal por aqui novamente.
 E quem puder e ainda não tiver feito, joguem TLOU!
+
+{{< /admonition >}}

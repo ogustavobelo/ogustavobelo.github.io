@@ -24,7 +24,7 @@ E olha, me diverti bastante. Levei mais ou menos umas 18 horas para platinar o j
 
 O ponto fraco foi o excesso de história. Não me entenda mal, eu gosto de jogos com uma narrativa mais envolvente. Mas aí que tá, a história é beeeem esquecível. Na metade do jogo você entende a trama que faz a primeira parte do jogo ter sido só um grande tutorial, já que não contribui diretamente para evolução dos personagens. Gostei bastante das participações da Jean e do Essex, acho que são personagens sólidos com seu peso na trama, mas todos os outros são completamente jogados para preencher buracos. Têm mortes que deveriam ser extremamente impactante que são ignoradas 5 minutos depois. Os plot-twists são simplesmente jogados na tela sem uma construção narrativa adequada.
 
-{{< admonition note "Spoiler" false >}}
+{{< admonition spoiler "Spoiler" false >}}
   O Essex virar o Sinistro ocorreu de maneira completamente desconectada da narrativa. Uma hora ele é um vampiro de 200 anos, na outra ele tá com uma capa e uma pedra na testa. Com todas as interações entre o Logan e ele, esta transição poderia ter sido muito mais calibrada.
   {{< /admonition >}}
 

@@ -17,10 +17,12 @@ O caminhar da série é um pouco repetitivo, de propósito pelo que entendi, par
 
 Homens e mulheres irão receber esta obra de maneira diferente. Enquanto na visão do papel masculino tentei absorver as mensagens passadas. Assim como em Adolescência, acho que a mensagem da obra perdura para além do que você assiste.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Sobre os *cliffhangers*, com o tempo fica óbvio que é estilo passe do Ronaldinho - Olha para um lado e toca para o outro. No terceiro episódio você já saca que tudo que é forçado no final do episódio não ti indica a solução do crime, pelo contrário, aponta para o lado oposto. No sentido de ficar até meio previsível do meio para o fim.
 
 Não gostei muito do final. Acho que vai no sentido contrário do que a série prega no seu desenrolar. Todos os subtextos apontam em como a culpa recai sempre para as mulheres, neste caso em específico, tudo começa com um crime sendo de responsabilidade da mãe. <br>
 E, no fim, a mãe termina como uma criminosa. <br>
 Eu até gosto da ideia do Peter ter sido assassinado, mas eu acho que poderia ter sido um final inconclusivo. Naquele velório tinha pessoas demais interessadas que ele morresse, se não entregasse o QUEM teria sido muito mais interessante e deixaria até a reflexão no final para quem desconfiasse da mãe. Tipo, você não aprendeu nada com a série? Mesmo depois disso tudo você continua colocando TODA A CULPA NELA.
+
+{{< /admonition >}}

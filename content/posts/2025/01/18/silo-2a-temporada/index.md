@@ -16,8 +16,10 @@ Não li 😂
 Gostei bastante da segunda temporada. Os acontecimentos anteriores potencializaram os enigmas, abrindo literalmente um mundo novo a ser explorado e este mundo novo traz uma nova perspectiva da relação das pessoas com o Silo. Gosto em como a narrativa apresenta a História, o mundo antes do Pacto, de maneira contextual, sem qualquer didatismo.
 Mais uma vez a temporada se encerra com um belíssimo "puta merda, e agora?" e meu desejo de ler os livros novamente se aflora. Será que dessa vez vai?
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Eu adorei a construção do "Juliete vive". Um meme real que trata da manutenção de uma ideologia a partir dos atos de uma pessoa, que faz muito sentido para o contexto da trama, com o fato de ela estar literalmente viva, e o momento apoteótico de seu retorno ao grito da Mecânica foi sublime.
 <br> Confesso que todo o drama vivido no outro Silo me pareceu uma "barriga", acontecendo de maneira lenta e com mais personagens envolvidos do que deveria. Entendo que precisava acontecer de maneira lenta para verossimilhança (após 40 anos quem trataria um completo desconhecido com simpatia de primeira?) mas não sei se captei bem a necessidade do núcleo secundário apresentado no fim da temporada.
 <br> E, por fim, adorei a inserção do "mundo real" no fim. Meu entendimento é que aquilo seja o passado, certo?
+
+{{< /admonition >}}

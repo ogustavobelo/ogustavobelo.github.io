@@ -13,12 +13,18 @@
 {{- $iconMap  = dict "example" "fas fa-list-ol fa-fw" | merge $iconMap -}}
 {{- $iconMap  = dict "quote" "fas fa-quote-right fa-fw" | merge $iconMap -}}
 {{- $iconDetails := "fas fa-angle-right fa-fw" -}}
+{{- $noIconTypes := slice "spoiler" -}}
 
 {{- if .IsNamedParams -}}
     {{- $type := .Get "type" | default "note" -}}
+    {{- $icon := index $iconMap $type -}}
+    {{- if and (not $icon) (not (in $noIconTypes $type)) -}}
+        {{- $icon = index $iconMap "note" -}}
+    {{- end -}}
     <div class="details admonition {{ $type }}{{ if .Get `open` | ne false }} open{{ end }}">
         <div class="details-summary admonition-title">
-            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get "title" | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
+            {{- if $icon }}<i class="icon {{ $icon }}" aria-hidden="true"></i>{{ end -}}
+            {{- .Get "title" | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">
@@ -28,9 +34,14 @@
     </div>
 {{- else -}}
     {{- $type := .Get 0 | default "note" -}}
+    {{- $icon := index $iconMap $type -}}
+    {{- if and (not $icon) (not (in $noIconTypes $type)) -}}
+        {{- $icon = index $iconMap "note" -}}
+    {{- end -}}
     <div class="details admonition {{ $type }}{{ if .Get 2 | ne false }} open{{ end }}">
         <div class="details-summary admonition-title">
-            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get 1 | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
+            {{- if $icon }}<i class="icon {{ $icon }}" aria-hidden="true"></i>{{ end -}}
+            {{- .Get 1 | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">

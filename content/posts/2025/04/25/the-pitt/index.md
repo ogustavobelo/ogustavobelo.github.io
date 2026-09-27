@@ -26,7 +26,7 @@ A série inteira é desenhada conceitualmente sobre ciclos, sobre o início e fi
 
 Uma série belíssima sobre a importância da medicina, em seu mais amplo conceito, para a sociedade. Espero fortemente que tenha continuação.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Achei a construção narrativa do atentado terrorista muito bem escrita, o rapaz com a lista de meninas é apresentado no primeiro episódio de maneira que alguns pessoas poderiam até dar pouca importância a situação. Interessante como é a segunda série de alta audiência tocar nesse assunto esse ano. Imaginando que essas produções iniciaram 2 a 3 anos atrás, conseguiram pegar o tema em um momento de ápice para discussão.
 
@@ -35,3 +35,5 @@ O Robby quebrando com a morte da menina foi bem impactante, apesar de atuação 
 Como mencionei antes, achei legal a maneira como eles abordaram alguns assuntos científicos "polêmicos", mas por outro lado achei meio forçado como alguns outros foram apresentados. Tipo, estudante de medicina que não tem onde morar parece algo meio distópico no Brasil. Ou o respeito magnânimo pelos profissionais de enfermagem. A unanimidade dos profissionais de saúde em defesa da ciência. Entendo que eles não podem gerar dúvidas sobre a visão profissional dos personagens para o público de maneira que gere na cabeça dos bitolados aquele "viu?! não é unânime", mas em tempos de [médicos publicamente indicando ivermectina na pandemia](https://www.bbc.com/portuguese/brasil-53377938) mudou drasticamente minha visão dessa unanimidade.
 
 Tem uma dubiedade na maneira que foi apresentada a personalidade da Dr. Santos que me incomodou muito. Beleza que ela conseguiu pegar o médico babaca que roubava remédios mas acho que ela foi, em diversas atuações, muito anti-profissional. No meu entendimento, por mais que em suas ações arriscadas ela tenha obtido sucesso, o ato de arriscar a vida de um paciente sem a qualificação adequada já é motivo suficiente para ela ser demitida no primeiro dia. Os fins não justificam os meios. Dito isto, ela é uma excelente personagem e deu uma dose de caos a mais para a temporada.
+
+{{< /admonition >}}

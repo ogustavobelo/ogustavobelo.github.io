@@ -32,10 +32,12 @@ Mas neste livro a autora abusa dessa nostalgia sem pensar uma camada além de ca
 
 Outro ponto que achei terrível foi um vício de escrita da autora que me fazia revirar os olhos toda vida que ela usava, e ti adianto, acontece TODO O TEMPO: quando o enredo estava acontecendo no passado, ela precisa citar alguma música, filme, ou acontecimento da época para tentar localizar o momento. A cena da queda do muro de Berlim chega a ser constrangedor de tão piegas.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Como falei na introdução, sobre a ótica do homem-hétero-nerd não sei a relevância que esta obra pode ter para pessoas trans. Sei que parece ser um trabalho empático narrando as dificuldades em sair do armário na adolescência, inclusive para amigos tão próximos, mas minha compreensão do tema se encerra aí, logo não tenho muito o que saber sobre. Fiquei com dúvida sobre a insistência do tema da cirurgia de redesignação sexual é algo realmente unânime entre mulheres trans? A maneira argumentada no livro faz sentido?
 
 O responsável pela morte da Clotilde ser um alheio a história principal e a maneira que isso foi justificado é fraquíssimo, chega a ser anticlimático. Existe todo um plot em cima da morte da personagem que é encerrado em apenas um capítulo que tem zero conexão com o resto do livro. Foi decepcionantemente conveniente.
 
 (*) Rapaz, eu não sei como é na França, mas quem, em são consciência, largaria o filho e a mulher para passar seus últimos dias na Terra com dois indivíduos que você não vê há 20 anos?
+
+{{< /admonition >}}

@@ -21,7 +21,7 @@ Problemas complexos exigem explicações complexas. E isso a série não consegu
 
 Criei tanta expectativa e saí tão decepcionado que não sei se vou dar sequer uma chance para a segunda temporada.
 
-🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 Porra, o universo criado para a série é muito bom. Uma mistura de [Silo](https://www.gustavobelo.com/silo-2a-temporada/) com Ruptura. Essa visão estadunidense de que eles representam o mundo inteiro e que o presidente deles é a pessoa certa para governar os últimos cidadãos é muito verossímil.
 
@@ -30,3 +30,4 @@ Cedo fica claro que a richa entre o Xavier e o Presidente é pura cortina de fum
 Também não me conformei com o fim da operação de sequestro dos ricaços por causa de um suposto áudio da mulher do Xavier. Ele teve zero contato com o mundo externo, nunca ouviu falar de nada, viu as bombas destruindo toda a cidade, e mesmo assim resolveu perder o controle por conta de um áudio de whatsapp aleatório. Bizarro demais.
 
 Aí a cereja do bolo é o "vilão" da porra toda ser um cara que é apresentado no último episódio. A motivação para matar o presidente não podia ser mais torpe. A execução do plano é digna dos planos do Cebolinha e por fim, tudo isso para o mais absoluto nada.
+{{< /admonition >}}

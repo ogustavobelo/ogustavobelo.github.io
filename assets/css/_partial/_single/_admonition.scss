@@ -36,6 +36,10 @@
     right: .3rem;
   }
 
+  &.spoiler .admonition-title {
+    padding-left: .75rem;
+  }
+
   @each $type, $color in $admonition-color-map {
     &.#{$type} {
       border-left-color: $color;

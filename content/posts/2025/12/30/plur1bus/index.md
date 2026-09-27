@@ -23,7 +23,7 @@ Até onde vai sua liberdade individual? O coletivo pode forçar o indivíduo a a
 
 A primeira temporada se encerrou redondinha. Conexões foram feitas e a motivação para a segunda temporada ficou muito clara. Conhecendo as obras anteriores do Gilligan, podemos esperar uma segunda temporada bastante agitada e com mais momentos de explodir a cabeça.
 
-## 🚨 Área com spoilers 🚨
+{{< admonition spoiler "🚨 Área com spoilers 🚨" false >}}
 
 O penúltimo episódio, onde o paraguaio atravessa a floresta para encontrar a Carol enquanto ela se diverte explorando a cidade é excelente. Ambos percorrem caminhos diferentes mas no final chegam no mesmo ponto: nós somos seres naturalmente sociais e precisamos do coletivo para sobreviver.
 
@@ -32,3 +32,5 @@ Eu dei uma boa risada quando a Carol se surpreende ao perceber que ninguém se i
 O personagem paraguaio, Manny, deu um tempero excelente a trama. Pelo que entendi, a sua motivação baseia-se no seu cerne religioso, o que o colocou diretamente em confronto com os alienígenas. Mas e perante os outros sobreviventes? Será que ele irá combater os "pecados" dos que ficaram? 
 
 Acho que a segunda temporada caminhará para um conflito entre os que ficam. Do mesmo jeito que julguei da natureza humana a necessidade de contato com outros, também acho que faz parte desta mesma natureza o conflito para proteger os seus. Se eu fosse chutar, acho que a segunda temporada caminhará para o combate direto entre eles.
+
+{{< /admonition >}}
