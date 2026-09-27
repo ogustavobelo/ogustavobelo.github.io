@@ -5,12 +5,16 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import tomllib
 import unicodedata
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 BRAZIL_TIMEZONE = ZoneInfo("America/Sao_Paulo")
+
+FRONT_MATTER_PATTERN = re.compile(r"^\+\+\+\n(.*?\n)\+\+\+", re.DOTALL)
 
 
 def normalize_slug(title: str) -> str:
@@ -25,6 +29,108 @@ def normalize_slug(title: str) -> str:
 
 def parse_tags(raw_tags: str) -> list[str]:
     return [tag.strip() for tag in raw_tags.split(",") if tag.strip()]
+
+
+def collect_tag_counts(repo_root: str | Path) -> list[tuple[str, int]]:
+    posts_dir = Path(repo_root) / "content" / "posts"
+    counts: Counter[str] = Counter()
+
+    for index_file in posts_dir.glob("**/*.md"):
+        text = index_file.read_text(encoding="utf-8")
+        match = FRONT_MATTER_PATTERN.match(text)
+        if not match:
+            continue
+        try:
+            front_matter = tomllib.loads(match.group(1))
+        except tomllib.TOMLDecodeError:
+            continue
+        for tag in front_matter.get("tags", []):
+            tag = str(tag).strip()
+            if tag:
+                counts[tag] += 1
+
+    return sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+
+
+def merge_tags(selected: list[str], new: list[str]) -> list[str]:
+    merged: list[str] = []
+    for tag in [*selected, *new]:
+        if tag not in merged:
+            merged.append(tag)
+    return merged
+
+
+def select_tags_fallback(options: list[tuple[str, int]]) -> list[str]:
+    print("Existing tags (most used first):")
+    for index, (tag, count) in enumerate(options, start=1):
+        print(f"  {index}) {tag} ({count})")
+    raw = input("Select tags by number (e.g. 1,3,5), optional: ")
+
+    selected: list[str] = []
+    for chunk in raw.split(","):
+        chunk = chunk.strip()
+        if not chunk or not chunk.isdigit():
+            continue
+        position = int(chunk)
+        if 1 <= position <= len(options):
+            tag = options[position - 1][0]
+            if tag not in selected:
+                selected.append(tag)
+    return selected
+
+
+def select_tags(options: list[tuple[str, int]]) -> list[str]:
+    if not options:
+        return []
+
+    if not sys.stdin.isatty() or not sys.stdout.isatty():
+        return select_tags_fallback(options)
+
+    import curses
+
+    def run(stdscr: "curses._CursesWindow") -> list[str]:
+        curses.curs_set(0)
+        cursor = 0
+        checked = [False] * len(options)
+
+        while True:
+            stdscr.erase()
+            stdscr.addstr(0, 0, "Select tags (↑/↓ move, space toggle, enter confirm)")
+            height, _ = stdscr.getmaxyx()
+            visible_rows = max(height - 2, 1)
+            top = max(0, min(cursor - visible_rows // 2, len(options) - visible_rows))
+            top = max(top, 0)
+
+            for row, index in enumerate(range(top, min(top + visible_rows, len(options)))):
+                tag, count = options[index]
+                marker = "◉" if checked[index] else "◯"
+                pointer = "❯" if index == cursor else " "
+                line = f"{pointer} {marker} {tag} ({count})"
+                try:
+                    stdscr.addstr(row + 1, 0, line)
+                except curses.error:
+                    pass
+
+            stdscr.refresh()
+            key = stdscr.getch()
+
+            if key in (curses.KEY_UP, ord("k")):
+                cursor = (cursor - 1) % len(options)
+            elif key in (curses.KEY_DOWN, ord("j")):
+                cursor = (cursor + 1) % len(options)
+            elif key == ord(" "):
+                checked[cursor] = not checked[cursor]
+            elif key in (curses.KEY_ENTER, ord("\n"), ord("\r")):
+                break
+            elif key in (27, ord("q")):
+                break
+
+        return [tag for (tag, _), is_checked in zip(options, checked) if is_checked]
+
+    try:
+        return curses.wrapper(run)
+    except curses.error:
+        return select_tags_fallback(options)
 
 
 def toml_escape(value: str) -> str:
@@ -97,7 +203,15 @@ def main() -> int:
 
     try:
         title = input("Post title: ")
-        tags = parse_tags(input("Tags (comma-separated, optional): "))
+
+        tag_options = collect_tag_counts(args.repo_root)
+        selected_tags = select_tags(tag_options)
+        if selected_tags:
+            print(f"Selected: {', '.join(selected_tags)}")
+
+        new_tags = parse_tags(input("New tags (comma-separated, optional): "))
+        tags = merge_tags(selected_tags, new_tags)
+
         description = input(
             "Description for search/social previews (optional, press Enter to"
             " derive it from the post's own text later): "

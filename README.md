@@ -64,7 +64,11 @@ Run the post creation script from the repository root:
 python3 scripts/create_post.py
 ```
 
-Enter a title and optional comma-separated tags when prompted. The script
+Enter a title, then pick from the existing tags (ordered by how often each is
+used across the blog) with the arrow keys, space to toggle, and enter to
+confirm. Afterwards you can optionally type new, comma-separated tags to add
+to the selection. In a non-interactive terminal, the script falls back to a
+numbered list where you type the numbers you want (e.g. `1,3,5`). The script
 creates a dated page bundle under `content/posts/YYYY/MM/DD/`, generates a
 URL-friendly slug, and marks the new post as a draft. Review the generated
 `index.md` and set `draft = false` when it is ready to publish.

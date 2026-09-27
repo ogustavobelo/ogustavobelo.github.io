@@ -17,6 +17,12 @@ def load_module():
     return module
 
 
+def write_post(repo_root: Path, path: str, front_matter: str) -> None:
+    post_file = repo_root / "content" / "posts" / path / "index.md"
+    post_file.parent.mkdir(parents=True, exist_ok=True)
+    post_file.write_text(front_matter, encoding="utf-8")
+
+
 def test_normalize_slug_removes_accents_and_punctuation():
     module = load_module()
 
@@ -91,3 +97,125 @@ def test_create_post_rejects_empty_title(tmp_path):
 
     with pytest.raises(ValueError, match="cannot be empty"):
         module.create_post("   ", [], tmp_path)
+
+
+def test_collect_tag_counts_orders_by_usage_then_alphabetically(tmp_path):
+    module = load_module()
+    write_post(
+        tmp_path,
+        "2026/01/01/post-a",
+        '+++\ntitle = "A"\ntags = ["review", "filmes"]\n+++\n',
+    )
+    write_post(
+        tmp_path,
+        "2026/01/02/post-b",
+        '+++\ntitle = "B"\ntags = ["review", "series"]\n+++\n',
+    )
+    write_post(
+        tmp_path,
+        "2026/01/03/post-c",
+        '+++\ntitle = "C"\ntags = ["filmes"]\n+++\n',
+    )
+
+    assert module.collect_tag_counts(tmp_path) == [
+        ("filmes", 2),
+        ("review", 2),
+        ("series", 1),
+    ]
+
+
+def test_collect_tag_counts_strips_whitespace_and_dedupes(tmp_path):
+    module = load_module()
+    write_post(
+        tmp_path,
+        "2026/01/01/post-a",
+        '+++\ntitle = "A"\ntags = ["review "]\n+++\n',
+    )
+    write_post(
+        tmp_path,
+        "2026/01/02/post-b",
+        '+++\ntitle = "B"\ntags = ["review"]\n+++\n',
+    )
+
+    assert module.collect_tag_counts(tmp_path) == [("review", 2)]
+
+
+def test_collect_tag_counts_skips_files_without_toml_front_matter(tmp_path):
+    module = load_module()
+    write_post(
+        tmp_path,
+        "2026/01/01/post-a",
+        '---\ntitle: "A"\n---\n',
+    )
+    write_post(
+        tmp_path,
+        "2026/01/02/post-b",
+        '+++\ntitle = "B"\ntags = ["review"]\n+++\n',
+    )
+
+    assert module.collect_tag_counts(tmp_path) == [("review", 1)]
+
+
+def test_collect_tag_counts_skips_invalid_toml(tmp_path):
+    module = load_module()
+    write_post(
+        tmp_path,
+        "2026/01/01/post-a",
+        "+++\nthis is not valid toml\n+++\n",
+    )
+    write_post(
+        tmp_path,
+        "2026/01/02/post-b",
+        '+++\ntitle = "B"\ntags = ["review"]\n+++\n',
+    )
+
+    assert module.collect_tag_counts(tmp_path) == [("review", 1)]
+
+
+def test_collect_tag_counts_handles_posts_without_tags(tmp_path):
+    module = load_module()
+    write_post(
+        tmp_path,
+        "2026/01/01/post-a",
+        '+++\ntitle = "A"\n+++\n',
+    )
+
+    assert module.collect_tag_counts(tmp_path) == []
+
+
+def test_merge_tags_removes_duplicates_and_keeps_order():
+    module = load_module()
+
+    assert module.merge_tags(
+        ["review", "series"], ["review", "hbo-max"]
+    ) == ["review", "series", "hbo-max"]
+
+
+def test_select_tags_fallback_parses_valid_indexes(monkeypatch):
+    module = load_module()
+    options = [("review", 3), ("series", 2), ("filmes", 1)]
+    monkeypatch.setattr("builtins.input", lambda _: "1,3")
+
+    assert module.select_tags_fallback(options) == ["review", "filmes"]
+
+
+def test_select_tags_fallback_ignores_invalid_and_out_of_range_indexes(monkeypatch):
+    module = load_module()
+    options = [("review", 3), ("series", 2)]
+    monkeypatch.setattr("builtins.input", lambda _: "0,1,abc,9,1")
+
+    assert module.select_tags_fallback(options) == ["review"]
+
+
+def test_select_tags_fallback_allows_empty_selection(monkeypatch):
+    module = load_module()
+    options = [("review", 3)]
+    monkeypatch.setattr("builtins.input", lambda _: "")
+
+    assert module.select_tags_fallback(options) == []
+
+
+def test_select_tags_returns_empty_list_without_options():
+    module = load_module()
+
+    assert module.select_tags([]) == []
