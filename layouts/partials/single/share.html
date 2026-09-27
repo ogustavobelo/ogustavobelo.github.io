@@ -1,0 +1,55 @@
+{{- /* Plain share links: no third-party scripts, work without JavaScript except copy and native share. */ -}}
+{{- $url := .Permalink -}}
+{{- $title := .Title -}}
+{{- /* ?ref= tells GoatCounter where the visit came from, since apps like WhatsApp send no referrer.
+       The copy button keeps the URL clean because the reader sees what they copy. */ -}}
+{{- $whatsapp := printf "%s?ref=whatsapp" $url -}}
+{{- $telegram := printf "%s?ref=telegram" $url -}}
+{{- $linkedin := printf "%s?ref=linkedin" $url -}}
+{{- $facebook := printf "%s?ref=facebook" $url -}}
+{{- $networks := slice
+    (dict "Key" "whatsapp" "Name" "WhatsApp" "Icon" "fab fa-whatsapp" "Href" (printf "https://wa.me/?%s" (querify "text" (printf "%s %s" $title $whatsapp))))
+    (dict "Key" "telegram" "Name" "Telegram" "Icon" "fab fa-telegram-plane" "Href" (printf "https://t.me/share/url?%s" (querify "url" $telegram "text" $title)))
+    (dict "Key" "linkedin" "Name" "LinkedIn" "Icon" "fab fa-linkedin" "Href" (printf "https://www.linkedin.com/sharing/share-offsite/?%s" (querify "url" $linkedin)))
+    (dict "Key" "facebook" "Name" "Facebook" "Icon" "fab fa-facebook" "Href" (printf "https://www.facebook.com/sharer/sharer.php?%s" (querify "u" $facebook)))
+-}}
+<aside class="post-share" aria-label="{{ T "shareTitle" }}">
+    <span class="post-share-title">{{ T "shareTitle" }}</span>
+    <span class="post-share-links">
+        {{- range $networks -}}
+            <a href="{{ .Href }}" target="_blank" rel="noopener noreferrer" title="{{ T "shareOn" }} {{ .Name }}" aria-label="{{ T "shareOn" }} {{ .Name }}" data-goatcounter-click="share-{{ .Key }}" data-goatcounter-title="Compartilhar: {{ .Name }}">
+                <i class="{{ .Icon }} fa-fw" aria-hidden="true"></i>
+            </a>
+        {{- end -}}
+        <button type="button" class="post-share-copy" data-url="{{ $url }}" title="{{ T "shareCopyLink" }}" aria-label="{{ T "shareCopyLink" }}" data-copied="{{ T "shareCopied" }}" data-goatcounter-click="share-copy" data-goatcounter-title="Compartilhar: copiar link">
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="post-share-native" data-url="{{ $url }}?ref=share" data-title="{{ $title }}" title="{{ T "shareMore" }}" aria-label="{{ T "shareMore" }}" data-goatcounter-click="share-native" data-goatcounter-title="Compartilhar: menu do sistema" hidden>
+            <i class="fas fa-share-alt fa-fw" aria-hidden="true"></i>
+        </button>
+    </span>
+    <span class="post-share-status" role="status" aria-live="polite"></span>
+</aside>
+<script>
+(function () {
+    var root = document.currentScript.previousElementSibling;
+    var status = root.querySelector('.post-share-status');
+    var copy = root.querySelector('.post-share-copy');
+    var native = root.querySelector('.post-share-native');
+
+    copy.addEventListener('click', function () {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(copy.dataset.url).then(function () {
+            status.textContent = copy.dataset.copied;
+            setTimeout(function () { status.textContent = ''; }, 2000);
+        });
+    });
+
+    if (navigator.share) {
+        native.hidden = false;
+        native.addEventListener('click', function () {
+            navigator.share({ title: native.dataset.title, url: native.dataset.url }).catch(function () {});
+        });
+    }
+})();
+</script>

@@ -73,3 +73,19 @@ def test_hugo_post_page_loads_goatcounter_and_tracks_contact_email(tmp_path):
     assert 'data-goatcounter="https://blog-de-teste.goatcounter.com/count"' in post_page
     assert 'href="mailto:leitor@example.com"' in post_page
     assert 'data-goatcounter-click="contato-email"' in post_page
+
+
+def test_hugo_post_page_renders_share_links(tmp_path):
+    destination = build_site(tmp_path)
+    post_page = (
+        destination / "posts" / "2026" / "01" / "05" / "a-cabeca-do-santo" / "index.html"
+    ).read_text(encoding="utf-8")
+    encoded_url = "https%3A%2F%2Fwww.gustavobelo.com%2Fposts%2F2026%2F01%2F05%2Fa-cabeca-do-santo%2F"
+
+    assert '<aside class="post-share"' in post_page
+    assert f'href="https://www.facebook.com/sharer/sharer.php?u={encoded_url}%3Fref%3Dfacebook"' in post_page
+    assert f'href="https://www.linkedin.com/sharing/share-offsite/?url={encoded_url}%3Fref%3Dlinkedin"' in post_page
+    assert f"{encoded_url}%3Fref%3Dwhatsapp" in post_page
+    assert f"url={encoded_url}%3Fref%3Dtelegram" in post_page
+    assert 'class="post-share-copy" data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/"' in post_page
+    assert 'data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/?ref=share"' in post_page

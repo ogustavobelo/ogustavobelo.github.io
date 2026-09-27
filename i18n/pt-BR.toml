@@ -16,6 +16,21 @@ other = "Atualizado em {{ .Date }}"
 [contactNote]
 other = "Optei por não ter interação por comentários, se quiser trocar uma ideia, me mande um <a href=\"mailto:{{ .Email }}\" data-goatcounter-click=\"contato-email\" data-goatcounter-title=\"Nota de contato: e-mail\">e-mail</a>."
 
+[shareTitle]
+other = "Compartilhe"
+
+[shareOn]
+other = "Compartilhar no"
+
+[shareCopyLink]
+other = "Copiar link"
+
+[shareCopied]
+other = "Link copiado!"
+
+[shareMore]
+other = "Mais opções (Instagram, mensagens…)"
+
 # === 404.html ===
 [pageNotFound]
 other = "Página não encontrada"

@@ -304,3 +304,54 @@
     }
   }
 }
+
+.single .post-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 1.25rem 0 0;
+  color: $global-font-secondary-color;
+  font-size: 0.9rem;
+
+  [theme=dark] & {
+    color: $global-font-secondary-color-dark;
+  }
+
+  .post-share-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  a,
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: $accent-color;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: $accent-hover-color;
+      background-color: rgba($accent-color, 0.12);
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .post-share-status {
+    font-size: 0.85rem;
+  }
+}
