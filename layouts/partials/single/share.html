@@ -1,6 +1,8 @@
 {{- /* Plain share links: no third-party scripts, work without JavaScript except copy and native share. */ -}}
 {{- $url := .Permalink -}}
 {{- $title := .Title -}}
+{{- /* Sent as the click event referrer so GoatCounter shows which post was shared. */ -}}
+{{- $path := .RelPermalink -}}
 {{- /* ?ref= tells GoatCounter where the visit came from, since apps like WhatsApp send no referrer.
        The copy button keeps the URL clean because the reader sees what they copy. */ -}}
 {{- $whatsapp := printf "%s?ref=whatsapp" $url -}}
@@ -17,14 +19,14 @@
     <span class="post-share-title">{{ T "shareTitle" }}</span>
     <span class="post-share-links">
         {{- range $networks -}}
-            <a href="{{ .Href }}" target="_blank" rel="noopener noreferrer" title="{{ T "shareOn" }} {{ .Name }}" aria-label="{{ T "shareOn" }} {{ .Name }}" data-goatcounter-click="share-{{ .Key }}" data-goatcounter-title="Compartilhar: {{ .Name }}">
+            <a href="{{ .Href }}" target="_blank" rel="noopener noreferrer" title="{{ T "shareOn" }} {{ .Name }}" aria-label="{{ T "shareOn" }} {{ .Name }}" data-goatcounter-click="share-{{ .Key }}" data-goatcounter-title="Compartilhar: {{ .Name }}" data-goatcounter-referrer="{{ $path }}">
                 <i class="{{ .Icon }} fa-fw" aria-hidden="true"></i>
             </a>
         {{- end -}}
-        <button type="button" class="post-share-copy" data-url="{{ $url }}" title="{{ T "shareCopyLink" }}" aria-label="{{ T "shareCopyLink" }}" data-copied="{{ T "shareCopied" }}" data-goatcounter-click="share-copy" data-goatcounter-title="Compartilhar: copiar link">
+        <button type="button" class="post-share-copy" data-url="{{ $url }}" title="{{ T "shareCopyLink" }}" aria-label="{{ T "shareCopyLink" }}" data-copied="{{ T "shareCopied" }}" data-goatcounter-click="share-copy" data-goatcounter-title="Compartilhar: copiar link" data-goatcounter-referrer="{{ $path }}">
             <i class="fas fa-link fa-fw" aria-hidden="true"></i>
         </button>
-        <button type="button" class="post-share-native" data-url="{{ $url }}?ref=share" data-title="{{ $title }}" title="{{ T "shareMore" }}" aria-label="{{ T "shareMore" }}" data-goatcounter-click="share-native" data-goatcounter-title="Compartilhar: menu do sistema" hidden>
+        <button type="button" class="post-share-native" data-url="{{ $url }}?ref=share" data-title="{{ $title }}" title="{{ T "shareMore" }}" aria-label="{{ T "shareMore" }}" data-goatcounter-click="share-native" data-goatcounter-title="Compartilhar: menu do sistema" data-goatcounter-referrer="{{ $path }}" hidden>
             <i class="fas fa-share-alt fa-fw" aria-hidden="true"></i>
         </button>
     </span>

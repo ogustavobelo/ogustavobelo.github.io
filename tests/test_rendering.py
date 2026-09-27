@@ -89,6 +89,7 @@ def test_hugo_post_page_renders_share_links(tmp_path):
     assert f"url={encoded_url}%3Fref%3Dtelegram" in post_page
     assert 'class="post-share-copy" data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/"' in post_page
     assert 'data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/?ref=share"' in post_page
+    assert post_page.count('data-goatcounter-referrer="/posts/2026/01/05/a-cabeca-do-santo/"') == 6
 
 
 def test_hugo_post_page_falls_back_to_site_image_for_link_previews(tmp_path):
