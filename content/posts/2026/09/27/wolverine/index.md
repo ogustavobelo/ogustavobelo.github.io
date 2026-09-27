@@ -1,7 +1,7 @@
 +++
 title = "Wolverine"
 date = "2026-09-27T10:01:58-03:00"
-draft = true
+draft = false
 tags = ["review", "jogos", "ps5"]
 +++
 
