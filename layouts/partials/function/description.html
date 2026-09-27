@@ -1,0 +1,19 @@
+{{- /*
+Resolve a page's meta/social/JSON-LD description.
+
+Priority: an explicit "description" in front matter (or the site-wide
+params.page.description default), then a cleaned-up, truncated version of the
+page's own summary, then the site-wide description as a last resort.
+*/ -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $description := $params.description -}}
+{{- if not $description -}}
+    {{- with .Summary -}}
+        {{- $plain := . | plainify | htmlUnescape | replaceRE `[\n\t ]+` " " | strings.TrimSpace -}}
+        {{- with $plain -}}
+            {{- $description = . | truncate 160 -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $description = $description | default .Site.Params.description -}}
+{{- return $description -}}
