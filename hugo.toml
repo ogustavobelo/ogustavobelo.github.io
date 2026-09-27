@@ -81,7 +81,7 @@ RSS = ''
 enable = true
 
 # Author config
-[author]
+[params.author]
   name = "Gustavo Belo"
   link = "https://gustavobelo.com"
 
