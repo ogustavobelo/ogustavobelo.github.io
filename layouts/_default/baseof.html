@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="{{ if eq .Kind `404` }}noindex, follow{{ else }}index, follow{{ end }}" />
+        <meta name="robots" content="{{ if eq .Kind `404` }}noindex, follow{{ else if and (eq .Kind `term`) (lt (len .Pages) 2) }}noindex, follow{{ else }}index, follow{{ end }}" />
         <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
         {{- partial "head/meta.html" . -}}
