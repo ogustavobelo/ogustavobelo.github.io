@@ -11,7 +11,7 @@ Consult it before changing the structure, content model, or publication flow.
 - This repository has no application server, database, or proprietary API.
 - A build produces static files that are published to GitHub Pages.
 - The publication directory uses the base URL defined in `hugo.toml`,
-  currently `https://ogustavobelo.github.io/`.
+  currently `https://www.gustavobelo.com/`.
 
 Any proposal to introduce server-side state, persistence, authentication, or an
 API must be treated as an architectural change and discussed before
@@ -32,6 +32,7 @@ Each type of change must have a clear source of truth:
 | Content import and transformation | `scripts/` |
 | Automated guarantees | `tests/` |
 | Deployment | `.github/workflows/` |
+| Crawler and SEO policy (robots, sitemap) | `layouts/robots.txt`, `layouts/sitemap.xml`, `layouts/partials/head/` |
 
 The published taxonomy is limited to `tags`, configured in `hugo.toml`.
 Categories are not part of the site's content model or navigation.
@@ -73,6 +74,26 @@ edit these directories to fix the site; change the source and build it again.
 - Third-party resources must use the asset, CDN, and configuration mechanisms
   already used by the theme. A new dependency must justify its cost, origin,
   and build impact.
+
+## SEO and Crawling
+
+- The site language/locale is configured with the top-level `locale` key in
+  `hugo.toml` (currently `pt-BR`). Templates must read it through
+  `.Site.Language.Locale`, not the deprecated `.Site.LanguageCode`.
+- `robots.txt` is generated from `layouts/robots.txt` and requires
+  `enableRobotsTXT = true` in `hugo.toml`. It must keep allowing crawling and
+  rendering assets (no blanket `Disallow` for `*`) and must keep the
+  `Sitemap:` line.
+- The current policy for AI bots is to allow on-demand/search crawlers
+  (`OAI-SearchBot`, `ChatGPT-User`, `Claude-SearchBot`, `Claude-User`,
+  `PerplexityBot`) and disallow training-only crawlers (`GPTBot`, `ClaudeBot`,
+  `Google-Extended`, `CCBot`, `Applebot-Extended`). Changing this stance is an
+  editorial/product decision, not a routine fix; confirm with the site owner
+  before adding or removing bots from either group.
+- Per-page metadata (title, description, canonical, Open Graph, Twitter Card,
+  JSON-LD) is composed in `layouts/partials/head/`. Keep new metadata fields
+  consistent with the existing `params.seo.*` and front matter conventions
+  instead of introducing a parallel mechanism.
 
 ## Build and Publication
 
