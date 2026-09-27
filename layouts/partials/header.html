@@ -76,6 +76,11 @@
                         </span>
                     </span>
                 {{- end -}}
+                {{- with .Site.Home.OutputFormats.Get "RSS" -}}
+                    <a href="{{ .RelPermalink }}" class="menu-item" title="RSS" aria-label="RSS">
+                        <i class="fas fa-rss fa-fw" aria-hidden="true"></i>
+                    </a>
+                {{- end -}}
                 <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
@@ -144,6 +149,11 @@
                 {{- end -}}
                 <a class="menu-item" href="{{ $url }}" title="{{ .Title }}"{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
+                </a>
+            {{- end -}}
+            {{- with .Site.Home.OutputFormats.Get "RSS" -}}
+                <a href="{{ .RelPermalink }}" class="menu-item" title="RSS">
+                    <i class="fas fa-rss fa-fw" aria-hidden="true"></i> RSS
                 </a>
             {{- end -}}
             <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
