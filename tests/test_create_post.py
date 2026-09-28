@@ -92,6 +92,30 @@ def test_create_post_rejects_existing_bundle(tmp_path):
         module.create_post("Post repetido", [], tmp_path, created_at)
 
 
+def test_create_post_overwrite_replaces_existing_bundle(tmp_path):
+    module = load_module()
+    created_at = datetime(2026, 9, 25, 12, 0, tzinfo=module.BRAZIL_TIMEZONE)
+    module.create_post("Post repetido", ["velha"], tmp_path, created_at)
+
+    output = module.create_post(
+        "Post repetido", ["nova"], tmp_path, created_at, overwrite=True
+    )
+
+    assert 'tags = ["nova"]' in output.read_text(encoding="utf-8")
+
+
+def test_create_post_recreates_bundle_after_index_deleted(tmp_path):
+    module = load_module()
+    created_at = datetime(2026, 9, 25, 12, 0, tzinfo=module.BRAZIL_TIMEZONE)
+    output = module.create_post("Post apagado", [], tmp_path, created_at)
+    output.unlink()
+
+    recreated = module.create_post("Post apagado", ["nova"], tmp_path, created_at)
+
+    assert recreated == output
+    assert 'tags = ["nova"]' in recreated.read_text(encoding="utf-8")
+
+
 def test_create_post_rejects_empty_title(tmp_path):
     module = load_module()
 

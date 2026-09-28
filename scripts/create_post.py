@@ -163,6 +163,7 @@ def create_post(
     repo_root: str | Path,
     created_at: datetime | None = None,
     description: str = "",
+    overwrite: bool = False,
 ) -> Path:
     title = title.strip()
     if not title:
@@ -182,10 +183,10 @@ def create_post(
     )
     output_file = output_dir / "index.md"
 
-    if output_file.exists():
+    if output_file.exists() and not overwrite:
         raise FileExistsError(f"The target post already exists: {output_file}")
 
-    output_dir.mkdir(parents=True, exist_ok=False)
+    output_dir.mkdir(parents=True, exist_ok=True)
     output_file.write_text(
         build_post(title, tags, current_time, description), encoding="utf-8"
     )
@@ -216,7 +217,19 @@ def main() -> int:
             "Description for search/social previews (optional, press Enter to"
             " derive it from the post's own text later): "
         )
-        output_file = create_post(title, tags, args.repo_root, description=description)
+
+        try:
+            output_file = create_post(
+                title, tags, args.repo_root, description=description
+            )
+        except FileExistsError as exc:
+            answer = input(f"{exc} Overwrite? (y/N): ")
+            if answer.strip().lower() not in ("y", "yes"):
+                print("Post creation cancelled.", file=sys.stderr)
+                return 1
+            output_file = create_post(
+                title, tags, args.repo_root, description=description, overwrite=True
+            )
     except (EOFError, KeyboardInterrupt):
         print("\nPost creation cancelled.", file=sys.stderr)
         return 1
