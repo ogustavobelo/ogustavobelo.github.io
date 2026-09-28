@@ -14,8 +14,22 @@ suffixes = ['md']
 mediaType = 'text/markdown'
 isPlainText = true
 
+# llms.txt / llms-full.txt: plain-text formats read by AI agents/crawlers, not
+# by browsers, so they carry no HTML alternate link and use bare .txt names.
+[outputFormats.LLMS]
+mediaType = 'text/plain'
+baseName = 'llms'
+isPlainText = true
+notAlternative = true
+
+[outputFormats.LLMSFULL]
+mediaType = 'text/plain'
+baseName = 'llms-full'
+isPlainText = true
+notAlternative = true
+
 [outputs]
-home = ['HTML', 'RSS', 'JSON']
+home = ['HTML', 'RSS', 'JSON', 'LLMS', 'LLMSFULL']
 page = ['HTML', 'MARKDOWN']
 
 [taxonomies]

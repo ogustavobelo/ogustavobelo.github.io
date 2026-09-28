@@ -1,0 +1,17 @@
+{{- /*
+llms-full.txt: same idea as llms.txt but with each post's full content inlined,
+so an agent can ingest the whole site in one fetch instead of following links.
+*/ -}}
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+{{ range (where .Site.RegularPages "Type" "posts").ByDate.Reverse }}{{ $page := . }}{{ if not ($page.Scratch.Get "params") }}{{ partial "init.html" $page }}{{ end }}
+---
+
+## {{ $page.Title }}
+
+Fonte: {{ $page.Permalink }}
+Publicado em: {{ $page.Date.Format "2006-01-02" }}
+
+{{ partial "function/markdown.html" $page }}
+{{ end -}}

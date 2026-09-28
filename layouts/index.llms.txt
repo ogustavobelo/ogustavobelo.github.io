@@ -1,0 +1,13 @@
+{{- /*
+llms.txt (https://llmstxt.org/): a curated, plain-text index of the site for
+AI agents, listing every post as a link plus a one-line description. Kept
+separate from llms-full.txt, which inlines full post content.
+*/ -}}
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+## Posts
+
+{{ range (where .Site.RegularPages "Type" "posts").ByDate.Reverse }}{{ $page := . }}{{ if not ($page.Scratch.Get "params") }}{{ partial "init.html" $page }}{{ end }}- [{{ $page.Title }}]({{ $page.Permalink }}): {{ partial "function/description.html" $page }}
+{{ end -}}
