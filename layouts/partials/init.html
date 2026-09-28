@@ -1,5 +1,11 @@
 {{- .Scratch.Set "version" "0.2.10" -}}
 
+{{- /*
+Must run before head/link.html's canonical-URL fix reads .Paginator; see
+function/paginate.html for why.
+*/ -}}
+{{- partial "function/paginate.html" . -}}
+
 {{- $params := .Params | merge .Site.Params.page -}}
 
 {{- if eq hugo.Environment "production" -}}

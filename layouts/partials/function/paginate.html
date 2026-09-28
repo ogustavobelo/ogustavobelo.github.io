@@ -1,0 +1,56 @@
+{{- /*
+Establish this list page's Paginator with the exact source data and custom
+size each content template actually wants, called from init.html so it runs
+before layouts/partials/head/link.html reads .Paginator for the canonical-URL
+fix.
+
+Hugo creates (and permanently caches) a page's Paginator on the FIRST
+.Paginate/.Paginator call made anywhere during its render, and <head> always
+renders before the content block. If head's bare .Paginator ran first, it
+would lock in the wrong (ungrouped/unfiltered, default page size) pager, and
+the content template's own .Paginate call would be silently ignored -
+producing correct page *numbers* but an empty .PageGroups/.Pages for the
+actual list. Doing the real setup here makes head's later bare .Paginator call
+a no-op cache hit instead of the one that wins.
+
+layouts/index.html, layouts/_default/section.html and layouts/taxonomy/term.html
+must not call .Paginate themselves; they read .Paginator/.Paginator.PageGroups,
+already established here.
+*/ -}}
+{{- $page := . -}}
+{{- /* .Paginate returns the Pager; always capture it so its string form ("Pager 1") isn't printed into the page. */ -}}
+{{- $discard := false -}}
+{{- if eq $page.Kind "home" -}}
+    {{- $posts := $page.Site.Params.home.posts -}}
+    {{- if ne $posts.enable false -}}
+        {{- $pages := where $page.Site.RegularPages "Type" "posts" -}}
+        {{- if $page.Site.Params.page.hiddenFromHomePage -}}
+            {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+        {{- else -}}
+            {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+        {{- end -}}
+        {{- with $posts.paginate | default $page.Site.Params.paginate -}}
+            {{- $discard = $page.Paginate $pages . -}}
+        {{- else -}}
+            {{- $discard = $page.Paginate $pages -}}
+        {{- end -}}
+    {{- end -}}
+{{- else if eq $page.Kind "section" -}}
+    {{- if $page.Pages -}}
+        {{- $pages := $page.Pages.GroupByDate "2006" -}}
+        {{- with $page.Site.Params.section.paginate | default $page.Site.Params.paginate -}}
+            {{- $discard = $page.Paginate $pages . -}}
+        {{- else -}}
+            {{- $discard = $page.Paginate $pages -}}
+        {{- end -}}
+    {{- end -}}
+{{- else if eq $page.Kind "term" -}}
+    {{- if $page.Pages -}}
+        {{- $pages := $page.Pages.GroupByDate "2006" -}}
+        {{- with $page.Site.Params.list.paginate | default $page.Site.Params.paginate -}}
+            {{- $discard = $page.Paginate $pages . -}}
+        {{- else -}}
+            {{- $discard = $page.Paginate $pages -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

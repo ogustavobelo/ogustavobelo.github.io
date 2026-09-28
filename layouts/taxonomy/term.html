@@ -16,15 +16,9 @@
             {{- end -}}
         </h2>
 
-        {{- /* Paginate */ -}}
+        {{- /* Paginator is established in init.html; see function/paginate.html */ -}}
         {{- if .Pages -}}
-            {{- $pages := .Pages.GroupByDate "2006" -}}
-            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
-            {{- range $pages.PageGroups -}}
+            {{- range .Paginator.PageGroups -}}
                 <h3 class="group-title">{{ .Key }}</h3>
                 {{- range .Pages -}}
                     <article class="archive-item">
