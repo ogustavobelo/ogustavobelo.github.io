@@ -1,0 +1,26 @@
+{{- /*
+Resolve a page's RawContent into content safe to publish as plain Markdown.
+
+RenderShortcodes would run the real HTML shortcode templates (lazysizes divs,
+noscript fallbacks, lightgallery wrappers), which is fine for HTML but is
+noisy, non-Markdown clutter in a Markdown/plain-text output. Instead, rewrite
+the specific shortcodes actually used in content/posts (image, ref,
+admonition) directly into their Markdown equivalent.
+*/ -}}
+{{- $page := . -}}
+{{- $content := $page.RawContent -}}
+
+{{- /* {{< image src="..." alt="..." ... >}} -> ![alt](page-bundle resource URL) */ -}}
+{{- $content = $content | replaceRE `\{\{<\s*image\s+src="([^"]+)"\s+alt="([^"]*)"[^>]*>\}\}` (printf "![$2](%s$1)" $page.Permalink) -}}
+
+{{- /* {{< ref "/path/" >}} -> absolute URL (content path mirrors the URL path on this site) */ -}}
+{{- $content = $content | replaceRE `\{\{<\s*ref\s+"([^"]+)"\s*>\}\}` (printf "%s$1" ($page.Site.BaseURL | strings.TrimSuffix "/")) -}}
+
+{{- /*
+{{< admonition type "Title" collapsed >}}...{{< /admonition >}} -> a bold
+lead-in line; the body between the tags is already plain Markdown.
+*/ -}}
+{{- $content = $content | replaceRE `\{\{<\s*admonition\s+\S+\s+"([^"]*)"[^>]*>\}\}` "**$1**" -}}
+{{- $content = $content | replaceRE `\{\{<\s*/admonition\s*>\}\}` "" -}}
+
+{{- return $content -}}

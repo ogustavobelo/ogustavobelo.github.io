@@ -42,6 +42,10 @@ pager's own URL for page 2+ so /page/2/ doesn't claim /page/1/'s canonical.
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
+{{- with .OutputFormats.Get "MARKDOWN" -}}
+    <link rel="alternate" href="{{ .RelPermalink }}" type="text/markdown" title="{{ $.Title }}">
+{{- end -}}
+
 {{- /* normalize.css */ -}}
 {{- $source := $cdn.normalizeCSS | default "lib/normalize/normalize.min.css" -}}
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
