@@ -98,6 +98,17 @@ edit these directories to fix the site; change the source and build it again.
   paginated URL, so `.Permalink` always resolves to page 1. The canonical tag
   in `layouts/partials/head/link.html` must use the active `.Paginator.URL`
   for page 2+ instead of `.Permalink`.
+- Hugo caches a page's Paginator on the *first* `.Paginate`/`.Paginator` call
+  made anywhere during its render, and `<head>` always renders before the
+  content block. Because the canonical-URL fix above reads `.Paginator` from
+  `<head>`, the real pagination setup (grouping, filtering, custom page size)
+  for home/section/term pages must run even earlier, in
+  `layouts/partials/function/paginate.html` (called from `init.html`) — not in
+  `layouts/index.html`, `layouts/_default/section.html`, or
+  `layouts/taxonomy/term.html` themselves, which only read the
+  already-established `.Paginator`/`.Paginator.PageGroups`. Calling `.Paginate`
+  again from one of those content templates would be silently ignored and
+  quietly re-break the post lists.
 - Taxonomy term pages get a generated description (`layouts/partials/function/description.html`)
   instead of the generic site default, and a term page backing fewer than 2
   posts is marked `noindex, follow` in `layouts/_default/baseof.html` to keep
@@ -107,6 +118,25 @@ edit these directories to fix the site; change the source and build it again.
   `<noscript>` fallback with the real `src`/`srcset` and native
   `loading="lazy"` so crawlers that don't execute JavaScript can still see and
   index the image.
+- Every post also publishes as plain Markdown (`[outputs] page = ['HTML',
+  'MARKDOWN']` in `hugo.toml`, rendered by `layouts/_default/single.md`), and
+  the home page publishes `llms.txt` and `llms-full.txt` (an index and a
+  full-content dump, per https://llmstxt.org/) via custom `LLMS`/`LLMSFULL`
+  output formats rendered by `layouts/index.llms.txt` / `layouts/index.llmsfull.txt`.
+  All three read content through `layouts/partials/function/markdown.html`,
+  which rewrites the shortcodes actually used in `content/posts` (`image`,
+  `ref`, `admonition`) into plain Markdown, instead of `.RawContent` (leaves
+  raw `{{< shortcode >}}` syntax) or `.RenderShortcodes`/`.Content` (renders
+  the full HTML lazysizes/lightgallery wrapper markup). Adding a new shortcode
+  to `content/posts` requires a matching rewrite rule in that partial, or its
+  raw syntax will leak into these outputs.
+- RSS (`layouts/partials/rss/item.html`) serves full post content
+  (`params.page.rssFullText`) through the same Markdown-then-`RenderString`
+  path, then strips the `<figure class="image-frame">` block that the image
+  render hook (`layouts/_default/_markup/render-image.html`) always produces —
+  a lazysizes image is meaningless in a feed reader. Item counts
+  (`params.home.rss`, `params.section.rss`) are configured in `hugo.toml`,
+  not hardcoded in the templates.
 
 ## Build and Publication
 
