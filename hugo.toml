@@ -48,6 +48,11 @@ mobileMode = 'auto'
 [params.header.title]
 name = 'Notas de uma mente inquieta'
 
+[params.home]
+# Global RSS feed (/index.xml): item count, bumped from the theme default of
+# 10 so aggregators and AI readers get more history per fetch.
+rss = 30
+
 [params.home.profile]
 enable = true
 subtitle = 'Ideias, opiniões, desabafos de uma cabeça efervescente.'
@@ -59,6 +64,11 @@ typeit = true
 [params.home.posts]
 enable = true
 paginate = 6
+
+[params.section]
+# /posts/rss.xml item count; same bump as the global feed since posts is the
+# site's only real section.
+rss = 30
 
 [params.search]
 enable = true
@@ -72,6 +82,9 @@ absoluteURL = false
 [params.page]
 hiddenFromHomePage = false
 hiddenFromSearch = false
+# Serve full post content in RSS instead of a summary, so feed readers and AI
+# agents can consume posts without a follow-up fetch of the HTML page.
+rssFullText = true
 
 [params.page.relatedPosts]
 enable = true

@@ -24,13 +24,29 @@
         {{- end -}}
         {{- $content := .Page.Description -}}
         {{- if $params.rssFullText -}}
-            {{- $content = dict "Content" .Page.Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+            {{- /*
+            .Page.Content bakes in raw shortcode syntax like {{< image >}} into
+            the lazysizes/lightgallery wrapper markup, which the strip below
+            can't clean up and which feed readers can't resolve anyway. Render
+            the same shortcode-free Markdown used for the Markdown/llms outputs
+            instead, so images come back through the same image render hook
+            the strip below already targets.
+            */ -}}
+            {{- $page := .Page -}}
+            {{- $md := partial "function/markdown.html" $page -}}
+            {{- $content = dict "Content" ($page.RenderString $md) "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
         {{- else -}}
             {{- with .Page.Summary -}}
                 {{- $content = dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
             {{- end -}}
         {{- end -}}
-        {{- $content | replaceRE `<figure[^>]*>.*</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML -}}
+        {{- /*
+        (?s) makes "." match newlines: the image render hook
+        (layouts/_default/_markup/render-image.html) always wraps images in a
+        multi-line <figure class="image-frame">, and a lazysizes <img> without
+        it is broken in a feed reader anyway.
+        */ -}}
+        {{- $content | replaceRE `(?s)<figure[^>]*>.*?</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML -}}
         {{- "]]>" | safeHTML -}}
     </description>
 </item>
