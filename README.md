@@ -112,7 +112,7 @@ optional post path. Finally, drag a cover image into the terminal, or press
 Enter to add it later.
 
 Each work is a page bundle under `content/estante/<slug>/` with a `cover.*`
-image (cropped to 9:16 automatically) and an `index.md` like:
+(or `image.*`) image (cropped to 9:16 automatically) and an `index.md` like:
 
 ```toml
 +++
@@ -126,7 +126,7 @@ cover = "/posts/2026/10/02/o-segredo-de-widows-bay/widows-bay.png"  # optional
 +++
 ```
 
-Instead of a `cover.*` file, `cover` can point at an image already in the
+Instead of a `cover.*` or `image.*` file, `cover` can point at an image already in the
 project, such as the post's own picture, so it isn't duplicated.
 
 Works have no page of their own. In-progress works are listed first, then the

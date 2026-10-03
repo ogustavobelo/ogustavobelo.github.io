@@ -71,8 +71,9 @@ edit these directories to fix the site; change the source and build it again.
   translated through `i18n/`): `title`, `kind` (`series` | `movie` | `book` |
   `game` | `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
   optional `endDate`, and optional `post` (path of the official post, linked only
-  for `concluded` works). The cover is any `cover.*` file in the bundle or, to
-  reuse an image already in the project without copying it, an optional `cover`
+  for `concluded` works). The cover is any `cover.*` file in the bundle (or,
+  failing that, an `image.*` file) or, to reuse an image already in the project
+  without copying it, an optional `cover`
   path to another page's resource (e.g. `/posts/YYYY/MM/DD/slug/image.webp`);
   the processed cover is then published next to that image. The 2x cover is only
   generated when the source is at least 640x1136.

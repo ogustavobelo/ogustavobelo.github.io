@@ -37,10 +37,10 @@
             {{- end -}}
         {{- end -}}
 
-        {{- /* The cover is a cover.* file in the bundle or, to reuse an image
+        {{- /* The cover is a cover.* (or image.*) file in the bundle or, to reuse an image
         already in the project (e.g. from the post) without copying it, a
         `cover` path such as /posts/2025/01/05/slug/image.webp. */ -}}
-        {{- $cover := .Resources.GetMatch "cover.*" -}}
+        {{- $cover := .Resources.GetMatch "cover.*" | default (.Resources.GetMatch "image.*") -}}
         {{- $coverPath := .Params.cover -}}
         {{- if and (not $cover) $coverPath -}}
             {{- with site.GetPage (path.Dir $coverPath) -}}
