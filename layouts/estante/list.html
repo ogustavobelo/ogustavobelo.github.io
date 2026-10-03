@@ -34,6 +34,20 @@
             {{- end -}}
         {{- end -}}
 
+        {{- /* The cover is a cover.* file in the bundle or, to reuse an image
+        already in the project (e.g. from the post) without copying it, a
+        `cover` path such as /posts/2025/01/05/slug/image.webp. */ -}}
+        {{- $cover := .Resources.GetMatch "cover.*" -}}
+        {{- $coverPath := .Params.cover -}}
+        {{- if and (not $cover) $coverPath -}}
+            {{- with site.GetPage (path.Dir $coverPath) -}}
+                {{- $cover = .Resources.Get (path.Base $coverPath) -}}
+            {{- end -}}
+            {{- if not $cover -}}
+                {{- errorf "%s: cover %q does not resolve to a page resource" $file $coverPath -}}
+            {{- end -}}
+        {{- end -}}
+
         {{- if not .Params.startDate -}}
             {{- errorf "%s: startDate is required" $file -}}
         {{- end -}}
@@ -50,6 +64,7 @@
             "kind" $kind
             "status" $status
             "post" $post
+            "cover" $cover
             "group" (cond (eq $status "in-progress") $status ($date.Format "2006-01"))
             "groupLabel" (cond (eq $status "in-progress") (T "shelfStatus_in-progress") (time.Format "January de 2006" $date | strings.FirstUpper))
             "key" (printf "%s|%s|%s" $rank ($date.Format "2006-01-02") .Title)
@@ -102,12 +117,19 @@
                                     <div class="shelf-card">
                                 {{- end -}}
                                     <div class="shelf-cover">
-                                        {{- with $page.Resources.GetMatch "cover.*" -}}
+                                        {{- with .cover -}}
                                             {{- $small := .Fill "320x568 webp q80" -}}
-                                            {{- $large := .Fill "640x1136 webp q80" -}}
+                                            {{- /* Only offer a 2x cover when the source is big enough:
+                                            upscaling adds nothing, and Hugo's smart crop fails on some
+                                            images when it has to upscale. */ -}}
+                                            {{- $srcset := printf "%s 1x" $small.RelPermalink -}}
+                                            {{- if and (ge .Width 640) (ge .Height 1136) -}}
+                                                {{- $large := .Fill "640x1136 webp q80" -}}
+                                                {{- $srcset = printf "%s, %s 2x" $srcset $large.RelPermalink -}}
+                                            {{- end -}}
                                             <img
                                                 src="{{ $small.RelPermalink }}"
-                                                srcset="{{ $small.RelPermalink }} 1x, {{ $large.RelPermalink }} 2x"
+                                                srcset="{{ $srcset }}"
                                                 width="{{ $small.Width }}"
                                                 height="{{ $small.Height }}"
                                                 alt="{{ $page.Title }}"
