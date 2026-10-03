@@ -73,7 +73,7 @@ def test_hugo_shelf_renders_works_linking_concluded_posts(built_site_session):
 
     assert '<li class="shelf-item" data-kind="series" data-status="concluded">' in shelf_page
     assert '<a class="shelf-card" href="/posts/2026/10/02/o-segredo-de-widows-bay/"' in shelf_page
-    assert 'src="/estante/o-segredo-de-widows-bay/cover_' in shelf_page
+    assert 'src="/estante/2026/09/o-segredo-de-widows-bay/cover_' in shelf_page
     assert '.webp"' in shelf_page
     assert '<span class="shelf-status shelf-status-concluded">Concluído</span>' in shelf_page
     assert '<span class="shelf-kind">Série</span>' in shelf_page
@@ -140,7 +140,7 @@ def test_hugo_shelf_pages_works_by_year(built_site_session):
 
 
 def test_hugo_shelf_works_have_no_page_of_their_own(built_site_session):
-    work_dir = built_site_session / "estante" / "o-segredo-de-widows-bay"
+    work_dir = built_site_session / "estante" / "2026" / "09" / "o-segredo-de-widows-bay"
 
     assert not (work_dir / "index.html").exists()
     assert not (work_dir / "cover.png").exists()
@@ -154,7 +154,7 @@ def test_hugo_shelf_works_stay_out_of_search_and_sitemap(built_site_session):
 
     assert "/estante/" not in search_index
     assert "<loc>https://www.gustavobelo.com/estante/</loc>" in sitemap
-    assert "/estante/o-segredo-de-widows-bay/" not in sitemap
+    assert "/estante/2026/" not in sitemap
 
 
 def test_hugo_menu_links_to_shelf(built_site_session):

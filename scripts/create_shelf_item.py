@@ -198,13 +198,21 @@ def create_shelf_item(
     if post and status != "concluded":
         raise ValueError("Only concluded works can link to a post")
 
-    output_dir = Path(repo_root) / "content" / "estante" / normalize_slug(title)
+    # Grouped by the start month, e.g. content/estante/2026/09/slug/.
+    shelf_dir = Path(repo_root) / "content" / "estante"
+    slug = normalize_slug(title)
+    output_dir = shelf_dir / f"{start_date:%Y}" / f"{start_date:%m}" / slug
     output_file = output_dir / "index.md"
 
-    if output_file.exists() and not overwrite:
-        raise FileExistsError(f"The target work already exists: {output_file}")
+    # The same work may already be filed under another month.
+    existing = next(shelf_dir.glob(f"*/*/{slug}/index.md"), None)
+    if existing and not overwrite:
+        raise FileExistsError(f"The target work already exists: {existing}")
 
-    output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    if existing and existing.parent != output_dir:
+        shutil.move(existing.parent, output_dir)
+    output_dir.mkdir(exist_ok=True)
     output_file.write_text(
         build_item(title, kind, status, start_date, end_date, post), encoding="utf-8"
     )

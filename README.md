@@ -111,8 +111,9 @@ today). Finished works also ask for an end date, and concluded ones for an
 optional post path. Finally, drag a cover image into the terminal, or press
 Enter to add it later.
 
-Each work is a page bundle under `content/estante/<slug>/` with a `cover.*`
-(or `image.*`) image (cropped to 9:16 automatically) and an `index.md` like:
+Each work is a page bundle under `content/estante/<year>/<month>/<slug>/`, the
+month of its `startDate` (e.g. `content/estante/2026/09/o-segredo-de-widows-bay/`),
+with a `cover.*` (or `image.*`) image (cropped to 9:16 automatically) and an `index.md` like:
 
 ```toml
 +++

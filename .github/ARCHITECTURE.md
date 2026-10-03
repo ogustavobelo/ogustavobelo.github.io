@@ -60,8 +60,8 @@ edit these directories to fix the site; change the source and build it again.
 ### Shelf (`/estante/`)
 
 - The shelf is the `estante` section: `content/estante/_index.md` plus one page
-  bundle per work in `content/estante/<slug>/`, rendered as a single filterable
-  grid by `layouts/estante/list.html` (filters in `assets/js/shelf.js`, styles in
+  bundle per work in `content/estante/<year>/<month>/<slug>/` (the month of its
+  `startDate`), rendered as a single filterable grid by `layouts/estante/list.html` (filters in `assets/js/shelf.js`, styles in
   `assets/css/_page/_shelf.scss`).
 - A cascade in `_index.md` sets `build.render = "never"`, `build.list = "local"`
   and `build.publishResources = false` on the works: they have no URL of their

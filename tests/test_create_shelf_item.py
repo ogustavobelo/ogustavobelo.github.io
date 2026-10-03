@@ -43,7 +43,13 @@ def test_create_shelf_item_writes_concluded_work_with_cover(tmp_path):
     )
 
     assert output == (
-        tmp_path / "content" / "estante" / "o-segredo-de-widows-bay" / "index.md"
+        tmp_path
+        / "content"
+        / "estante"
+        / "2026"
+        / "09"
+        / "o-segredo-de-widows-bay"
+        / "index.md"
     )
     assert output.read_text(encoding="utf-8") == (
         "+++\n"
@@ -119,6 +125,32 @@ def test_create_shelf_item_refuses_to_overwrite_and_replaces_cover(tmp_path):
         "Duna", "book", "concluded", tmp_path, cover=new_cover, overwrite=True, **options
     )
     assert sorted(p.name for p in output.parent.glob("cover.*")) == ["cover.webp"]
+
+
+def test_create_shelf_item_moves_work_when_start_month_changes(tmp_path):
+    module = load_module()
+    cover = tmp_path / "cover.jpg"
+    cover.write_bytes(b"jpg")
+
+    old = module.create_shelf_item(
+        "Duna", "book", "in-progress", tmp_path, start_date=date(2026, 8, 30), cover=cover
+    )
+    with pytest.raises(FileExistsError):
+        module.create_shelf_item(
+            "Duna", "book", "in-progress", tmp_path, start_date=date(2026, 9, 1)
+        )
+
+    new = module.create_shelf_item(
+        "Duna",
+        "book",
+        "in-progress",
+        tmp_path,
+        start_date=date(2026, 9, 1),
+        overwrite=True,
+    )
+    assert new == tmp_path / "content" / "estante" / "2026" / "09" / "duna" / "index.md"
+    assert not old.parent.exists()
+    assert (new.parent / "cover.jpg").read_bytes() == b"jpg"
 
 
 @pytest.mark.parametrize(
