@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 def test_hugo_homepage_resolves_local_image_frame_background(built_site):
     homepage = (built_site / "index.html").read_text(encoding="utf-8")
 
@@ -111,6 +114,29 @@ def test_hugo_shelf_lists_in_progress_first_then_finished_by_month(built_site_se
     # Concluded on 2026-10-01 (endDate), even though it started in September.
     widows_bay = shelf_page.index('alt="O segredo de Widow&#39;s Bay"')
     assert in_progress < october < widows_bay
+
+
+def test_hugo_shelf_pages_works_by_year(built_site_session):
+    shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
+    current_year = datetime.now().year
+
+    def group_year(title):
+        heading = shelf_page.index(f'<h3 class="group-title">{title}</h3>')
+        section = shelf_page.rindex('<section class="shelf-group"', 0, heading)
+        return shelf_page[section:heading].split('data-year="')[1].split('"')[0]
+
+    # In-progress works belong to the current year; the rest to the year of
+    # their month group. shelf.js shows one year at a time, newest first.
+    assert group_year("Em andamento") == str(current_year)
+    assert group_year("Outubro de 2026") == "2026"
+    assert group_year("Dezembro de 2025") == "2025"
+
+    # Hidden until shelf.js runs, so without JavaScript every year is listed.
+    nav_start = shelf_page.index('<nav class="shelf-years" aria-label="Anos da estante" hidden>')
+    nav = shelf_page[nav_start:shelf_page.index("</nav>", nav_start)]
+    assert '<a class="shelf-year" href="?year=2026" data-year="2026" hidden>2026</a>' in nav
+    assert '<a class="shelf-year" href="?year=2025" data-year="2025" hidden>2025</a>' in nav
+    assert nav.index('data-year="2026"') < nav.index('data-year="2025"')
 
 
 def test_hugo_shelf_works_have_no_page_of_their_own(built_site_session):
