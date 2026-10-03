@@ -77,4 +77,7 @@ other = "Nenhuma obra com esses filtros."
 
 [shelfReadPost]
 other = "Ler a postagem sobre {{ .Title }}"
+
+[shelfNoPost]
+other = "Não escrevi nada sobre. Deveria? 🤔"
 # === estante/list.html ===

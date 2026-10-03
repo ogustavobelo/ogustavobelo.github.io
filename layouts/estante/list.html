@@ -112,6 +112,9 @@
                             <li class="shelf-item" data-kind="{{ .kind }}" data-status="{{ .status }}">
                                 {{- if .post -}}
                                     <a class="shelf-card" href="{{ .post.RelPermalink }}" title="{{ T "shelfReadPost" $page }}">
+                                {{- else if eq .status "concluded" -}}
+                                    {{- /* Focusable so a tap (or keyboard) reveals the note, like hovering. */ -}}
+                                    <div class="shelf-card shelf-card-unreviewed" tabindex="0">
                                 {{- else -}}
                                     <div class="shelf-card">
                                 {{- end -}}
@@ -138,6 +141,9 @@
                                             <span class="shelf-cover-placeholder">{{ $page.Title }}</span>
                                         {{- end -}}
                                         <span class="shelf-status shelf-status-{{ .status }}">{{ T (printf "shelfStatus_%s" .status) }}</span>
+                                        {{- if and (eq .status "concluded") (not .post) -}}
+                                            <span class="shelf-note">{{ T "shelfNoPost" }}</span>
+                                        {{- end -}}
                                     </div>
                                     <h3 class="shelf-title">{{ $page.Title }}</h3>
                                     <span class="shelf-kind">{{ T (printf "shelfKind_%s" .kind) }}</span>

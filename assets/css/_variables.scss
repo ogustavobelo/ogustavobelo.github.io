@@ -86,6 +86,10 @@ $shelf-status-abandoned-color-dark: #734a38 !default;
 // Background of the cover placeholder when a work has no cover
 $shelf-cover-placeholder-color: #f2f2f2 !default;
 $shelf-cover-placeholder-color-dark: #363636 !default;
+
+// Background of the note over concluded covers without a post (text is always white)
+$shelf-note-background-color: rgba(0, 0, 0, 0.75) !default;
+$shelf-note-background-color-dark: rgba(0, 0, 0, 0.8) !default;
 // ========== Shelf ========== //
 
 // ========== Single Content ========== //

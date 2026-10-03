@@ -233,4 +233,7 @@ other = "No works match these filters."
 
 [shelfReadPost]
 other = "Read the post about {{ .Title }}"
+
+[shelfNoPost]
+other = "I didn't write anything about it. Should I? 🤔"
 # === estante/list.html ===
