@@ -76,6 +76,16 @@ def test_hugo_shelf_renders_works_linking_concluded_posts(built_site_session):
     assert '<span class="shelf-kind">Série</span>' in shelf_page
 
 
+def test_hugo_shelf_reuses_post_image_as_cover(built_site_session):
+    shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
+
+    # `cover` points at the post's image, so the processed cover is published
+    # next to it instead of copying the original into the shelf bundle.
+    assert '<a class="shelf-card" href="/posts/2025/01/05/magicka-2/"' in shelf_page
+    assert 'src="/posts/2025/01/05/magicka-2/magicka_hu_' in shelf_page
+    assert not (built_site_session / "estante" / "magicka-2").exists()
+
+
 def test_hugo_shelf_lists_in_progress_first_then_finished_by_month(built_site_session):
     shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
 
