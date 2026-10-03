@@ -12,7 +12,7 @@ A principal ideia deste blog, como falei na [postagem inicial](https://www.gusta
 
 ## Melhores leituras até aqui
 
-Foram [18 obras lidas](https://www.gustavobelo.com/blog/?q=leituras), entre quadrinhos, revistas e livros, e os que me marcaram mais foram:
+Foram [18 obras lidas](https://www.gustavobelo.com/tags/leituras/), entre quadrinhos, revistas e livros, e os que me marcaram mais foram:
 
 - [Mickey 7](https://www.gustavobelo.com/mickey-7/)
 - [Antropoceno: Notas Sobre a Vida na Terra](https://www.gustavobelo.com/antropoceno-notas-sobre-a-vida-na-terra/)
@@ -21,14 +21,14 @@ Foram [18 obras lidas](https://www.gustavobelo.com/blog/?q=leituras), entre quad
 
 ## Melhores filmes até aqui
 
-Percebi agorinha que quase não assisti [#filmes](https://www.gustavobelo.com/blog/?q=filmes) este ano, apenas 14, e a maioria nem são necessariamente deste ano. Consequentemente, fui pouquíssimo ao [#cinema](https://www.gustavobelo.com/blog/?q=cinema) e todos as vezes foram com o [#arthur](https://www.gustavobelo.com/blog/?q=arthur). Só consigo destacar:
+Percebi agorinha que quase não assisti [#filmes](https://www.gustavobelo.com/tags/filmes/) este ano, apenas 14, e a maioria nem são necessariamente deste ano. Consequentemente, fui pouquíssimo ao [#cinema](https://www.gustavobelo.com/tags/cinema/) e todos as vezes foram com o [#arthur](https://www.gustavobelo.com/tags/arthur/). Só consigo destacar:
 
 - [Flow](https://www.gustavobelo.com/flow/)
 - [Pecadores](https://www.gustavobelo.com/pecadores/)
 
 ## Melhores séries até aqui
 
-Já nas [#séries](https://www.gustavobelo.com/blog/?q=series) eu dei o gás. 23 no total nos mais diversos serviços de streaming (inclusive na ausência deles 👀). Muuuita coisa boa, fica até difícil filtrar:
+Já nas [#séries](https://www.gustavobelo.com/tags/series/) eu dei o gás. 23 no total nos mais diversos serviços de streaming (inclusive na ausência deles 👀). Muuuita coisa boa, fica até difícil filtrar:
 
 - [Arcane](https://www.gustavobelo.com/arcane-netflix/)
 - [Adolescência](https://www.gustavobelo.com/adolescencia-netflix/)
@@ -37,7 +37,7 @@ Já nas [#séries](https://www.gustavobelo.com/blog/?q=series) eu dei o gás. 23
 
 ## Melhores jogos até aqui
 
-Estou longe de ser o gamer de outrora, hoje mais assisto o Arthur jogar do que de fato embarcar em novas jornadas, mas até que consegui (re)jogar uma [coisinha ou outra](https://www.gustavobelo.com/blog/?q=jogos), destaques para:
+Estou longe de ser o gamer de outrora, hoje mais assisto o Arthur jogar do que de fato embarcar em novas jornadas, mas até que consegui (re)jogar uma [coisinha ou outra](https://www.gustavobelo.com/tags/jogos/), destaques para:
 
 - [Split Fiction](https://www.gustavobelo.com/split-fiction/)
 - [God of War - Ragnarok](https://www.gustavobelo.com/god-of-war-ragnarok/)
