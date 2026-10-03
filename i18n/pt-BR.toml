@@ -31,6 +31,9 @@ other = "Link copiado!"
 [shareMore]
 other = "Mais opções (Instagram, mensagens…)"
 
+[readMore]
+other = "Leia Mais"
+
 # === 404.html ===
 [pageNotFound]
 other = "Página não encontrada"
