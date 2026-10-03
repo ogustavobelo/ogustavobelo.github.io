@@ -71,12 +71,18 @@ edit these directories to fix the site; change the source and build it again.
   translated through `i18n/`): `title`, `kind` (`series` | `movie` | `book` |
   `game` | `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
   optional `endDate`, and optional `post` (path of the official post, linked only
-  for `concluded` works). The cover is any `cover.*` file in the bundle.
+  for `concluded` works). The cover is any `cover.*` file in the bundle or, to
+  reuse an image already in the project without copying it, an optional `cover`
+  path to another page's resource (e.g. `/posts/YYYY/MM/DD/slug/image.webp`);
+  the processed cover is then published next to that image. The 2x cover is only
+  generated when the source is at least 640x1136.
+- Reviews published before the shelf existed have a concluded work each, dated
+  on the post's day, linking to the post and using its first image as `cover`.
 - In-progress works form the first group; the rest are grouped by the month
   (newest first) of `endDate`, falling back to `startDate`.
   `assets/js/shelf.js` hides groups left empty by the filters.
 - The template fails the build on a missing `startDate`, an unknown
-  `kind`/`status` or a `post` that does not resolve, and `layouts/partials/function/paginate.html` paginates the
+  `kind`/`status`, or a `post` or `cover` that does not resolve, and `layouts/partials/function/paginate.html` paginates the
   section as a single page so no `/estante/page/N/` URLs are generated.
 
 ## Presentation

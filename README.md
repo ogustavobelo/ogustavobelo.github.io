@@ -122,13 +122,17 @@ status = "concluded"   # in-progress | concluded | abandoned
 startDate = 2026-09-01
 endDate = 2026-10-01   # optional
 post = "/posts/2026/10/02/o-segredo-de-widows-bay"  # optional, concluded only
+cover = "/posts/2026/10/02/o-segredo-de-widows-bay/widows-bay.png"  # optional
 +++
 ```
+
+Instead of a `cover.*` file, `cover` can point at an image already in the
+project, such as the post's own picture, so it isn't duplicated.
 
 Works have no page of their own. In-progress works are listed first, then the
 rest grouped by the month of their `endDate` (or `startDate`), newest first. A
 missing `startDate`, an invalid
-`kind`/`status` or a `post` path that doesn't exist fails the build.
+`kind`/`status`, or a `post` or `cover` path that doesn't exist fails the build.
 
 ## AI Project Documentation
 
