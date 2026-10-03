@@ -96,6 +96,27 @@ use `--force` only when you intend to overwrite an existing post. Review the
 imported post, especially its content, images, dates, tags, and draft state,
 before publishing.
 
+## Add a Work to the Shelf
+
+The shelf at `/estante/` lists series, books, games, and comics. Each work is a
+page bundle under `content/estante/<slug>/` with a `cover.*` image (cropped to
+9:16 automatically) and an `index.md` like:
+
+```toml
++++
+title = "O segredo de Widow's Bay"
+kind = "series"        # series | book | game | comic
+status = "concluded"   # in-progress | concluded | abandoned
+startDate = 2026-09-01
+endDate = 2026-10-01   # optional
+post = "/posts/2026/10/02/o-segredo-de-widows-bay"  # optional, concluded only
++++
+```
+
+Works have no page of their own. In-progress works are listed first, then the
+rest by most recent `endDate` (or `startDate`). An invalid `kind`/`status` or a
+`post` path that doesn't exist fails the build.
+
 ## AI Project Documentation
 
 - [Copilot instructions](.github/copilot-instructions.md): repository-wide

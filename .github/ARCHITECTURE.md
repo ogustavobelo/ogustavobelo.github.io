@@ -57,6 +57,25 @@ edit these directories to fix the site; change the source and build it again.
   `baseURL` require link verification and must be treated as compatibility
   changes.
 
+### Shelf (`/estante/`)
+
+- The shelf is the `estante` section: `content/estante/_index.md` plus one page
+  bundle per work in `content/estante/<slug>/`, rendered as a single filterable
+  grid by `layouts/estante/list.html` (filters in `assets/js/shelf.js`, styles in
+  `assets/css/_page/_shelf.scss`).
+- A cascade in `_index.md` sets `build.render = "never"`, `build.list = "local"`
+  and `build.publishResources = false` on the works: they have no URL of their
+  own, never enter `.Site.RegularPages` (search, related posts, RSS, llms.txt,
+  sitemap) and only their processed 9:16 webp covers are published.
+- Work front matter, with field names and values in English (labels are
+  translated through `i18n/`): `title`, `kind` (`series` | `book` | `game` |
+  `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
+  optional `endDate`, and optional `post` (path of the official post, linked only
+  for `concluded` works). The cover is any `cover.*` file in the bundle.
+- The template fails the build on an unknown `kind`/`status` or a `post` that
+  does not resolve, and `layouts/partials/function/paginate.html` paginates the
+  section as a single page so no `/estante/page/N/` URLs are generated.
+
 ## Presentation
 
 - Hugo templates in `layouts/` are the page composition boundary.
