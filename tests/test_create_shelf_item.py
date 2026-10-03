@@ -78,7 +78,7 @@ def test_create_shelf_item_drops_end_date_for_in_progress_work(tmp_path):
 @pytest.mark.parametrize(
     ("kwargs", "message"),
     [
-        ({"kind": "movie"}, "Unknown kind"),
+        ({"kind": "podcast"}, "Unknown kind"),
         ({"status": "paused"}, "Unknown status"),
         ({"end_date": date(2026, 8, 1)}, "End date"),
         ({"status": "abandoned", "post": "/posts/x"}, "Only concluded"),

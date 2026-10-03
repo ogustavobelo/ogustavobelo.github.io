@@ -17,6 +17,7 @@ from create_post import BRAZIL_TIMEZONE, normalize_slug, toml_escape  # noqa: E4
 # with the label shown while picking.
 KINDS = [
     ("series", "Série"),
+    ("movie", "Filme"),
     ("book", "Livro"),
     ("game", "Jogo"),
     ("comic", "Quadrinho"),

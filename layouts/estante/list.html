@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "content" -}}
-    {{- $kinds := slice "series" "book" "game" "comic" -}}
+    {{- $kinds := slice "series" "movie" "book" "game" "comic" -}}
     {{- $statuses := slice "in-progress" "concluded" "abandoned" -}}
 
     {{- /* Validate every work and group it: in-progress works first (latest

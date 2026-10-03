@@ -54,6 +54,9 @@ other = "Jogo"
 [shelfKind_comic]
 other = "Quadrinho"
 
+[shelfKind_movie]
+other = "Filme"
+
 [shelfStatus_in-progress]
 other = "Em andamento"
 

@@ -210,6 +210,9 @@ other = "Game"
 [shelfKind_comic]
 other = "Comic"
 
+[shelfKind_movie]
+other = "Movie"
+
 [shelfStatus_in-progress]
 other = "In progress"
 
