@@ -83,6 +83,11 @@ edit these directories to fix the site; change the source and build it again.
 - In-progress works form the first group; the rest are grouped by the month
   (newest first) of `endDate`, falling back to `startDate`.
   `assets/js/shelf.js` hides groups left empty by the filters.
+- The shelf is paginated by year on the client: each group carries a
+  `data-year` (in-progress works belong to the build's current year, the rest
+  to their group's year) and `assets/js/shelf.js` shows only the newest year,
+  or the one in `?year=`, with links to the neighbouring years at the end.
+  Without JavaScript every year is listed and the year links stay hidden.
 - The template fails the build on a missing `startDate`, an unknown
   `kind`/`status`, or a `post` or `cover` that does not resolve, and `layouts/partials/function/paginate.html` paginates the
   section as a single page so no `/estante/page/N/` URLs are generated.
