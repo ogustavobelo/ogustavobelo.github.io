@@ -98,9 +98,21 @@ before publishing.
 
 ## Add a Work to the Shelf
 
-The shelf at `/estante/` lists series, books, games, and comics. Each work is a
-page bundle under `content/estante/<slug>/` with a `cover.*` image (cropped to
-9:16 automatically) and an `index.md` like:
+The shelf at `/estante/` lists series, books, games, and comics. Run the shelf
+script from the repository root:
+
+```sh
+python3 scripts/create_shelf_item.py
+```
+
+Enter a title, pick the kind and status with the arrow keys and enter (a
+numbered list in a non-interactive terminal), then the start date (defaults to
+today). Finished works also ask for an end date, and concluded ones for an
+optional post path. Finally, drag a cover image into the terminal, or press
+Enter to add it later.
+
+Each work is a page bundle under `content/estante/<slug>/` with a `cover.*`
+image (cropped to 9:16 automatically) and an `index.md` like:
 
 ```toml
 +++
