@@ -20,3 +20,8 @@ A cadência dos episódios também é muito bem trabalhada a ponto de que mesmo 
   {{< /admonition >}}
 
 Achei o final da temporada anti-climático. Os mistérios vão crescendo, a tensão vai aumentando, e tudo se encerra de uma vez. É como se preparar para uma tempestade devastadora, juntar mantimentos, reforçar a casa, contactar parentes, e tudo mais. Aí você vê as nuvens escurecendo, a ventania ficando mais forte, os animais ouriçados, e no fim a chuva cai duma vez e para. Fica aquela sensação esquisita de foi eu que entendi errado ou eu fui enganado de alguma forma?
+
+{{< admonition spoiler "Spoiler" false >}}
+  Fiquei um pouco frustrado que esticaram para ter mais temporadas. Eu passei a temporada inteira achando que seria uma minissérie com final claro.
+  Por outro lado, acho que existe uma premissa muito boa a ser explorada que é o turismo de terror. Cada vez mais está crescendo essa exploração por locais aterrorizantes pelo mundo, o que encaixaria perfeitamente neste mundinho. Apostaria nisso, inclusive, como tema principal para as próximas temporadas.
+  {{< /admonition >}}
