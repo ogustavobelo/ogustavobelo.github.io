@@ -98,7 +98,7 @@ before publishing.
 
 ## Add a Work to the Shelf
 
-The shelf at `/estante/` lists series, books, games, and comics. Run the shelf
+The shelf at `/estante/` lists series, movies, books, games, and comics. Run the shelf
 script from the repository root:
 
 ```sh
@@ -117,7 +117,7 @@ image (cropped to 9:16 automatically) and an `index.md` like:
 ```toml
 +++
 title = "O segredo de Widow's Bay"
-kind = "series"        # series | book | game | comic
+kind = "series"        # series | movie | book | game | comic
 status = "concluded"   # in-progress | concluded | abandoned
 startDate = 2026-09-01
 endDate = 2026-10-01   # optional

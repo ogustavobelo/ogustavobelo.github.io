@@ -68,8 +68,8 @@ edit these directories to fix the site; change the source and build it again.
   own, never enter `.Site.RegularPages` (search, related posts, RSS, llms.txt,
   sitemap) and only their processed 9:16 webp covers are published.
 - Work front matter, with field names and values in English (labels are
-  translated through `i18n/`): `title`, `kind` (`series` | `book` | `game` |
-  `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
+  translated through `i18n/`): `title`, `kind` (`series` | `movie` | `book` |
+  `game` | `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
   optional `endDate`, and optional `post` (path of the official post, linked only
   for `concluded` works). The cover is any `cover.*` file in the bundle.
 - In-progress works form the first group; the rest are grouped by the month
