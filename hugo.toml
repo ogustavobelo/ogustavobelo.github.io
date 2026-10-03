@@ -140,6 +140,14 @@ enable = true
     title = ""
   [[menu.main]]
     weight = 3
+    identifier = "shelf"
+    pre = ""
+    post = ""
+    name = "Estante"
+    url = "/estante/"
+    title = ""
+  [[menu.main]]
+    weight = 4
     identifier = "about"
     pre = ""
     post = ""
