@@ -1,0 +1,228 @@
+.shelf {
+  &.page {
+    max-width: 1000px;
+  }
+
+  .shelf-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 1.5rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .shelf-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .shelf-filter-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $global-font-secondary-color;
+
+    [theme=dark] & {
+      color: $global-font-secondary-color-dark;
+    }
+  }
+
+  .shelf-chip {
+    padding: 0.2rem 0.75rem;
+    border: 1px solid $global-border-color;
+    border-radius: 999px;
+    background: transparent;
+    color: $global-font-color;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    [theme=dark] & {
+      border-color: $global-border-color-dark;
+      color: $global-font-color-dark;
+    }
+
+    &:hover {
+      border-color: $accent-color;
+    }
+
+    &[aria-pressed=true] {
+      border-color: $accent-color;
+      background: $accent-color;
+      color: #fff;
+
+      [theme=dark] & {
+        border-color: $accent-color-dark;
+        background: $accent-color-dark;
+        color: #fff;
+      }
+    }
+  }
+
+  .shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shelf-item {
+    min-width: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .shelf-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a.shelf-card {
+    .shelf-cover img {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .shelf-cover img {
+        transform: scale(1.03);
+      }
+
+      .shelf-title {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .shelf-cover {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: $shelf-cover-placeholder-color;
+
+    [theme=dark] & {
+      background: $shelf-cover-placeholder-color-dark;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .shelf-cover-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .shelf-status {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .shelf-status-in-progress {
+    background: $shelf-status-in-progress-color;
+
+    [theme=dark] & {
+      background: $shelf-status-in-progress-color-dark;
+    }
+  }
+
+  .shelf-status-concluded {
+    background: $shelf-status-concluded-color;
+
+    [theme=dark] & {
+      background: $shelf-status-concluded-color-dark;
+    }
+  }
+
+  .shelf-status-abandoned {
+    background: $shelf-status-abandoned-color;
+
+    [theme=dark] & {
+      background: $shelf-status-abandoned-color-dark;
+    }
+  }
+
+  .shelf-title {
+    margin: 0.5rem 0 0.1rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .shelf-kind {
+    font-size: 0.8rem;
+    color: $global-font-secondary-color;
+
+    [theme=dark] & {
+      color: $global-font-secondary-color-dark;
+    }
+  }
+
+  .shelf-empty[hidden] {
+    display: none;
+  }
+
+  @media only screen and (max-width: 960px) {
+    &.page {
+      width: 90%;
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    &.page {
+      width: 100%;
+    }
+
+    .shelf-filters {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .shelf-filter {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .shelf-chip {
+      flex: 0 0 auto;
+    }
+
+    .shelf-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem 0.75rem;
+    }
+  }
+}

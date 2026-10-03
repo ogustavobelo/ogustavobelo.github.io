@@ -196,3 +196,41 @@ other = "CHANGED"
 [deleted]
 other = "DELETED"
 # === shortcodes/version.html ===
+
+# === estante/list.html ===
+[shelfKind_series]
+other = "Series"
+
+[shelfKind_book]
+other = "Book"
+
+[shelfKind_game]
+other = "Game"
+
+[shelfKind_comic]
+other = "Comic"
+
+[shelfStatus_in-progress]
+other = "In progress"
+
+[shelfStatus_concluded]
+other = "Concluded"
+
+[shelfStatus_abandoned]
+other = "Abandoned"
+
+[shelfFilterAll]
+other = "All"
+
+[shelfFilterKind]
+other = "Type"
+
+[shelfFilterStatus]
+other = "Status"
+
+[shelfEmpty]
+other = "No works match these filters."
+
+[shelfReadPost]
+other = "Read the post about {{ .Title }}"
+# === estante/list.html ===

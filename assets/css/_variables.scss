@@ -74,6 +74,20 @@ $accent-color-dark: #2f8f83 !default;
 $accent-hover-color: #63c2b5 !default;
 // ========== Header ========== //
 
+// ========== Shelf ========== //
+// Background of the status badges on shelf covers (text is always white)
+$shelf-status-in-progress-color: #2f8f83 !default;
+$shelf-status-in-progress-color-dark: #26766c !default;
+$shelf-status-concluded-color: #3f5f9e !default;
+$shelf-status-concluded-color-dark: #344f85 !default;
+$shelf-status-abandoned-color: #8a5a44 !default;
+$shelf-status-abandoned-color-dark: #734a38 !default;
+
+// Background of the cover placeholder when a work has no cover
+$shelf-cover-placeholder-color: #f2f2f2 !default;
+$shelf-cover-placeholder-color-dark: #363636 !default;
+// ========== Shelf ========== //
+
 // ========== Single Content ========== //
 // Font size of the TOC
 $toc-title-font-size: 1.2rem !default;

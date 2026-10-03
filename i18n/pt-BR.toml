@@ -41,3 +41,40 @@ other = "Página não encontrada"
 [pageNotFoundText]
 other = "A página que você está procurando não existe. Desculpe."
 # === 404.html ===
+# === estante/list.html ===
+[shelfKind_series]
+other = "Série"
+
+[shelfKind_book]
+other = "Livro"
+
+[shelfKind_game]
+other = "Jogo"
+
+[shelfKind_comic]
+other = "Quadrinho"
+
+[shelfStatus_in-progress]
+other = "Em andamento"
+
+[shelfStatus_concluded]
+other = "Concluído"
+
+[shelfStatus_abandoned]
+other = "Abandonado"
+
+[shelfFilterAll]
+other = "Todos"
+
+[shelfFilterKind]
+other = "Tipo"
+
+[shelfFilterStatus]
+other = "Status"
+
+[shelfEmpty]
+other = "Nenhuma obra com esses filtros."
+
+[shelfReadPost]
+other = "Ler a postagem sobre {{ .Title }}"
+# === estante/list.html ===

@@ -35,6 +35,10 @@ already established here.
             {{- $discard = $page.Paginate $pages -}}
         {{- end -}}
     {{- end -}}
+{{- else if and (eq $page.Kind "section") (eq $page.Section "estante") -}}
+    {{- /* The shelf shows every work in a single filterable grid: one pager page
+    holding all works, so head's bare .Paginator never spawns /estante/page/2/. */ -}}
+    {{- $discard = $page.Paginate $page.Pages (len $page.Pages | default 1) -}}
 {{- else if eq $page.Kind "section" -}}
     {{- if $page.Pages -}}
         {{- $pages := $page.Pages.GroupByDate "2006" -}}
