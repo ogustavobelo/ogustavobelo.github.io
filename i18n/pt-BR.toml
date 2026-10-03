@@ -72,9 +72,6 @@ other = "Todos"
 [shelfFilterKind]
 other = "Tipo"
 
-[shelfFilterStatus]
-other = "Status"
-
 [shelfEmpty]
 other = "Nenhuma obra com esses filtros."
 

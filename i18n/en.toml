@@ -228,9 +228,6 @@ other = "All"
 [shelfFilterKind]
 other = "Type"
 
-[shelfFilterStatus]
-other = "Status"
-
 [shelfEmpty]
 other = "No works match these filters."
 

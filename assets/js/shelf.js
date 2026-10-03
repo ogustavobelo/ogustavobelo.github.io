@@ -1,5 +1,5 @@
-// Shelf filters (/estante/): toggles works by kind and status and keeps the
-// selection in the query string (?kind=book&status=concluded) so it can be shared.
+// Shelf filters (/estante/): toggles works by kind and keeps the selection in
+// the query string (?kind=book) so it can be shared.
 (function () {
   const filters = document.querySelector('.shelf-filters');
   if (!filters) return;

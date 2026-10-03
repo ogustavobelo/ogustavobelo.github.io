@@ -82,7 +82,6 @@
             <div class="shelf-filters" hidden>
                 {{- range $group := slice
                     (dict "name" "kind" "label" (T "shelfFilterKind") "values" $kinds)
-                    (dict "name" "status" "label" (T "shelfFilterStatus") "values" $statuses)
                 -}}
                     <div class="shelf-filter" role="group" aria-label="{{ $group.label }}" data-filter="{{ $group.name }}">
                         <span class="shelf-filter-label">{{ $group.label }}</span>
