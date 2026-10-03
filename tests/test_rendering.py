@@ -95,8 +95,11 @@ def test_hugo_shelf_notes_concluded_works_without_a_post(built_site_session):
     card_start = shelf_page.rindex('<li class="shelf-item"', 0, abbott)
     card_end = shelf_page.index("</li>", abbott)
     card = shelf_page[card_start:card_end]
-    assert '<div class="shelf-card shelf-card-unreviewed" tabindex="0">' in card
+    assert '<div class="shelf-card shelf-card-unreviewed" tabindex="0"' in card
     assert note in card
+    # The click is a GoatCounter event that names the work.
+    assert 'data-goatcounter-click="shelf-no-post-abbott-elementary-5a-temporada"' in card
+    assert 'data-goatcounter-title="Estante sem resenha: Abbott Elementary - 5a temporada"' in card
     assert shelf_page.count(note) == shelf_page.count("shelf-card-unreviewed")
 
 

@@ -113,8 +113,10 @@
                                 {{- if .post -}}
                                     <a class="shelf-card" href="{{ .post.RelPermalink }}" title="{{ T "shelfReadPost" $page }}">
                                 {{- else if eq .status "concluded" -}}
-                                    {{- /* Focusable so a tap (or keyboard) reveals the note, like hovering. */ -}}
-                                    <div class="shelf-card shelf-card-unreviewed" tabindex="0">
+                                    {{- /* Focusable so a tap (or keyboard) reveals the note, like hovering.
+                                    The click is a GoatCounter event named after the work's bundle, to
+                                    see which works readers want a post about. */ -}}
+                                    <div class="shelf-card shelf-card-unreviewed" tabindex="0" data-goatcounter-click="shelf-no-post-{{ $page.File.ContentBaseName }}" data-goatcounter-title="Estante sem resenha: {{ $page.Title }}">
                                 {{- else -}}
                                     <div class="shelf-card">
                                 {{- end -}}

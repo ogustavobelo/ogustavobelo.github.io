@@ -78,6 +78,8 @@ edit these directories to fix the site; change the source and build it again.
   generated when the source is at least 640x1136.
 - Reviews published before the shelf existed have a concluded work each, dated
   on the post's day, linking to the post and using its first image as `cover`.
+- Concluded works without a `post` show a note on hover/tap, and a click on
+  them is a GoatCounter event `shelf-no-post-<bundle slug>`.
 - In-progress works form the first group; the rest are grouped by the month
   (newest first) of `endDate`, falling back to `startDate`.
   `assets/js/shelf.js` hides groups left empty by the filters.
