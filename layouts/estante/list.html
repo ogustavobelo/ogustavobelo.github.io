@@ -8,7 +8,10 @@
 
     {{- /* Validate every work and group it: in-progress works first (latest
     startDate first), then finished works by the month of their endDate, falling
-    back to startDate, newest first. */ -}}
+    back to startDate, newest first. Each work also belongs to a year, the
+    shelf's page: in-progress works to the current year, the rest to the year of
+    their group. */ -}}
+    {{- $currentYear := now.Year -}}
     {{- $items := slice -}}
     {{- range .Pages -}}
         {{- $file := .File.Path -}}
@@ -65,6 +68,7 @@
             "status" $status
             "post" $post
             "cover" $cover
+            "year" (cond (eq $status "in-progress") $currentYear $date.Year)
             "group" (cond (eq $status "in-progress") $status ($date.Format "2006-01"))
             "groupLabel" (cond (eq $status "in-progress") (T "shelfStatus_in-progress") (time.Format "January de 2006" $date | strings.FirstUpper))
             "key" (printf "%s|%s|%s" $rank ($date.Format "2006-01-02") .Title)
@@ -102,9 +106,14 @@
                     {{- $groups = $groups | append .group -}}
                 {{- end -}}
             {{- end -}}
+            {{- $years := slice -}}
             {{- range $groups -}}
                 {{- $group := where $items "group" . -}}
-                <section class="shelf-group">
+                {{- $year := (index $group 0).year -}}
+                {{- if not (in $years $year) -}}
+                    {{- $years = $years | append $year -}}
+                {{- end -}}
+                <section class="shelf-group" data-year="{{ $year }}">
                     <h3 class="group-title">{{ (index $group 0).groupLabel }}</h3>
                     <ul class="shelf-grid">
                         {{- range $group -}}
@@ -160,6 +169,17 @@
                 </section>
             {{- end -}}
             <p class="shelf-empty" hidden>{{ T "shelfEmpty" }}</p>
+
+            {{- /* One page per year, newest first. shelf.js shows only the newest
+            year (or ?year=) and the links to its neighbours; without JavaScript
+            every year stays visible and this navigation stays hidden. */ -}}
+            {{- if gt (len $years) 1 -}}
+                <nav class="shelf-years" aria-label="{{ T "shelfYears" }}" hidden>
+                    {{- range $years -}}
+                        <a class="shelf-year" href="?year={{ . }}" data-year="{{ . }}" hidden>{{ . }}</a>
+                    {{- end -}}
+                </nav>
+            {{- end -}}
 
             {{- $js := resources.Get "js/shelf.js" | minify | fingerprint -}}
             <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

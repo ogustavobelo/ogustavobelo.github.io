@@ -241,6 +241,62 @@
     display: none;
   }
 
+  // Newer year on the left, older year on the right, like a pager.
+  .shelf-years {
+    display: flex;
+    gap: 1rem;
+    margin: 2.5rem 0 1rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .shelf-year {
+    padding: 0.4rem 1.25rem;
+    border: 1px solid $global-border-color;
+    border-radius: 999px;
+    color: $global-font-color;
+    font-weight: bold;
+    text-decoration: none;
+
+    [theme=dark] & {
+      border-color: $global-border-color-dark;
+      color: $global-font-color-dark;
+    }
+
+    &::before {
+      content: "← ";
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $accent-color;
+      color: $accent-color;
+
+      [theme=dark] & {
+        border-color: $accent-color-dark;
+        color: $accent-color-dark;
+      }
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .shelf-year-older {
+    margin-left: auto;
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: " →";
+    }
+  }
+
   @media only screen and (max-width: 960px) {
     &.page {
       width: 90%;

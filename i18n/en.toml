@@ -236,4 +236,7 @@ other = "Read the post about {{ .Title }}"
 
 [shelfNoPost]
 other = "I didn't write anything about it. Should I? 🤔"
+
+[shelfYears]
+other = "Shelf years"
 # === estante/list.html ===

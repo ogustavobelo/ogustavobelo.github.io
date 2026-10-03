@@ -80,4 +80,7 @@ other = "Ler a postagem sobre {{ .Title }}"
 
 [shelfNoPost]
 other = "Não escrevi nada sobre. Deveria? 🤔"
+
+[shelfYears]
+other = "Anos da estante"
 # === estante/list.html ===
