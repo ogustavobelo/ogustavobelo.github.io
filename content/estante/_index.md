@@ -1,6 +1,6 @@
 +++
 title = "Estante"
-description = "Séries, livros, jogos e quadrinhos que estou acompanhando, terminei ou larguei pelo caminho."
+description = "Séries, filmes, livros, jogos e quadrinhos que estou acompanhando, terminei ou larguei pelo caminho."
 outputs = ["HTML"]
 
 # Each work is a page bundle with no page of its own: it only feeds the shelf
