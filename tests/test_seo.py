@@ -24,11 +24,9 @@ POST_WITH_OWN_IMAGE = ("posts", "2026", "09", "27", "wolverine")
 # A post relying on the derived-from-summary description and the site's
 # default social image (the common, "no front matter override" path).
 POST_WITHOUT_OWN_IMAGE = ("posts", "2026", "09", "25", "nova-lataria-novas-ideias")
-# Tags with >= 2 and exactly 1 post respectively (see test_seo_content for how
-# this is derived); kept as literals here since the term pages are look-up
-# targets, not something worth recomputing at test time.
+# A tag with >= 2 posts. Thin (single-post) tags are discovered from the built
+# site instead, since any given tag stops being thin as soon as it's reused.
 MULTI_POST_TAG = "ps5"
-THIN_TAG = "hbo-max"
 
 
 def read(built_site_session, *parts):
@@ -208,10 +206,18 @@ def test_multi_post_tag_page_is_indexable_with_a_specific_description(built_site
     assert MULTI_POST_TAG.capitalize() in description or MULTI_POST_TAG in description.lower()
 
 
-def test_thin_tag_page_is_noindexed(built_site_session):
-    html = read(built_site_session, "tags", THIN_TAG, "index.html")
+def test_thin_tag_pages_are_noindexed(built_site_session):
+    tag_pages = sorted((built_site_session / "tags").glob("*/index.html"))
+    thin = [
+        page
+        for page in tag_pages
+        if page.read_text(encoding="utf-8").count('class="archive-item"') == 1
+    ]
+    assert thin, "expected at least one tag with a single post"
 
-    assert 'name="robots" content="noindex, follow"' in html
+    for page in thin:
+        html = page.read_text(encoding="utf-8")
+        assert 'name="robots" content="noindex, follow"' in html, page.parent.name
 
 
 # --- sitemap.xml --------------------------------------------------------------
