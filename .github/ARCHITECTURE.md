@@ -72,8 +72,11 @@ edit these directories to fix the site; change the source and build it again.
   `comic`), `status` (`in-progress` | `concluded` | `abandoned`), `startDate`,
   optional `endDate`, and optional `post` (path of the official post, linked only
   for `concluded` works). The cover is any `cover.*` file in the bundle.
-- The template fails the build on an unknown `kind`/`status` or a `post` that
-  does not resolve, and `layouts/partials/function/paginate.html` paginates the
+- In-progress works form the first group; the rest are grouped by the month
+  (newest first) of `endDate`, falling back to `startDate`.
+  `assets/js/shelf.js` hides groups left empty by the filters.
+- The template fails the build on a missing `startDate`, an unknown
+  `kind`/`status` or a `post` that does not resolve, and `layouts/partials/function/paginate.html` paginates the
   section as a single page so no `/estante/page/N/` URLs are generated.
 
 ## Presentation

@@ -5,6 +5,7 @@
   if (!filters) return;
 
   const items = document.querySelectorAll('.shelf-item');
+  const shelfGroups = document.querySelectorAll('.shelf-group');
   const empty = document.querySelector('.shelf-empty');
   const groups = filters.querySelectorAll('.shelf-filter');
   const params = new URLSearchParams(window.location.search);
@@ -29,6 +30,9 @@
       const show = Object.keys(state).every((name) => !state[name] || item.dataset[name] === state[name]);
       item.hidden = !show;
       if (show) visible++;
+    });
+    shelfGroups.forEach((group) => {
+      group.hidden = !group.querySelector('.shelf-item:not([hidden])');
     });
     if (empty) empty.hidden = visible > 0;
 

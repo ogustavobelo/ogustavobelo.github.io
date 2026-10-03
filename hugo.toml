@@ -131,7 +131,7 @@ enable = true
     url = "/posts/"
     title = ""
   [[menu.main]]
-    weight = 2
+    weight = 3
     identifier = "tags"
     pre = ""
     post = ""
@@ -139,7 +139,7 @@ enable = true
     url = "/tags/"
     title = ""
   [[menu.main]]
-    weight = 3
+    weight = 2
     identifier = "shelf"
     pre = ""
     post = ""

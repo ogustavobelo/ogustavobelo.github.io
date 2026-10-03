@@ -76,6 +76,16 @@ def test_hugo_shelf_renders_works_linking_concluded_posts(built_site_session):
     assert '<span class="shelf-kind">Série</span>' in shelf_page
 
 
+def test_hugo_shelf_lists_in_progress_first_then_finished_by_month(built_site_session):
+    shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
+
+    in_progress = shelf_page.index('<h3 class="group-title">Em andamento</h3>')
+    october = shelf_page.index('<h3 class="group-title">Outubro de 2026</h3>')
+    # Concluded on 2026-10-01 (endDate), even though it started in September.
+    widows_bay = shelf_page.index('alt="O segredo de Widow&#39;s Bay"')
+    assert in_progress < october < widows_bay
+
+
 def test_hugo_shelf_works_have_no_page_of_their_own(built_site_session):
     work_dir = built_site_session / "estante" / "o-segredo-de-widows-bay"
 

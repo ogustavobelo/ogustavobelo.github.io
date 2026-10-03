@@ -73,6 +73,10 @@
     list-style: none;
   }
 
+  .shelf-group[hidden] {
+    display: none;
+  }
+
   .shelf-item {
     min-width: 0;
 

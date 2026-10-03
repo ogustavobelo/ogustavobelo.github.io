@@ -6,8 +6,9 @@
     {{- $kinds := slice "series" "book" "game" "comic" -}}
     {{- $statuses := slice "in-progress" "concluded" "abandoned" -}}
 
-    {{- /* Validate every work and build a sort key: in-progress works first
-    (latest startDate first), then the rest by endDate, falling back to startDate. */ -}}
+    {{- /* Validate every work and group it: in-progress works first (latest
+    startDate first), then finished works by the month of their endDate, falling
+    back to startDate, newest first. */ -}}
     {{- $items := slice -}}
     {{- range .Pages -}}
         {{- $file := .File.Path -}}
@@ -33,23 +34,25 @@
             {{- end -}}
         {{- end -}}
 
+        {{- if not .Params.startDate -}}
+            {{- errorf "%s: startDate is required" $file -}}
+        {{- end -}}
         {{- $date := .Params.startDate -}}
         {{- $rank := "1" -}}
         {{- if ne $status "in-progress" -}}
             {{- $date = .Params.endDate | default .Params.startDate -}}
             {{- $rank = "0" -}}
         {{- end -}}
-        {{- $dateKey := "" -}}
-        {{- with $date -}}
-            {{- $dateKey = time.Format "2006-01-02" . -}}
-        {{- end -}}
+        {{- $date = time.AsTime $date -}}
 
         {{- $items = $items | append (dict
             "page" .
             "kind" $kind
             "status" $status
             "post" $post
-            "key" (printf "%s|%s|%s" $rank $dateKey .Title)
+            "group" (cond (eq $status "in-progress") $status ($date.Format "2006-01"))
+            "groupLabel" (cond (eq $status "in-progress") (T "shelfStatus_in-progress") (time.Format "January de 2006" $date | strings.FirstUpper))
+            "key" (printf "%s|%s|%s" $rank ($date.Format "2006-01-02") .Title)
         ) -}}
     {{- end -}}
     {{- $items = sort $items "key" "desc" -}}
@@ -79,42 +82,54 @@
                 {{- end -}}
             </div>
 
-            <ul class="shelf-grid">
-                {{- range $items -}}
-                    {{- $page := .page -}}
-                    <li class="shelf-item" data-kind="{{ .kind }}" data-status="{{ .status }}">
-                        {{- if .post -}}
-                            <a class="shelf-card" href="{{ .post.RelPermalink }}" title="{{ T "shelfReadPost" $page }}">
-                        {{- else -}}
-                            <div class="shelf-card">
-                        {{- end -}}
-                            <div class="shelf-cover">
-                                {{- with $page.Resources.GetMatch "cover.*" -}}
-                                    {{- $small := .Fill "320x568 webp q80" -}}
-                                    {{- $large := .Fill "640x1136 webp q80" -}}
-                                    <img
-                                        src="{{ $small.RelPermalink }}"
-                                        srcset="{{ $small.RelPermalink }} 1x, {{ $large.RelPermalink }} 2x"
-                                        width="{{ $small.Width }}"
-                                        height="{{ $small.Height }}"
-                                        alt="{{ $page.Title }}"
-                                        loading="lazy"
-                                        decoding="async" />
-                                {{- else -}}
-                                    <span class="shelf-cover-placeholder">{{ $page.Title }}</span>
-                                {{- end -}}
-                                <span class="shelf-status shelf-status-{{ .status }}">{{ T (printf "shelfStatus_%s" .status) }}</span>
-                            </div>
-                            <h3 class="shelf-title">{{ $page.Title }}</h3>
-                            <span class="shelf-kind">{{ T (printf "shelfKind_%s" .kind) }}</span>
-                        {{- if .post -}}
-                            </a>
-                        {{- else -}}
-                            </div>
-                        {{- end -}}
-                    </li>
+            {{- $groups := slice -}}
+            {{- range $items -}}
+                {{- if not (in $groups .group) -}}
+                    {{- $groups = $groups | append .group -}}
                 {{- end -}}
-            </ul>
+            {{- end -}}
+            {{- range $groups -}}
+                {{- $group := where $items "group" . -}}
+                <section class="shelf-group">
+                    <h3 class="group-title">{{ (index $group 0).groupLabel }}</h3>
+                    <ul class="shelf-grid">
+                        {{- range $group -}}
+                            {{- $page := .page -}}
+                            <li class="shelf-item" data-kind="{{ .kind }}" data-status="{{ .status }}">
+                                {{- if .post -}}
+                                    <a class="shelf-card" href="{{ .post.RelPermalink }}" title="{{ T "shelfReadPost" $page }}">
+                                {{- else -}}
+                                    <div class="shelf-card">
+                                {{- end -}}
+                                    <div class="shelf-cover">
+                                        {{- with $page.Resources.GetMatch "cover.*" -}}
+                                            {{- $small := .Fill "320x568 webp q80" -}}
+                                            {{- $large := .Fill "640x1136 webp q80" -}}
+                                            <img
+                                                src="{{ $small.RelPermalink }}"
+                                                srcset="{{ $small.RelPermalink }} 1x, {{ $large.RelPermalink }} 2x"
+                                                width="{{ $small.Width }}"
+                                                height="{{ $small.Height }}"
+                                                alt="{{ $page.Title }}"
+                                                loading="lazy"
+                                                decoding="async" />
+                                        {{- else -}}
+                                            <span class="shelf-cover-placeholder">{{ $page.Title }}</span>
+                                        {{- end -}}
+                                        <span class="shelf-status shelf-status-{{ .status }}">{{ T (printf "shelfStatus_%s" .status) }}</span>
+                                    </div>
+                                    <h3 class="shelf-title">{{ $page.Title }}</h3>
+                                    <span class="shelf-kind">{{ T (printf "shelfKind_%s" .kind) }}</span>
+                                {{- if .post -}}
+                                    </a>
+                                {{- else -}}
+                                    </div>
+                                {{- end -}}
+                            </li>
+                        {{- end -}}
+                    </ul>
+                </section>
+            {{- end -}}
             <p class="shelf-empty" hidden>{{ T "shelfEmpty" }}</p>
 
             {{- $js := resources.Get "js/shelf.js" | minify | fingerprint -}}

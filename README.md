@@ -126,8 +126,9 @@ post = "/posts/2026/10/02/o-segredo-de-widows-bay"  # optional, concluded only
 ```
 
 Works have no page of their own. In-progress works are listed first, then the
-rest by most recent `endDate` (or `startDate`). An invalid `kind`/`status` or a
-`post` path that doesn't exist fails the build.
+rest grouped by the month of their `endDate` (or `startDate`), newest first. A
+missing `startDate`, an invalid
+`kind`/`status` or a `post` path that doesn't exist fails the build.
 
 ## AI Project Documentation
 
