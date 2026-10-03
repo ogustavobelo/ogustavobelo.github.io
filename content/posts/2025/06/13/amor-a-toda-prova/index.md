@@ -2,7 +2,7 @@
 title = "Amor a toda prova"
 date = "2025-06-13T20:55:00+00:00"
 draft = false
-tags = ["filmes", "max", "review"]
+tags = ["filmes", "hbo-max", "review"]
 aliases = ["/amor-a-toda-prova/"]
 bear_uid = "EbVevACBYGhbkmzstJuR"
 +++

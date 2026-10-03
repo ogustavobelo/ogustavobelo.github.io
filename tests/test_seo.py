@@ -28,7 +28,7 @@ POST_WITHOUT_OWN_IMAGE = ("posts", "2026", "09", "25", "nova-lataria-novas-ideia
 # this is derived); kept as literals here since the term pages are look-up
 # targets, not something worth recomputing at test time.
 MULTI_POST_TAG = "ps5"
-THIN_TAG = "hbo"
+THIN_TAG = "hbo-max"
 
 
 def read(built_site_session, *parts):

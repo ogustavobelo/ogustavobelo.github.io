@@ -2,7 +2,7 @@
 title = "Little Nightmares 2"
 date = "2025-08-02T20:33:00+00:00"
 draft = false
-tags = ["arthur", "jogos", "ps5", "reviews"]
+tags = ["arthur", "jogos", "ps5", "review"]
 aliases = ["/little-nightmares-2/"]
 bear_uid = "UdYTYwMCKPBDvBdgCtcw"
 +++

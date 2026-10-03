@@ -2,7 +2,7 @@
 title = "The Paper"
 date = "2025-10-13T19:04:34.393958+00:00"
 draft = false
-tags = ["review", "series", "max"]
+tags = ["review", "series", "hbo-max"]
 aliases = ["/the-paper/"]
 bear_uid = "uoSLkWmSYSHvsrzkzvoh"
 +++

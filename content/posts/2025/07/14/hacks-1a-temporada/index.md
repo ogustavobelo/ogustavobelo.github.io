@@ -2,7 +2,7 @@
 title = "Hacks - 1a temporada"
 date = "2025-07-14T15:00:29.257178+00:00"
 draft = false
-tags = ["series", "review", "max", "hbo"]
+tags = ["series", "review", "hbo-max", "hbo-max"]
 aliases = ["/hacks-1a-temporada/"]
 bear_uid = "mMLerJPjLqMNrhPNKNBg"
 +++

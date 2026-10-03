@@ -2,7 +2,7 @@
 title = "The Pitt"
 date = "2025-04-25T02:32:00+00:00"
 draft = false
-tags = ["max", "review", "series"]
+tags = ["hbo-max", "review", "series"]
 aliases = ["/the-pitt/"]
 bear_uid = "EgwTTZztAFAFuzLgoxoM"
 +++

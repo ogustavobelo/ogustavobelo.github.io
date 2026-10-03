@@ -2,7 +2,7 @@
 title = "White Lotus - 3a temporada"
 date = "2025-04-11T22:07:00+00:00"
 draft = false
-tags = ["max", "review", "series"]
+tags = ["hbo-max", "review", "series"]
 aliases = ["/white-lotus-3a-temporada/"]
 bear_uid = "CDIamYdGImbBpPqfWvTK"
 +++
