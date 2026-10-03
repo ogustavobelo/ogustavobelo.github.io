@@ -86,6 +86,20 @@ def test_hugo_shelf_reuses_post_image_as_cover(built_site_session):
     assert not (built_site_session / "estante" / "magicka-2").exists()
 
 
+def test_hugo_shelf_notes_concluded_works_without_a_post(built_site_session):
+    shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
+    note = '<span class="shelf-note">Não escrevi nada sobre. Deveria? 🤔</span>'
+
+    # Abbott Elementary is concluded without a post; Widow's Bay links to one.
+    abbott = shelf_page.index('alt="Abbott Elementary - 5a temporada"')
+    card_start = shelf_page.rindex('<li class="shelf-item"', 0, abbott)
+    card_end = shelf_page.index("</li>", abbott)
+    card = shelf_page[card_start:card_end]
+    assert '<div class="shelf-card shelf-card-unreviewed" tabindex="0">' in card
+    assert note in card
+    assert shelf_page.count(note) == shelf_page.count("shelf-card-unreviewed")
+
+
 def test_hugo_shelf_lists_in_progress_first_then_finished_by_month(built_site_session):
     shelf_page = (built_site_session / "estante" / "index.html").read_text(encoding="utf-8")
 
