@@ -1,7 +1,7 @@
 +++
 title = "Hacks - 5a temporada"
 date = "2026-10-06T09:23:20-03:00"
-draft = true
+draft = false
 tags = ["review", "series", "hbo-max"]
 description = "Última temporada de Hacks da HBO. Personagens amadureceram e tiveram final surpreendente"
 images = ["hacks-5a-temporada.png"]
