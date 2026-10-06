@@ -243,3 +243,28 @@ def test_select_tags_returns_empty_list_without_options():
     module = load_module()
 
     assert module.select_tags([]) == []
+
+
+def test_create_post_adds_image_to_front_matter_and_body(tmp_path):
+    module = load_module()
+    created_at = datetime(2026, 10, 6, 9, 0, tzinfo=module.BRAZIL_TIMEZONE)
+
+    output = module.create_post(
+        "Hacks",
+        ["review"],
+        tmp_path,
+        created_at,
+        image="hacks.png",
+        image_alt='Hacks "5a temporada"',
+    )
+
+    assert output.read_text(encoding="utf-8") == (
+        "+++\n"
+        'title = "Hacks"\n'
+        'date = "2026-10-06T09:00:00-03:00"\n'
+        "draft = true\n"
+        'tags = ["review"]\n'
+        'images = ["hacks.png"]\n'
+        "+++\n\n"
+        "{{< image src=\"hacks.png\" alt=\"Hacks '5a temporada'\" class=\"image-frame\" >}}\n\n"
+    )

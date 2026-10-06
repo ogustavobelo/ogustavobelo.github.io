@@ -64,6 +64,26 @@ def test_create_shelf_item_writes_concluded_work_with_cover(tmp_path):
     assert (output.parent / "cover.png").read_bytes() == b"png"
 
 
+def test_build_item_writes_cover_path():
+    module = load_module()
+
+    item = module.build_item(
+        "Duna",
+        "book",
+        "concluded",
+        date(2026, 9, 1),
+        date(2026, 9, 30),
+        post="/posts/2026/10/01/duna",
+        cover="/posts/2026/10/01/duna/duna.png",
+    )
+
+    assert item.endswith(
+        'post = "/posts/2026/10/01/duna"\n'
+        'cover = "/posts/2026/10/01/duna/duna.png"\n'
+        "+++\n"
+    )
+
+
 def test_create_shelf_item_drops_end_date_for_in_progress_work(tmp_path):
     module = load_module()
 

@@ -138,7 +138,12 @@ def toml_escape(value: str) -> str:
 
 
 def build_post(
-    title: str, tags: list[str], created_at: datetime, description: str = ""
+    title: str,
+    tags: list[str],
+    created_at: datetime,
+    description: str = "",
+    image: str = "",
+    image_alt: str = "",
 ) -> str:
     tag_text = ", ".join(f'"{toml_escape(tag)}"' for tag in tags)
     lines = [
@@ -153,7 +158,14 @@ def build_post(
         # Used as the page's meta/OG/JSON-LD description; falls back to the
         # post's own summary when left unset. See the content-authoring skill.
         lines.append(f'description = "{toml_escape(description)}"')
-    lines += ["+++", "", ""]
+    if image:
+        # The bundle image represents the post in link previews and JSON-LD.
+        lines.append(f'images = ["{toml_escape(image)}"]')
+    lines += ["+++", ""]
+    if image:
+        alt = (image_alt or Path(image).stem).replace('"', "'")
+        lines += [f'{{{{< image src="{image}" alt="{alt}" class="image-frame" >}}}}', ""]
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -164,6 +176,8 @@ def create_post(
     created_at: datetime | None = None,
     description: str = "",
     overwrite: bool = False,
+    image: str = "",
+    image_alt: str = "",
 ) -> Path:
     title = title.strip()
     if not title:
@@ -188,9 +202,26 @@ def create_post(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     output_file.write_text(
-        build_post(title, tags, current_time, description), encoding="utf-8"
+        build_post(title, tags, current_time, description, image, image_alt),
+        encoding="utf-8",
     )
     return output_file
+
+
+def ask_post_details(repo_root: str | Path) -> tuple[list[str], str]:
+    tag_options = collect_tag_counts(repo_root)
+    selected_tags = select_tags(tag_options)
+    if selected_tags:
+        print(f"Selected: {', '.join(selected_tags)}")
+
+    new_tags = parse_tags(input("New tags (comma-separated, optional): "))
+    tags = merge_tags(selected_tags, new_tags)
+
+    description = input(
+        "Description for search/social previews (optional, press Enter to"
+        " derive it from the post's own text later): "
+    )
+    return tags, description
 
 
 def main() -> int:
@@ -204,19 +235,7 @@ def main() -> int:
 
     try:
         title = input("Post title: ")
-
-        tag_options = collect_tag_counts(args.repo_root)
-        selected_tags = select_tags(tag_options)
-        if selected_tags:
-            print(f"Selected: {', '.join(selected_tags)}")
-
-        new_tags = parse_tags(input("New tags (comma-separated, optional): "))
-        tags = merge_tags(selected_tags, new_tags)
-
-        description = input(
-            "Description for search/social previews (optional, press Enter to"
-            " derive it from the post's own text later): "
-        )
+        tags, description = ask_post_details(args.repo_root)
 
         try:
             output_file = create_post(

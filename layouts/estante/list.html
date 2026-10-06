@@ -24,12 +24,21 @@
             {{- errorf "%s: status %q must be one of %s" $file $status (delimit $statuses ", ") -}}
         {{- end -}}
 
+        {{- /* A `post` or `cover` path into a bundle that exists but wasn't built
+        (a draft, outside `hugo -D`) only warns: the work shows without the link
+        or the cover until the post is published. Any other unresolved path
+        fails the build. */ -}}
         {{- $post := false -}}
         {{- with .Params.post -}}
-            {{- with site.GetPage . -}}
+            {{- $postPath := . -}}
+            {{- with site.GetPage $postPath -}}
                 {{- $post = . -}}
             {{- else -}}
-                {{- errorf "%s: post %q does not resolve to a page" $file . -}}
+                {{- if fileExists (printf "content/%s/index.md" (strings.Trim $postPath "/")) -}}
+                    {{- warnf "%s: post %q is not built (draft?); not linking it yet" $file $postPath -}}
+                {{- else -}}
+                    {{- errorf "%s: post %q does not resolve to a page" $file $postPath -}}
+                {{- end -}}
             {{- end -}}
             {{- if ne $status "concluded" -}}
                 {{- warnf "%s: post is only linked for concluded works; ignoring it" $file -}}
@@ -43,11 +52,16 @@
         {{- $cover := .Resources.GetMatch "cover.*" | default (.Resources.GetMatch "image.*") -}}
         {{- $coverPath := .Params.cover -}}
         {{- if and (not $cover) $coverPath -}}
-            {{- with site.GetPage (path.Dir $coverPath) -}}
+            {{- $coverPage := site.GetPage (path.Dir $coverPath) -}}
+            {{- with $coverPage -}}
                 {{- $cover = .Resources.Get (path.Base $coverPath) -}}
             {{- end -}}
             {{- if not $cover -}}
-                {{- errorf "%s: cover %q does not resolve to a page resource" $file $coverPath -}}
+                {{- if and (not $coverPage) (fileExists (printf "content/%s" (strings.Trim $coverPath "/"))) -}}
+                    {{- warnf "%s: cover %q is in a bundle that is not built (draft?); not showing it yet" $file $coverPath -}}
+                {{- else -}}
+                    {{- errorf "%s: cover %q does not resolve to a page resource" $file $coverPath -}}
+                {{- end -}}
             {{- end -}}
         {{- end -}}
 

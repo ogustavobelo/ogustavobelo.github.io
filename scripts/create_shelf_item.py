@@ -157,6 +157,7 @@ def build_item(
     start_date: date,
     end_date: date | None = None,
     post: str = "",
+    cover: str = "",
 ) -> str:
     lines = [
         "+++",
@@ -169,6 +170,8 @@ def build_item(
         lines.append(f"endDate = {end_date.isoformat()}")
     if post:
         lines.append(f'post = "{toml_escape(post)}"')
+    if cover:
+        lines.append(f'cover = "{toml_escape(cover)}"')
     lines += ["+++", ""]
     return "\n".join(lines)
 

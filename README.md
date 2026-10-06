@@ -136,6 +136,23 @@ The shelf shows one year at a time: the current year first, with a link to the
 previous year at the end of the page (`/estante/?year=2025`). A
 missing `startDate`, an invalid
 `kind`/`status`, or a `post` or `cover` path that doesn't exist fails the build.
+A `post` or `cover` path into a draft post only warns: until the post is
+published, the production shelf shows the work without its link and cover.
+
+### Turning a shelf work into a post
+
+To write about a work that is still in progress, run:
+
+```sh
+python3 scripts/shelf_item_to_post.py
+```
+
+Pick the work from the in-progress list, confirm the post title (Enter keeps
+the work's), choose tags and a description as in `create_post.py`, and enter
+the end date. The script creates a draft post with the work's cover as its
+image, moving the file into the post bundle instead of copying it, and marks
+the work as `concluded` with `endDate`, `post`, and a `cover` path pointing at
+that image. Write the post and set `draft = false` to publish it.
 
 ## AI Project Documentation
 
