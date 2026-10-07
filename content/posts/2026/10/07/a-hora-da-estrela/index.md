@@ -1,7 +1,7 @@
 +++
 title = "A hora da estrela"
 date = "2026-10-07T08:31:04-03:00"
-draft = true
+draft = false
 tags = ["review", "leituras", "livros"]
 description = "Livro curtinho cheio de brasilidade mas que não me cativou"
 images = ["a-hora-da-estrela.png"]
