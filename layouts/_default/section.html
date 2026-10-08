@@ -14,7 +14,7 @@
                             {{- .Title -}}
                         </a>
                         <span class="archive-item-date">
-                            {{- $.Site.Params.section.dateFormat | default "01-02" | .Date.Format -}}
+                            {{- partial "date-short.html" .Date -}}
                         </span>
                     </article>
                 {{- end -}}
