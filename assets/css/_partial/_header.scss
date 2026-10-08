@@ -230,7 +230,7 @@ header {
       @include transition(margin-top 0.3s ease);
 
       .header-title {
-        font-size: $header-title-font-size;
+        font-size: clamp(.875rem, 4.8vw, #{$header-title-font-size});
         max-width: 80%;
       }
 
