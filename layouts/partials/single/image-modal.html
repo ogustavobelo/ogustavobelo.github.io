@@ -1,0 +1,3 @@
+{{- /* Opens linked images (.image-link) in a modal instead of navigating to the file. Used by posts, pages and the home page summaries. */ -}}
+{{- $js := resources.Get "js/image-modal.js" | minify | fingerprint -}}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer data-close-label="{{ T "imageClose" }}"></script>

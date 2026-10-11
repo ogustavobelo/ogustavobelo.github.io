@@ -355,3 +355,75 @@
     font-size: 0.85rem;
   }
 }
+
+// Image modal (js/image-modal.js): the backdrop is always dark, so the
+// controls use light colors in both themes.
+.image-link {
+  cursor: zoom-in;
+}
+
+html.image-modal-open {
+  overflow: hidden;
+}
+
+.image-modal {
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.88);
+  }
+
+  .image-modal-figure {
+    margin: 0;
+    text-align: center;
+  }
+
+  .image-modal-image {
+    display: block;
+    max-width: 94vw;
+    max-height: 84vh;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  .image-modal-caption {
+    max-width: 94vw;
+    margin: 0.75rem auto 0;
+    color: #eee;
+    font-size: 0.9rem;
+  }
+
+  .image-modal-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+  }
+}

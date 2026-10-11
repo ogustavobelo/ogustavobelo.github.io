@@ -17,6 +17,7 @@
 {{- end -}}
 
 {{- $options = dict "Resources" .Page.Resources | merge $options -}}
+{{- $options = dict "PagePath" .Page.RelPermalink | merge $options -}}
 {{- $backdrop := cond .IsNamedParams (.Get "src") (.Get 0) -}}
 {{- with dict "Path" $backdrop "Resources" .Page.Resources | partial "function/resource.html" -}}
     {{- $backdrop = .RelPermalink -}}

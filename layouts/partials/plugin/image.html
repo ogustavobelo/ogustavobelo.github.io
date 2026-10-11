@@ -27,7 +27,8 @@ placeholder SVG. The <noscript> fallback below gives those agents a plain,
 indexable <img> with the real src/srcset and native loading="lazy".
 */ -}}
 {{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+    {{- /* Opened in a modal by js/image-modal.js; each click is a GoatCounter event named after the image. */}}
+    <a class="image-link" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}"{{ with .Caption }} data-caption="{{ . | plainify }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }} data-goatcounter-click="image-{{ $large }}" data-goatcounter-title="Imagem: {{ $alt | plainify }}"{{ with .PagePath }} data-goatcounter-referrer="{{ . }}"{{ end }}>
         <img
             class="lazyload{{ with .Class }} {{ . }}{{ end }}"
             src="{{ $loading.RelPermalink }}"

@@ -56,7 +56,9 @@ def test_hugo_post_page_renders_share_links(built_site):
     assert f"url={encoded_url}%3Fref%3Dtelegram" in post_page
     assert 'class="post-share-copy" data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/"' in post_page
     assert 'data-url="https://www.gustavobelo.com/posts/2026/01/05/a-cabeca-do-santo/?ref=share"' in post_page
-    assert post_page.count('data-goatcounter-referrer="/posts/2026/01/05/a-cabeca-do-santo/"') == 6
+    share = post_page[post_page.index('<aside class="post-share"'):]
+    share = share[:share.index("</aside>")]
+    assert share.count('data-goatcounter-referrer="/posts/2026/01/05/a-cabeca-do-santo/"') == 6
 
 
 def test_hugo_post_page_falls_back_to_site_image_for_link_previews(built_site):
@@ -161,3 +163,36 @@ def test_hugo_menu_links_to_shelf(built_site_session):
     homepage = (built_site_session / "index.html").read_text(encoding="utf-8")
 
     assert 'href="/estante/"' in homepage
+
+
+def test_hugo_post_images_open_in_modal_and_track_clicks(built_site_session):
+    post_page = (
+        built_site_session / "posts" / "2026" / "10" / "11" / "o-monstro-em-mim" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert (
+        '<a class="image-link" href="/posts/2026/10/11/o-monstro-em-mim/image.png" title="image"'
+        ' data-goatcounter-click="image-/posts/2026/10/11/o-monstro-em-mim/image.png"'
+        ' data-goatcounter-title="Imagem: image"'
+        ' data-goatcounter-referrer="/posts/2026/10/11/o-monstro-em-mim/">'
+    ) in post_page
+    assert '<script src="/js/image-modal' in post_page
+    assert 'data-close-label="Fechar imagem"' in post_page
+
+
+def test_hugo_markdown_images_are_linked_and_tracked(built_site_session):
+    post_page = (
+        built_site_session / "posts" / "2025" / "02" / "21" / "a-noite-que-mudou-o-pop" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert (
+        '<a class="image-link" href="/posts/2025/02/21/a-noite-que-mudou-o-pop/the_greatest_night_in_pop_a2021_2_4_462.webp"'
+    ) in post_page
+    assert 'data-goatcounter-referrer="/posts/2025/02/21/a-noite-que-mudou-o-pop/"' in post_page
+
+
+def test_hugo_homepage_summary_images_open_in_modal(built_site_session):
+    homepage = (built_site_session / "index.html").read_text(encoding="utf-8")
+
+    assert '<a class="image-link"' in homepage
+    assert '<script src="/js/image-modal' in homepage

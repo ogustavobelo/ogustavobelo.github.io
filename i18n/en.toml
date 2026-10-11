@@ -100,6 +100,10 @@ other = "Learn more"
 other = "Share on"
 # === partials/plugin/share.html ===
 
+# === partials/single/image-modal.html ===
+[imageClose]
+other = "Close image"
+
 # === posts/single.html ===
 [contents]
 other = "Contents"
