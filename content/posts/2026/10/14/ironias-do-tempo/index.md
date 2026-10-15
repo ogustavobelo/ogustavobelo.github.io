@@ -4,7 +4,7 @@ date = "2026-10-14T21:18:30-03:00"
 draft = false
 tags = ["review", "leituras", "livros"]
 images = ["ironias-do-tempo.png"]
-description = Livro de textos curtos do Luis Fernando Veríssimo que explora sua criatividade a partir do cotidiano.
+description = "Livro de textos curtos do Luis Fernando Veríssimo que explora sua criatividade a partir do cotidiano."
 +++
 
 {{< image src="ironias-do-tempo.png" alt="Ironias do tempo" class="image-frame" >}}
