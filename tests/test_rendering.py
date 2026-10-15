@@ -196,3 +196,12 @@ def test_hugo_homepage_summary_images_open_in_modal(built_site_session):
 
     assert '<a class="image-link"' in homepage
     assert '<script src="/js/image-modal' in homepage
+
+
+def test_hugo_404_page_tracks_requested_route_as_goatcounter_event(built_site_session):
+    page = (built_site_session / "404.html").read_text(encoding="utf-8")
+
+    assert "window.goatcounter = {" in page
+    assert "return '404:' + location.pathname + location.search;" in page
+    assert "event: true" in page
+    assert page.index("window.goatcounter = {") < page.index('src="https://gc.zgo.at/count.js"')

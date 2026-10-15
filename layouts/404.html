@@ -10,6 +10,14 @@
             <a href="javascript:void(0);" title="{{ T `back` }}" onclick="window.history.back();"><i class="far fa-hand-point-left fa-fw" aria-hidden="true"></i></a>
         </p>
     </div>
+    {{- /* GoatCounter's count.js prefers the canonical URL (/404.html); record the route that was actually requested instead, as an event so it doesn't inflate pageviews. */}}
+    <script type="text/javascript">
+        window.goatcounter = {
+            path: function() { return '404:' + location.pathname + location.search; },
+            title: '404',
+            event: true
+        };
+    </script>
     <script type="text/javascript">
         (function() {
             var emojiArray = ['\\(o_o)/', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)','(=\'X\'=)', '(>_<)', '(;-;)'];
