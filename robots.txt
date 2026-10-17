@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# AI search / answer bots: allowed to fetch and cite pages on demand or in
+# their search index.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI training crawlers: blocked for now. Revisit if this changes.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+Sitemap: https://www.gustavobelo.com/sitemap.xml
