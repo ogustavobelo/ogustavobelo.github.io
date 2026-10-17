@@ -4,7 +4,7 @@ date = "2026-10-17T10:20:46-03:00"
 draft = false
 tags = ["review", "series", "apple-tv"]
 images = ["ted-lasso-4a-temporada.png"]
-description = "Livro de textos curtos do Luis Fernando Veríssimo que explora sua criatividade a partir do cotidiano."
+description = "Análise da quarta temporada de Ted Lasso da Apple Tv.  Apesar da história se perder entre o novo e o antigo, continua sendo uma obra que aquece o coração"
 +++
 
 {{< image src="image.png" alt="image" class="image-frame" >}}
@@ -36,5 +36,5 @@ Inclusive, isso soou até meio desrespeitoso na morte da Mae. Entendo que a cara
 
 E por que mesmo diante de tudo isso eu disse que gostei?
 
-Cara, são poucas as obras atuais que me trazem a sensação de otimismo que Ted Lasso consegue apresentar. Assistir aqueles minutinhos entre uma crise rotineira e a solução agridoce é algo reconfortante. Aquece meu coração aquele universo onde pessoas se permitem ser frágeis e isso diariamente os tornam mais fortes.
+Olha, são poucas as obras atuais que me trazem a sensação de otimismo que Ted Lasso consegue apresentar. Assistir aqueles minutinhos entre uma crise rotineira e a solução agridoce é algo reconfortante. Aquece meu coração aquele universo onde pessoas se permitem ser frágeis e isso diariamente os tornam mais fortes.
 
