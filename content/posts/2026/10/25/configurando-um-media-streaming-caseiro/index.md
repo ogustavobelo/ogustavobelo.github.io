@@ -1,7 +1,7 @@
 +++
 title = "Configurando um media streaming caseiro"
 date = "2026-10-25T17:25:49-03:00"
-draft = true
+draft = false
 tags = ["tech", "open-source"]
 description = "Como configurei um servidor local onde baixo e assisto séries e filmes"
 +++
