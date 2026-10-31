@@ -61,6 +61,113 @@
   }
 }
 
+// Sidebar sections repeated at the end of the post, collapsible, for when the sidebar
+// (#toc-auto) is hidden. Mirrors the look of the theme's #toc-static.
+.post-collapsibles {
+  display: none;
+  margin: 1.5rem 0 0;
+
+  &.always {
+    display: block;
+  }
+
+  @media only screen and (max-width: 960px) {
+    display: block;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.post-collapsible {
+  margin: 0 0 0.8rem;
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.75rem;
+    line-height: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    background: darken($code-background-color, 6%);
+
+    [theme=dark] & {
+      background: darken($code-background-color-dark, 6%);
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    i {
+      color: $global-font-secondary-color;
+      transition: transform 0.2s ease;
+
+      [theme=dark] & {
+        color: $global-font-secondary-color-dark;
+      }
+    }
+  }
+
+  details[open] summary {
+    background: darken($code-background-color, 3%);
+
+    [theme=dark] & {
+      background: darken($code-background-color-dark, 3%);
+    }
+
+    i {
+      transform: rotate(90deg);
+    }
+  }
+
+  details > ul,
+  details > .related-posts-group {
+    margin: 0;
+    padding: 0.4rem 1rem 0.4rem 1.8rem;
+    background-color: $code-background-color;
+
+    [theme=dark] & {
+      background-color: $code-background-color-dark;
+    }
+  }
+
+  .related-posts-group {
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0 0 0.6rem;
+      padding-left: 1.1rem;
+    }
+  }
+
+  details > .related-posts-group {
+    padding-left: 1rem;
+  }
+
+  li {
+    margin: 0.3rem 0;
+  }
+
+  a {
+    color: $accent-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-hover-color;
+      text-decoration: underline;
+    }
+  }
+}
+
 .single {
   .post-meta {
     margin-bottom: 1rem;

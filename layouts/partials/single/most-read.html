@@ -1,22 +1,31 @@
-{{- $config := .Site.Params.page.mostRead | default dict -}}
+{{- /* Expects dict "Page" <page> and optionally "Collapsible" true for the end-of-post mobile version. */ -}}
+{{- $current := .Page -}}
+{{- $collapsible := .Collapsible | default false -}}
+{{- $config := $current.Site.Params.page.mostRead | default dict -}}
 {{- if ne $config.enable false -}}
     {{- $limit := $config.limit | default 5 -}}
     {{- $tag := $config.tag | default "mais-lidas" -}}
-    {{- $current := . -}}
     {{- $posts := slice -}}
-    {{- range .Site.RegularPages.ByDate.Reverse -}}
+    {{- range $current.Site.RegularPages.ByDate.Reverse -}}
         {{- if and (ne .RelPermalink $current.RelPermalink) (in .Params.tags $tag) -}}
             {{- $posts = $posts | append . -}}
         {{- end -}}
     {{- end -}}
     {{- if gt (len $posts) 0 -}}
-        <aside class="related-posts most-read" aria-label="{{ T "mostRead" }}">
+        {{- if $collapsible -}}
+            <aside class="post-collapsible most-read" aria-label="{{ T "mostRead" }}">
+            <details>
+            <summary>{{ T "mostRead" }}<i class="fas fa-angle-right" aria-hidden="true"></i></summary>
+        {{- else -}}
+            <aside class="related-posts most-read" aria-label="{{ T "mostRead" }}">
             <h2 class="related-posts-title">{{ T "mostRead" }}</h2>
+        {{- end -}}
             <ul>
                 {{- range first $limit $posts -}}
                     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                 {{- end -}}
             </ul>
+        {{- if $collapsible }}</details>{{ end -}}
         </aside>
     {{- end -}}
 {{- end -}}

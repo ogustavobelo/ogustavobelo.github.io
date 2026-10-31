@@ -15,8 +15,8 @@
         <div class="toc" id="toc-auto">
             <h2 class="toc-title">{{ T "contents" }}</h2>
             <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
-            {{- partial "single/most-read.html" . -}}
-            {{- partial "single/related-posts.html" . -}}
+            {{- partial "single/most-read.html" (dict "Page" .) -}}
+            {{- partial "single/related-posts.html" (dict "Page" .) -}}
         </div>
     {{- end -}}
 
@@ -92,6 +92,12 @@
 
         {{- /* Share */ -}}
         {{- partial "single/share.html" . -}}
+
+        {{- /* Sidebar sections, shown collapsible at the end of the post when the sidebar is hidden */ -}}
+        <div class="post-collapsibles{{ if eq $toc.enable false }} always{{ end }}">
+            {{- partial "single/most-read.html" (dict "Page" . "Collapsible" true) -}}
+            {{- partial "single/related-posts.html" (dict "Page" . "Collapsible" true) -}}
+        </div>
 
         {{- /* Footer */ -}}
         {{- partial "single/footer.html" . -}}

@@ -248,3 +248,16 @@ def test_hugo_most_read_section_lists_tagged_posts_above_related_posts(tmp_path)
     assert 'href="/posts/2025/03/04/flow/"' not in _most_read_section(tagged_page)
     assert "#filmes" not in tagged_page
     assert ">filmes</a>" not in tagged_page
+
+
+def test_hugo_post_page_repeats_sidebar_sections_as_collapsibles_at_the_end(built_site_session):
+    post_page = (
+        built_site_session / "posts" / "2025" / "03" / "04" / "flow" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    collapsibles = post_page[post_page.index('<div class="post-collapsibles">'):]
+    assert post_page.index('<aside class="post-share"') < post_page.index('<div class="post-collapsibles">')
+    assert '<aside class="post-collapsible most-read" aria-label="Mais lidas">' in collapsibles
+    assert '<summary>Mais lidas<i class="fas fa-angle-right" aria-hidden="true"></i></summary>' in collapsibles
+    assert '<aside class="post-collapsible related" aria-label="Postagens relacionadas">' in collapsibles
+    assert '<h3><a href="/tags/filmes/">#filmes</a></h3>' in collapsibles

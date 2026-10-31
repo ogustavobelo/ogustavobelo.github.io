@@ -1,8 +1,10 @@
-{{- $config := .Site.Params.page.relatedPosts | default dict -}}
+{{- /* Expects dict "Page" <page> and optionally "Collapsible" true for the end-of-post mobile version. */ -}}
+{{- $current := .Page -}}
+{{- $collapsible := .Collapsible | default false -}}
+{{- $config := $current.Site.Params.page.relatedPosts | default dict -}}
 {{- if ne $config.enable false -}}
     {{- $limit := $config.limit | default 5 -}}
-    {{- $current := . -}}
-    {{- with (complement (slice (.Site.Params.page.mostRead.tag | default "mais-lidas")) (.Params.tags | default slice)) -}}
+    {{- with (complement (slice ($current.Site.Params.page.mostRead.tag | default "mais-lidas")) ($current.Params.tags | default slice)) -}}
         {{- $relatedByTag := slice -}}
         {{- range . -}}
             {{- $tag := . -}}
@@ -17,8 +19,14 @@
             {{- end -}}
         {{- end -}}
         {{- if gt (len $relatedByTag) 0 -}}
-            <aside class="related-posts" aria-label="{{ T "relatedPosts" }}">
+            {{- if $collapsible -}}
+                <aside class="post-collapsible related" aria-label="{{ T "relatedPosts" }}">
+                <details>
+                <summary>{{ T "relatedPosts" }}<i class="fas fa-angle-right" aria-hidden="true"></i></summary>
+            {{- else -}}
+                <aside class="related-posts" aria-label="{{ T "relatedPosts" }}">
                 <h2 class="related-posts-title">{{ T "relatedPosts" }}</h2>
+            {{- end -}}
                 {{- range $relatedByTag -}}
                     <section class="related-posts-group">
                         {{- $tagName := .name -}}
@@ -33,6 +41,7 @@
                         </ul>
                     </section>
                 {{- end -}}
+            {{- if $collapsible }}</details>{{ end -}}
             </aside>
         {{- end -}}
     {{- end -}}
