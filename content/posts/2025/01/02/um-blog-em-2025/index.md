@@ -2,7 +2,7 @@
 title = "Um blog em 2025?"
 date = "2025-01-02T20:54:00+00:00"
 draft = false
-tags = ["desabafo", "redes-sociais", "ensaios"]
+tags = ["desabafo", "redes-sociais", "ensaios", "mais-lidas"]
 aliases = ["/um-blog-em-2025/"]
 bear_uid = "wnuxkutbtGsQhyHYdhHH"
 +++

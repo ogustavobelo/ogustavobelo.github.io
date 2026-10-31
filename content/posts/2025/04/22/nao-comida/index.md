@@ -2,7 +2,7 @@
 title = "não-comida"
 date = "2025-04-22T18:54:00+00:00"
 draft = false
-tags = ["desabafo", "ensaios"]
+tags = ["desabafo", "ensaios", "mais-lidas"]
 aliases = ["/nao-comida/"]
 bear_uid = "BTJXHIsiRgoYLsVKSzHZ"
 +++

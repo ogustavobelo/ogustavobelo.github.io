@@ -2,7 +2,7 @@
 title = "Sobre (en)lutar"
 date = "2025-08-30T20:31:00+00:00"
 draft = false
-tags = ["ensaios", "familia"]
+tags = ["ensaios", "familia", "mais-lidas"]
 aliases = ["/sobreenlutar/"]
 bear_uid = "sDEBUqrMsoSCEpHPpHKM"
 +++

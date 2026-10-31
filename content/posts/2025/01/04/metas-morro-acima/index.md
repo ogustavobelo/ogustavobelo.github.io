@@ -2,7 +2,7 @@
 title = "Metas morro acima"
 date = "2025-01-04T14:36:00+00:00"
 draft = false
-tags = ["ensaios", "metas", "rotina"]
+tags = ["ensaios", "metas", "rotina", "mais-lidas"]
 aliases = ["/metas-morro-acima/"]
 bear_uid = "trajGWwKDmgtQKQPXZFq"
 +++

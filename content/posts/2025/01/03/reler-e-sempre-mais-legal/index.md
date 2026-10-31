@@ -2,7 +2,7 @@
 title = "Reler é sempre mais legal"
 date = "2025-01-03T01:35:00+00:00"
 draft = false
-tags = ["livros", "review", "leituras"]
+tags = ["livros", "review", "leituras", "mais-lidas"]
 aliases = ["/reler-e-sempre-mais-legal/"]
 bear_uid = "DzjQHsqTGEoxzLwHVJDq"
 +++
