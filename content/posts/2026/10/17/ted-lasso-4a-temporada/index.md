@@ -3,11 +3,11 @@ title = "Ted Lasso - 4a temporada"
 date = "2026-10-17T10:20:46-03:00"
 draft = false
 tags = ["review", "series", "apple-tv"]
-images = ["ted-lasso-4a-temporada.png"]
+images = ["ted-lasso-4a-temporada.webp"]
 description = "Análise da quarta temporada de Ted Lasso da Apple Tv.  Apesar da história se perder entre o novo e o antigo, continua sendo uma obra que aquece o coração"
 +++
 
-{{< image src="image.png" alt="image" class="image-frame" >}}
+{{< image src="image.webp" alt="image" class="image-frame" >}}
 
 Precisava? Não.
 

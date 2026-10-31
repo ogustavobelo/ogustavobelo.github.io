@@ -5,7 +5,7 @@ draft = false
 description="Série da Apple TV que mistura terror e comédia com um ar de realismo mágico. Bom roteiro, boas atuações e final anti-climático"
 tags = ["review", "series", "apple-tv"]
 +++
-{{< image src="widows-bay.png" alt="widows-bay" class="image-frame" >}}
+{{< image src="widows-bay.webp" alt="widows-bay" class="image-frame" >}}
 
 Ousaria dizer que é uma das séries mais surpreendentes dos últimos anos. Não pela grandiosidade e inovação mas pelo oposto disto, uma história contida se passando em uma pequena ilha, poucos personagens, pequenas locações, mas extremamente bem executada. Uma mistura de terror com comédia muito bem dosada. Nesta combinação de gênero, que não é nada nova, sempre acho que fica pesado mais para um lado: ou é uma obra de terror que tem partes com comédia, ou uma obra de comédia com partes de terror. Quando essa mixagem não é homogênea conseguimos separar claramente os sabores. Widow's Bay conseguiu equilibrar de maneira primorosa a distribuição entre os momentos super engraçados com um sustos cabulosos, a ponto de parecer um gênero novo.
 

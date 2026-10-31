@@ -145,7 +145,7 @@ def test_hugo_shelf_works_have_no_page_of_their_own(built_site_session):
     work_dir = built_site_session / "estante" / "2026" / "09" / "o-segredo-de-widows-bay"
 
     assert not (work_dir / "index.html").exists()
-    assert not (work_dir / "cover.png").exists()
+    assert not (work_dir / "cover.webp").exists()
     assert not (built_site_session / "estante" / "index.xml").exists()
     assert not (built_site_session / "estante" / "page" / "2").exists()
 
@@ -171,8 +171,8 @@ def test_hugo_post_images_open_in_modal_and_track_clicks(built_site_session):
     ).read_text(encoding="utf-8")
 
     assert (
-        '<a class="image-link" href="/posts/2026/10/11/o-monstro-em-mim/image.png" title="image"'
-        ' data-goatcounter-click="image-/posts/2026/10/11/o-monstro-em-mim/image.png"'
+        '<a class="image-link" href="/posts/2026/10/11/o-monstro-em-mim/image.webp" title="image"'
+        ' data-goatcounter-click="image-/posts/2026/10/11/o-monstro-em-mim/image.webp"'
         ' data-goatcounter-title="Imagem: image"'
         ' data-goatcounter-referrer="/posts/2026/10/11/o-monstro-em-mim/">'
     ) in post_page

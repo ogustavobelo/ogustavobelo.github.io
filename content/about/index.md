@@ -2,7 +2,7 @@
 title: "Sobre mim"
 ---
 
-<img class="about-profile" src="profile.jpeg" alt="Gustavo Belo">
+<img class="about-profile" src="profile.webp" alt="Gustavo Belo">
 
 Nerd por vocação e inquieto por natureza. Ou seria o contrário? 🤔
 

@@ -3,14 +3,14 @@ title = "O monstro em mim"
 date = "2026-10-11T11:01:47-03:00"
 draft = false
 tags = ["review", "series", "netflix"]
-images = ["o-monstro-em-mim.png"]
+images = ["o-monstro-em-mim.webp"]
 +++
 
-{{< image src="o-monstro-em-mim.png" alt="O monstro em mim" class="image-frame" >}}
+{{< image src="o-monstro-em-mim.webp" alt="O monstro em mim" class="image-frame" >}}
 
 Fazia tempo que a [Netflix](/tags/netflix/) não trazia nada relevante né? Minha última nota sobre algo que gostei da *tudum* foi o [Eternauta](/posts/2025/05/08/o-eternauta/), do começo de 2025. Deve ser por isso que já confirmaram a segunda temporada de uma obra que tinha tudo pra ser minissérie. Deu certo? Tira cada centavo possível até o público criar ranço.
 
-{{< image src="image.png" alt="image" class="image-frame" >}}
+{{< image src="image.webp" alt="image" class="image-frame" >}}
 
 Mas falando desta série em questão... é legal mas decepcionante. O meu sentimento de "poderia ser melhor" ofuscou completamente as partes que gostei. 
 

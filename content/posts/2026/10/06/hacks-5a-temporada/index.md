@@ -4,10 +4,10 @@ date = "2026-10-06T09:23:20-03:00"
 draft = false
 tags = ["review", "series", "hbo-max"]
 description = "Última temporada de Hacks da HBO. Personagens amadureceram e tiveram final surpreendente"
-images = ["hacks-5a-temporada.png"]
+images = ["hacks-5a-temporada.webp"]
 +++
 
-{{< image src="hacks-5a-temporada.png" alt="Hacks - 5a temporada" class="image-frame" >}}
+{{< image src="hacks-5a-temporada.webp" alt="Hacks - 5a temporada" class="image-frame" >}}
 
 Foi a melhor temporada da série e acabou com primazia.
 

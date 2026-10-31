@@ -6,7 +6,7 @@ tags = ["tech", "open-source"]
 description = "Como configurei um servidor local onde baixo e assisto séries e filmes"
 +++
 
-{{< image src="image.png" alt="image" class="image-frame" >}}
+{{< image src="image.webp" alt="image" class="image-frame" >}}
 
 Esse fim de semana gastei algumas horinhas, e muitos tokens, para iniciar um projeto que tanto planejo: meu Home Lab. 
 Já venho usando o Jellyfin há algum tempo mas o processo estava inteiramente manual, até que um amigo (Valeu, Jovane <3) compartilhou o [seguinte tutorial](https://bishalkshah.com.np/blog/ultimate-2026-media-stack-jellyfin-arrs).

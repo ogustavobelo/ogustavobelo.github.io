@@ -4,10 +4,10 @@ date = "2026-10-07T08:31:04-03:00"
 draft = false
 tags = ["review", "leituras", "livros"]
 description = "Livro curtinho cheio de brasilidade mas que não me cativou"
-images = ["a-hora-da-estrela.png"]
+images = ["a-hora-da-estrela.webp"]
 +++
 
-{{< image src="a-hora-da-estrela.png" alt="A hora da estrela" class="image-frame" >}}
+{{< image src="a-hora-da-estrela.webp" alt="A hora da estrela" class="image-frame" >}}
 
 Vou logo adiantando que não é pra mim 😔
 

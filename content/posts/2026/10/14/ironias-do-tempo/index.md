@@ -3,11 +3,11 @@ title = "Ironias do tempo"
 date = "2026-10-14T21:18:30-03:00"
 draft = false
 tags = ["review", "leituras", "livros"]
-images = ["ironias-do-tempo.png"]
+images = ["ironias-do-tempo.webp"]
 description = "Livro de textos curtos do Luis Fernando Veríssimo que explora sua criatividade a partir do cotidiano."
 +++
 
-{{< image src="ironias-do-tempo.png" alt="Ironias do tempo" class="image-frame" >}}
+{{< image src="ironias-do-tempo.webp" alt="Ironias do tempo" class="image-frame" >}}
 
 Resolvi pegar o hábito de colocar sempre um livro de leituras rápidas no celular para consultar naqueles momentos de tédio momentâneo que você não sabe pra onde olhar, enquanto espera na recepção do dentista.
 

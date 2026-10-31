@@ -14,14 +14,14 @@ Felizmente, é possível você exportar todas as mídias que você armazenou dur
 
 Então, rapidamente reativei a conta e solicitei que eles me enviassem tudo. No mesmo dia, recebi um e-mail contendo um link para o download de um zip que continha tudo. Tudo mesmo, até as preferências de uso, pesquisas, mensagens, informações pessoas, etc.
 
-{{< image src="instagram-export-tree.png" alt="instagram-export-tree" class="image-frame" >}}
+{{< image src="instagram-export-tree.webp" alt="instagram-export-tree" class="image-frame" >}}
 
 Tá... Agora com literalmente milhares de arquivos. Alguns deles de um fundo colorido com texto em letras garrafais xingando algum político aleatório. Ou um boomerang de uma dose de cachaça sendo despejada na boca de um amigo. Ou o print de uma notícia (antes não existia o compartilhar no instagram)... e assim, vai. Como separar as mídias que realmente me interessam? Com algumas pesquisas rápidas descobri o [DigiKam](https://www.digikam.org/documentation/), software open-source com ferramentas para gestão de imagens.
 
 Entre as várias funções disponíveis temos uma toolkit de reconhecimento facial que me permitiu com pouquíssimas configurações filtrar e taguear as que apareciam eu, a Marília e/ou o Arthur.
 Além de criar esses álbuns, ele altera os metadados da imagem adicionando as tags identificadas.
 
-{{< image src="gustavo-belo-face-recognition.png" alt="imgustavo-belo-face-recognitionage" class="image-frame" >}}
+{{< image src="gustavo-belo-face-recognition.webp" alt="imgustavo-belo-face-recognitionage" class="image-frame" >}}
 
 Isso já resolveu parte do problema, consegui separar e catalogar as imagens que mais me interessavam e deletar as que foram apenas postagens frívolas. Só que ainda tinham milhares de vídeos que o DigiKam não consegue catalogar.
 
@@ -29,12 +29,12 @@ A saída foi aproveitar o trabalho de tagueamento que eu já tinha havia feito a
 
  Para quem nunca programou, pode soar como ciência de foguetes mas garanto que é algo relativamente simples, com poucas linhas de comando que podem ser cuspidas por qualquer LLM:
  
- {{< image src="scan-videos-code.png" alt="scan-videos-code" class="image-frame" >}}
+ {{< image src="scan-videos-code.webp" alt="scan-videos-code" class="image-frame" >}}
 
 
 Como o Arthur muda muito de aparência com a idade, comparei cada rosto com todas as referências de cada pessoa e fiquei com a mais parecida, em vez de usar uma média. Por fim, para a catalogação não se perder, usei ffmpeg para copiar os streams sem recodificar e gravar os nomes nos metadados. O exiftool acrescentou as tags People/Nome do digiKam. Então, um filtro futuro por nome acha tudo sem refazer a varredura. Com uma breve análise manual, basicamente pela thumb e minha memória sobre o contexto, movi entre as pastas e voilá
 
-{{< image src="videos-catalog.png" alt="videos-catalog" class="image-frame" >}}
+{{< image src="videos-catalog.webp" alt="videos-catalog" class="image-frame" >}}
 
 Agora tenho todas as fotos e vídeos que eu queria organizadas e catalogadas, seja por data do registro, como pelas pessoas que aparecessem.
 
