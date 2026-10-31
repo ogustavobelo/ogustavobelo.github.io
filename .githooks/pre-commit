@@ -1,0 +1,6 @@
+#!/bin/sh
+# Enable once per clone with: git config core.hooksPath .githooks
+
+# Added, copied, modified or renamed files staged for this commit.
+git diff --cached --name-only --diff-filter=ACMR -z \
+    | xargs -0 python3 scripts/check_images.py

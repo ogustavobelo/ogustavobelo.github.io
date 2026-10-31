@@ -177,6 +177,16 @@ An image that would get larger as WebP is left untouched.
 Use `--dry-run` to only see the expected savings and `--keep-original` to keep
 the source files.
 
+Since every committed image stays in the Git history for good, a pre-commit
+hook blocks PNG/JPEG files and images above 500 KB under `content/`. Enable it
+once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+Use `git commit --no-verify` to skip it when an exception is really needed.
+
 ## AI Project Documentation
 
 - [Copilot instructions](.github/copilot-instructions.md): repository-wide
