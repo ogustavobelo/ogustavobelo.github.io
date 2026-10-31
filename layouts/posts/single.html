@@ -15,6 +15,7 @@
         <div class="toc" id="toc-auto">
             <h2 class="toc-title">{{ T "contents" }}</h2>
             <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
+            {{- partial "single/most-read.html" . -}}
             {{- partial "single/related-posts.html" . -}}
         </div>
     {{- end -}}
@@ -55,7 +56,7 @@
         {{- end -}}
 
         {{- /* Tags */ -}}
-        {{- with .Params.tags -}}
+        {{- with (complement (slice (.Site.Params.page.mostRead.tag | default "mais-lidas")) (.Params.tags | default slice)) -}}
             <div class="post-tags-inline">
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }}{{ end -}}

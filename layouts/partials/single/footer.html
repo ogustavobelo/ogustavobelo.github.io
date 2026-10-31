@@ -44,7 +44,7 @@
 
     <div class="post-info-more">
         <section class="post-tags">
-            {{- with .Params.tags -}}
+            {{- with (complement (slice (.Site.Params.page.mostRead.tag | default "mais-lidas")) (.Params.tags | default slice)) -}}
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }},&nbsp;{{ end -}}

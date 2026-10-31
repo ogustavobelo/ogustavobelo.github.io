@@ -8,7 +8,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def _build_site(tmp_path, extra_args=None):
+def _build_site(tmp_path, extra_args=None, extra_env=None):
     destination = tmp_path / "public"
     result = subprocess.run(
         [
@@ -30,6 +30,7 @@ def _build_site(tmp_path, extra_args=None):
             **os.environ,
             "HUGO_PARAMS_SOCIAL_EMAIL": "leitor@example.com",
             "HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE": "blog-de-teste",
+            **(extra_env or {}),
         },
     )
 

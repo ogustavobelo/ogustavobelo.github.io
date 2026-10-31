@@ -205,3 +205,46 @@ def test_hugo_404_page_tracks_requested_route_as_goatcounter_event(built_site_se
     assert "return '404:' + location.pathname + location.search;" in page
     assert "event: true" in page
     assert page.index("window.goatcounter = {") < page.index('src="https://gc.zgo.at/count.js"')
+
+
+def _most_read_section(page):
+    start = page.index('<aside class="related-posts most-read"')
+    return page[start:page.index("</aside>", start)]
+
+
+def test_hugo_post_page_without_most_read_posts_hides_section(tmp_path):
+    from conftest import _build_site
+
+    site = _build_site(tmp_path, extra_env={"HUGO_PARAMS_PAGE_MOSTREAD_TAG": "tag-sem-posts"})
+    post_page = (
+        site / "posts" / "2025" / "03" / "04" / "flow" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert "most-read" not in post_page
+
+
+def test_hugo_most_read_section_lists_tagged_posts_above_related_posts(tmp_path):
+    from conftest import _build_site
+
+    # Use an existing tag as the control tag so the test doesn't depend on content tagged "mais-lidas",
+    # and lift the limit so new posts don't push the asserted one out of the list.
+    site = _build_site(
+        tmp_path,
+        extra_env={"HUGO_PARAMS_PAGE_MOSTREAD_TAG": "filmes", "HUGO_PARAMS_PAGE_MOSTREAD_LIMIT": "1000"},
+    )
+    untagged_page = (
+        site / "posts" / "2026" / "01" / "05" / "a-cabeca-do-santo" / "index.html"
+    ).read_text(encoding="utf-8")
+    tagged_page = (
+        site / "posts" / "2025" / "03" / "04" / "flow" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    most_read = _most_read_section(untagged_page)
+    assert '<h2 class="related-posts-title">Mais lidas</h2>' in most_read
+    assert 'href="/posts/2025/03/04/flow/"' in most_read
+    assert untagged_page.index("most-read") < untagged_page.index('<aside class="related-posts" ')
+
+    # The current post is not listed and the control tag is hidden from tag lists.
+    assert 'href="/posts/2025/03/04/flow/"' not in _most_read_section(tagged_page)
+    assert "#filmes" not in tagged_page
+    assert ">filmes</a>" not in tagged_page

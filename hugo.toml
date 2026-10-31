@@ -86,6 +86,12 @@ hiddenFromSearch = false
 # agents can consume posts without a follow-up fetch of the HTML page.
 rssFullText = true
 
+[params.page.mostRead]
+enable = true
+limit = 5
+# Control tag: posts with it are listed on every post and the tag itself is hidden from tag lists.
+tag = 'mais-lidas'
+
 [params.page.relatedPosts]
 enable = true
 limit = 5

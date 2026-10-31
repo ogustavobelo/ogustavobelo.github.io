@@ -2,7 +2,7 @@
 {{- if ne $config.enable false -}}
     {{- $limit := $config.limit | default 5 -}}
     {{- $current := . -}}
-    {{- with .Params.tags -}}
+    {{- with (complement (slice (.Site.Params.page.mostRead.tag | default "mais-lidas")) (.Params.tags | default slice)) -}}
         {{- $relatedByTag := slice -}}
         {{- range . -}}
             {{- $tag := . -}}

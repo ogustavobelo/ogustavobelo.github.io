@@ -1,0 +1,22 @@
+{{- $config := .Site.Params.page.mostRead | default dict -}}
+{{- if ne $config.enable false -}}
+    {{- $limit := $config.limit | default 5 -}}
+    {{- $tag := $config.tag | default "mais-lidas" -}}
+    {{- $current := . -}}
+    {{- $posts := slice -}}
+    {{- range .Site.RegularPages.ByDate.Reverse -}}
+        {{- if and (ne .RelPermalink $current.RelPermalink) (in .Params.tags $tag) -}}
+            {{- $posts = $posts | append . -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if gt (len $posts) 0 -}}
+        <aside class="related-posts most-read" aria-label="{{ T "mostRead" }}">
+            <h2 class="related-posts-title">{{ T "mostRead" }}</h2>
+            <ul>
+                {{- range first $limit $posts -}}
+                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{- end -}}
+            </ul>
+        </aside>
+    {{- end -}}
+{{- end -}}

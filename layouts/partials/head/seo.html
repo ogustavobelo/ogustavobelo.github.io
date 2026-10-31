@@ -143,7 +143,7 @@
             ],
         {{- end -}}
         "genre": "{{ .Type }}",
-        {{- with .Params.tags -}}
+        {{- with (complement (slice (.Site.Params.page.mostRead.tag | default "mais-lidas")) (.Params.tags | default slice)) -}}
             "keywords": "{{ delimit . ", " }}",
         {{- end -}}
         "wordcount": {{ .WordCount }},
