@@ -261,3 +261,17 @@ def test_hugo_post_page_repeats_sidebar_sections_as_collapsibles_at_the_end(buil
     assert '<summary>Mais lidas<i class="fas fa-angle-right" aria-hidden="true"></i></summary>' in collapsibles
     assert '<aside class="post-collapsible related" aria-label="Postagens relacionadas">' in collapsibles
     assert '<h3><a href="/tags/filmes/">#filmes</a></h3>' in collapsibles
+
+
+def test_hugo_post_page_marks_toc_empty_only_without_headings(built_site_session):
+    without_headings = (
+        built_site_session / "posts" / "2026" / "10" / "31" / "feito-pipa" / "index.html"
+    ).read_text(encoding="utf-8")
+    with_headings = (
+        built_site_session / "posts" / "2025" / "01" / "02" / "um-blog-em-2025" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert '<div class="details toc toc-empty" id="toc-static"' in without_headings
+    assert '<div class="toc toc-empty" id="toc-auto">' in without_headings
+    assert '<div class="details toc" id="toc-static"' in with_headings
+    assert '<div class="toc" id="toc-auto">' in with_headings

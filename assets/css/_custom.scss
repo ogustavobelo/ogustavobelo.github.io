@@ -61,6 +61,12 @@
   }
 }
 
+// Posts without headings: hide the empty TOC but keep its elements for the theme JS.
+#toc-static.toc-empty,
+#toc-auto.toc-empty > .toc-title {
+  display: none !important;
+}
+
 // Sidebar sections repeated at the end of the post, collapsible, for when the sidebar
 // (#toc-auto) is hidden. Mirrors the look of the theme's #toc-static.
 .post-collapsibles {
