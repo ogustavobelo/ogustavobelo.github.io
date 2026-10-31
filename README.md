@@ -178,14 +178,15 @@ Use `--dry-run` to only see the expected savings and `--keep-original` to keep
 the source files.
 
 Since every committed image stays in the Git history for good, a pre-commit
-hook blocks PNG/JPEG files and images above 500 KB under `content/`. Enable it
-once per clone:
+hook runs the same conversion on PNG/JPEG files staged under `content/`, staging
+the WebP, the removed original, and the Markdown files whose references
+changed. Images above 500 KB only get a warning. Enable it once per clone:
 
 ```sh
 git config core.hooksPath .githooks
 ```
 
-Use `git commit --no-verify` to skip it when an exception is really needed.
+Use `git commit --no-verify` to commit an image as it is.
 
 ## AI Project Documentation
 

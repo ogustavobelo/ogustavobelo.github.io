@@ -23,6 +23,7 @@ class Conversion(NamedTuple):
     target: Path | None
     size_before: int
     size_after: int
+    references: list[Path] = []
 
 
 def encode_webp(source: Path) -> bytes:
@@ -109,14 +110,15 @@ def convert_image(source: Path, *, keep_original: bool = False, dry_run: bool = 
     target = source.with_suffix(".webp")
     if target.exists():
         raise FileExistsError(f"Refusing to overwrite {target}")
+    references: list[Path] = []
     if not dry_run:
         target.write_bytes(encoded)
         content_dir = find_content_dir(source)
         if content_dir:
-            update_references(source, target, content_dir)
+            references = update_references(source, target, content_dir)
         if not keep_original:
             source.unlink()
-    return Conversion(source, target, size_before, len(encoded))
+    return Conversion(source, target, size_before, len(encoded), references)
 
 
 def format_size(size: int) -> str:
