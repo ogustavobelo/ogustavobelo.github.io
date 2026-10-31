@@ -3,6 +3,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 import pytest
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,7 +23,7 @@ def write_work(repo_root: Path, path: str, front_matter: str, cover: str = "") -
     index_file = bundle / "index.md"
     index_file.write_text(f"+++\n{front_matter}+++\n", encoding="utf-8")
     if cover:
-        (bundle / cover).write_bytes(b"image")
+        Image.new("RGB", (8, 8), "teal").save(bundle / cover, format="PNG")
     return index_file
 
 
@@ -78,11 +79,11 @@ def test_convert_to_post_moves_cover_and_concludes_work(tmp_path):
         'date = "2026-10-06T09:00:00-03:00"\n'
         "draft = true\n"
         'tags = ["review", "series"]\n'
-        'images = ["hacks.png"]\n'
+        'images = ["hacks.webp"]\n'
         "+++\n\n"
-        '{{< image src="hacks.png" alt="Hacks" class="image-frame" >}}\n\n'
+        '{{< image src="hacks.webp" alt="Hacks" class="image-frame" >}}\n\n'
     )
-    assert (post_dir / "hacks.png").read_bytes() == b"image"
+    assert Image.open(post_dir / "hacks.webp").format == "WEBP"
     assert list(index_file.parent.glob("cover.*")) == []
     assert shelf_file == index_file
     assert index_file.read_text(encoding="utf-8") == (
@@ -93,7 +94,7 @@ def test_convert_to_post_moves_cover_and_concludes_work(tmp_path):
         "startDate = 2026-09-24\n"
         "endDate = 2026-10-05\n"
         'post = "/posts/2026/10/06/hacks"\n'
-        'cover = "/posts/2026/10/06/hacks/hacks.png"\n'
+        'cover = "/posts/2026/10/06/hacks/hacks.webp"\n'
         "+++\n"
     )
 

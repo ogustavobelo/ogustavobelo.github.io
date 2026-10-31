@@ -50,7 +50,7 @@ passes them to the build as environment variables. Environment variables always
 take precedence over the local file.
 
 To run the automated tests,
-install `pytest` and run:
+install `pytest` and `pillow` and run:
 
 ```sh
 python3 -m pytest -q
@@ -109,7 +109,8 @@ Enter a title, pick the kind and status with the arrow keys and enter (a
 numbered list in a non-interactive terminal), then the start date (defaults to
 today). Finished works also ask for an end date, and concluded ones for an
 optional post path. Finally, drag a cover image into the terminal, or press
-Enter to add it later.
+Enter to add it later. PNG and JPEG covers are saved as `cover.webp` (see
+[Optimize Images](#optimize-images)).
 
 Each work is a page bundle under `content/estante/<year>/<month>/<slug>/`, the
 month of its `startDate` (e.g. `content/estante/2026/09/o-segredo-de-widows-bay/`),
@@ -123,7 +124,7 @@ status = "concluded"   # in-progress | concluded | abandoned
 startDate = 2026-09-01
 endDate = 2026-10-01   # optional
 post = "/posts/2026/10/02/o-segredo-de-widows-bay"  # optional, concluded only
-cover = "/posts/2026/10/02/o-segredo-de-widows-bay/widows-bay.png"  # optional
+cover = "/posts/2026/10/02/o-segredo-de-widows-bay/widows-bay.webp"  # optional
 +++
 ```
 
@@ -150,9 +151,31 @@ python3 scripts/shelf_item_to_post.py
 Pick the work from the in-progress list, confirm the post title (Enter keeps
 the work's), choose tags and a description as in `create_post.py`, and enter
 the end date. The script creates a draft post with the work's cover as its
-image, moving the file into the post bundle instead of copying it, and marks
+image, moving the file into the post bundle instead of copying it (a PNG or
+JPEG cover is converted to WebP on the way), and marks
 the work as `concluded` with `endDate`, `post`, and a `cover` path pointing at
 that image. Write the post and set `draft = false` to publish it.
+
+## Optimize Images
+
+Post images are served as they are, so convert them to WebP before committing.
+The script needs [Pillow](https://pillow.readthedocs.io/) (`pip install pillow`):
+
+```sh
+python3 scripts/convert_images.py content/posts/2026/10/25/my-post/
+```
+
+It accepts files or folders (scanned recursively) and converts every PNG and
+JPEG it finds. Each image is encoded lossy at quality 90 with the slowest,
+most thorough compression; PNGs are also tried lossless, keeping the smaller
+result. Resolution, transparency, orientation, and color profile are kept.
+Afterwards, references inside `content/` are updated: the bare file name in the
+bundle's own Markdown (`images = [...]`, `{{< image src=... >}}`) and absolute
+paths anywhere, such as a shelf work's `cover`. The original is then deleted.
+An image that would get larger as WebP is left untouched.
+
+Use `--dry-run` to only see the expected savings and `--keep-original` to keep
+the source files.
 
 ## AI Project Documentation
 

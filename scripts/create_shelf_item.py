@@ -11,6 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from convert_images import CONVERTIBLE_EXTENSIONS, convert_to_webp  # noqa: E402
 from create_post import BRAZIL_TIMEZONE, normalize_slug, toml_escape  # noqa: E402
 
 # Values stored in front matter (English, see layouts/estante/list.html) paired
@@ -222,7 +223,10 @@ def create_shelf_item(
     if cover:
         for old_cover in output_dir.glob("cover.*"):
             old_cover.unlink()
-        shutil.copyfile(cover, output_dir / f"cover{cover.suffix.lower()}")
+        if cover.suffix.lower() in CONVERTIBLE_EXTENSIONS:
+            convert_to_webp(cover, output_dir / "cover.webp")
+        else:
+            shutil.copyfile(cover, output_dir / f"cover{cover.suffix.lower()}")
     return output_file
 
 

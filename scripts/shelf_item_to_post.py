@@ -12,6 +12,7 @@ from typing import NamedTuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from convert_images import CONVERTIBLE_EXTENSIONS, convert_to_webp  # noqa: E402
 from create_post import (  # noqa: E402
     BRAZIL_TIMEZONE,
     FRONT_MATTER_PATTERN,
@@ -74,8 +75,11 @@ def convert_to_post(
         raise ValueError("End date cannot be before the start date")
 
     cover = find_cover(work.path.parent)
-    # Named after the post, like the other post images (e.g. widows-bay.png).
-    image = f"{normalize_slug(title.strip())}{cover.suffix.lower()}" if cover else ""
+    # Named after the post, like the other post images (e.g. widows-bay.webp).
+    # Legacy PNG/JPEG covers are converted on the way.
+    convert = cover is not None and cover.suffix.lower() in CONVERTIBLE_EXTENSIONS
+    suffix = ".webp" if convert else cover.suffix.lower() if cover else ""
+    image = f"{normalize_slug(title.strip())}{suffix}" if cover else ""
     post_file = create_post(
         title,
         tags,
@@ -87,7 +91,10 @@ def convert_to_post(
     )
     post_dir = post_file.parent
     post_path = "/" + post_dir.relative_to(Path(repo_root) / "content").as_posix()
-    if cover:
+    if convert:
+        convert_to_webp(cover, post_dir / image)
+        cover.unlink()
+    elif cover:
         shutil.move(cover, post_dir / image)
 
     text = work.path.read_text(encoding="utf-8")

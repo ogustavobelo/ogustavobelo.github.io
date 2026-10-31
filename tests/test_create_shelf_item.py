@@ -3,6 +3,7 @@ from datetime import date
 from pathlib import Path
 
 import pytest
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +15,11 @@ def load_module():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def write_image(path: Path) -> Path:
+    Image.new("RGB", (8, 8), "teal").save(path)
+    return path
 
 
 def test_kinds_and_statuses_match_the_shelf_layout():
@@ -28,8 +34,7 @@ def test_kinds_and_statuses_match_the_shelf_layout():
 
 def test_create_shelf_item_writes_concluded_work_with_cover(tmp_path):
     module = load_module()
-    cover = tmp_path / "Poster Final.PNG"
-    cover.write_bytes(b"png")
+    cover = write_image(tmp_path / "Poster Final.png")
 
     output = module.create_shelf_item(
         "O segredo de Widow's Bay",
@@ -61,7 +66,8 @@ def test_create_shelf_item_writes_concluded_work_with_cover(tmp_path):
         'post = "/posts/2026/10/02/o-segredo-de-widows-bay"\n'
         "+++\n"
     )
-    assert (output.parent / "cover.png").read_bytes() == b"png"
+    assert [p.name for p in output.parent.glob("cover.*")] == ["cover.webp"]
+    assert Image.open(output.parent / "cover.webp").format == "WEBP"
 
 
 def test_build_item_writes_cover_path():
@@ -129,10 +135,9 @@ def test_create_shelf_item_rejects_invalid_input(tmp_path, kwargs, message):
 
 def test_create_shelf_item_refuses_to_overwrite_and_replaces_cover(tmp_path):
     module = load_module()
-    old_cover = tmp_path / "old.jpg"
-    old_cover.write_bytes(b"jpg")
-    new_cover = tmp_path / "new.webp"
-    new_cover.write_bytes(b"webp")
+    old_cover = write_image(tmp_path / "old.jpg")
+    new_cover = tmp_path / "new.gif"
+    new_cover.write_bytes(b"gif")
     options = {"start_date": date(2026, 9, 1), "end_date": date(2026, 9, 2)}
 
     output = module.create_shelf_item(
@@ -144,13 +149,12 @@ def test_create_shelf_item_refuses_to_overwrite_and_replaces_cover(tmp_path):
     module.create_shelf_item(
         "Duna", "book", "concluded", tmp_path, cover=new_cover, overwrite=True, **options
     )
-    assert sorted(p.name for p in output.parent.glob("cover.*")) == ["cover.webp"]
+    assert sorted(p.name for p in output.parent.glob("cover.*")) == ["cover.gif"]
 
 
 def test_create_shelf_item_moves_work_when_start_month_changes(tmp_path):
     module = load_module()
-    cover = tmp_path / "cover.jpg"
-    cover.write_bytes(b"jpg")
+    cover = write_image(tmp_path / "cover.jpg")
 
     old = module.create_shelf_item(
         "Duna", "book", "in-progress", tmp_path, start_date=date(2026, 8, 30), cover=cover
@@ -170,7 +174,7 @@ def test_create_shelf_item_moves_work_when_start_month_changes(tmp_path):
     )
     assert new == tmp_path / "content" / "estante" / "2026" / "09" / "duna" / "index.md"
     assert not old.parent.exists()
-    assert (new.parent / "cover.jpg").read_bytes() == b"jpg"
+    assert (new.parent / "cover.webp").is_file()
 
 
 @pytest.mark.parametrize(
