@@ -18,3 +18,6 @@ __pycache__/
 content/posts/.obsidian/
 # Personal Hugo settings (see config/_default/params.toml.example)
 config/_default/params.toml
+
+# Generated Instagram stories (scripts/create_story.py)
+stories/
