@@ -188,6 +188,55 @@ git config core.hooksPath .githooks
 
 Use `git commit --no-verify` to commit an image as it is.
 
+## Instagram Stories
+
+### Creating the story image
+
+Render a 1080×1920 story for a post (needs Pillow):
+
+```sh
+python3 scripts/create_story.py content/posts/2026/10/25/my-post/
+```
+
+The post's cover fills the screen, with the title and description over a dark
+gradient at the bottom. The cover is the first of `images = [...]`, then the
+first `{{< image >}}` in the body, then any image in the bundle (or a plain
+accent-colored background). Without a `description`, the first paragraph is
+used. A band at the bottom is left free for the link sticker.
+
+The output goes to the git-ignored `stories/` folder: `stories/<slug>.png` and
+`stories/<slug>.json` with the title, description, and post URL. Use `--font`
+to pick another TTF/OTF font.
+
+### Publishing it from an Android phone
+
+`scripts/publish_story.py` sends the image to an Android phone over adb and
+drives the Instagram app to post it as a story with a link sticker to the post
+(the official API cannot add link stickers). It automates the app's UI, which
+Instagram's terms don't allow, so use it sparingly.
+
+One-time setup:
+
+1. `brew install android-platform-tools` and `pip install uiautomator2`.
+2. On the phone, enable Developer options › Wireless debugging, tap "Pair
+   device with pairing code", and run `adb pair IP:PAIRING_PORT` with that code.
+3. Keep Instagram logged in. The selectors expect the phone in Portuguese
+   (English labels are tried as a fallback).
+
+Then, with the IP:PORT shown on the Wireless debugging screen:
+
+```sh
+python3 scripts/publish_story.py stories/my-post.json --device 192.168.0.10:41234 --no-share
+```
+
+`--no-share` stops right before posting so you can review the story on the
+phone; drop it to post. The script never posts when Instagram attached a
+suggested song to the story, or while it asks for photo access: it stops and
+tells you to fix it on the phone. The device can also come from `STORY_ADB_DEVICE`.
+Every step saves a screenshot under `stories/debug/<slug>/`. When Instagram
+changes its UI and a step fails, the error names the missing element: add a
+matching selector to `SELECTORS` at the top of the script.
+
 ## AI Project Documentation
 
 - [Copilot instructions](.github/copilot-instructions.md): repository-wide
