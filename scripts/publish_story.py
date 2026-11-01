@@ -15,8 +15,9 @@ REMOTE_DIR = "/sdcard/DCIM/Stories"
 DEVICE_ENV = "STORY_ADB_DEVICE"
 WAIT_TIMEOUT = 10
 # Relative height where the link sticker is dropped: inside the band that
-# create_story.py leaves free below the text.
-STICKER_TARGET_Y = 0.95
+# create_story.py leaves free below the text (from 0.84), but above the trash
+# Instagram shows at the bottom while dragging (from about 0.90).
+STICKER_TARGET_Y = 0.87
 
 # Instagram changes its UI often: every step tries these selectors in order
 # (pt-BR first, then English), so a fix is usually a new entry here.
@@ -227,7 +228,11 @@ class Publisher:
 
     def pick_latest_image(self) -> None:
         self.tap("gallery")
-        self.input("tap", *center(self.find("gallery_item")[0].info["bounds"]))
+        item = center(self.find("gallery_item")[0].info["bounds"])
+        self.input("tap", *item)
+        # A tap that lands while the grid is still loading is ignored.
+        if not self.d(**SELECTORS["stickers"][0]).wait(timeout=3):
+            self.input("tap", *item)
         self.snapshot("image-selected")
 
     def add_link_sticker(self) -> None:
@@ -247,6 +252,13 @@ class Publisher:
         )
         self.input("swipe", x, y, x, target_y, 1500)
         self.snapshot("link-sticker")
+        # Dropping it over the trash deletes it, and the story would go out
+        # without the link.
+        if not self.d(**SELECTORS["placed_sticker"][0]).wait(timeout=2):
+            raise StepFailed(
+                "The link sticker is gone (dropped on the trash?): lower"
+                " STICKER_TARGET_Y and discard the story on the phone"
+            )
 
     def check_music(self) -> None:
         # Instagram may attach a suggested song (shown as lyrics) to the story.
