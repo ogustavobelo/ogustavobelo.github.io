@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import NamedTuple
 
@@ -14,10 +15,16 @@ INSTAGRAM_PACKAGE = "com.instagram.android"
 REMOTE_DIR = "/sdcard/DCIM/Stories"
 DEVICE_ENV = "STORY_ADB_DEVICE"
 WAIT_TIMEOUT = 10
-# Relative height where the link sticker is dropped: inside the band that
-# create_story.py leaves free below the text (from 0.84), but above the trash
-# Instagram shows at the bottom while dragging (from about 0.90).
-STICKER_TARGET_Y = 0.87
+# Relative height of the link sticker's center: its top clears the band that
+# create_story.py leaves free below the text (from 0.84). The finger holds the
+# sticker by its top edge, so it stays above the trash Instagram shows at the
+# bottom while dragging (from about 0.89).
+STICKER_TARGET_Y = 0.885
+STICKER_TOLERANCE = 10
+STICKER_GRAB_OFFSET = 15
+# Pixels of each drag that Instagram ignores before the sticker moves.
+STICKER_TOUCH_SLOP = 25
+STICKER_DRAG_ATTEMPTS = 4
 
 # Instagram changes its UI often: every step tries these selectors in order
 # (pt-BR first, then English), so a fix is usually a new entry here.
@@ -245,20 +252,38 @@ class Publisher:
 
         # The sticker lands in the middle of the story; drag it to the band
         # left free at the bottom of the image.
-        x, y = center(self.find("placed_sticker").info["bounds"])
         preview = self.find("story_preview").info["bounds"]
         target_y = preview["top"] + int(
             (preview["bottom"] - preview["top"]) * STICKER_TARGET_Y
         )
-        self.input("swipe", x, y, x, target_y, 1500)
-        self.snapshot("link-sticker")
-        # Dropping it over the trash deletes it, and the story would go out
-        # without the link.
-        if not self.d(**SELECTORS["placed_sticker"][0]).wait(timeout=2):
+        for _ in range(STICKER_DRAG_ATTEMPTS):
+            time.sleep(1)  # Let the sticker settle before measuring it.
+            # Dropping it over the trash deletes it, and the story would go
+            # out without the link.
+            if not self.d(**SELECTORS["placed_sticker"][0]).wait(timeout=2):
+                self.snapshot("link-sticker")
+                raise StepFailed(
+                    "The link sticker is gone (dropped on the trash?): lower"
+                    " STICKER_TARGET_Y and discard the story on the phone"
+                )
+            bounds = self.find("placed_sticker").info["bounds"]
+            x, y = center(bounds)
+            error = target_y - y
+            if abs(error) <= STICKER_TOLERANCE:
+                break
+            # Instagram drops the first few pixels of a drag, and the trash
+            # reacts to the finger: hold the sticker by its top edge so it can
+            # sit lower than the finger.
+            grab_y = bounds["top"] + STICKER_GRAB_OFFSET
+            slop = STICKER_TOUCH_SLOP if error > 0 else -STICKER_TOUCH_SLOP
+            self.input("swipe", x, grab_y, x, grab_y + error + slop, 1500)
+        else:
+            self.snapshot("link-sticker")
             raise StepFailed(
-                "The link sticker is gone (dropped on the trash?): lower"
-                " STICKER_TARGET_Y and discard the story on the phone"
+                f"The link sticker stopped at y={y}, not {target_y}: move it"
+                " on the phone and tap 'Seu story' to post"
             )
+        self.snapshot("link-sticker")
 
     def check_music(self) -> None:
         # Instagram may attach a suggested song (shown as lyrics) to the story.
