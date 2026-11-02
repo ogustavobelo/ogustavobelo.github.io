@@ -1,9 +1,9 @@
 +++
 title = "Avatar - Os sete refúgios"
 date = "2026-11-01T19:08:21-03:00"
-draft = true
+draft = false
 tags = ["review", "series"]
-description = "Duas avatares em um mundo não quer nenhuma. A obra se renova mantendo o que tem de melhor"
+description = "Duas avatares em um mundo que não quer nenhuma. A obra se renova mantendo o que tem de melhor"
 images = ["avatar-os-sete-refugios.webp"]
 +++
 
