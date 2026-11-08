@@ -19,3 +19,9 @@ O roteiro não é de todo clichê. Acho que ele percorre caminhos dentro de zona
 
 Mas o filme brilha mesmo na direção, tanto geral quanto de animação. Tecnicamente impressionante. A variação de texturas dá uma profundidade para a produção, distanciando-se diametralmente do aspecto plastificado de renders e shaders comuns ao gênero.
 Temos cenas tão bem animadas que chegam a ser hipnotizantes, tanto em planos fechados com microdetalhes, como em planos abertos repletos de personagens. A obra apresenta uma trilha sonora envolvente digna de um filme épico. Uma produção com tanto apreço pela qualidade técnica deve ser apreciada da melhor maneira possível. Se puder assistir na telona, vá! Não vai se arrepender.
+
+{{< admonition note "Edição pós-publicação (08/11/2026)" >}}
+Pra quem, assim como eu, ficou curioso sobre todo o trabalho artesanal por trás do filme, vale muito a pena assistir o making of. É impressionante o trabalho de texturas criadas com materiais reais. Durante o filme é evidente a maneira diferenciada como a luz interage com cada material, o que dá esse aspecto artesanalmente original a obra. Desfrute:
+
+{{< youtube 9stm18DFD08 >}}
+{{< /admonition >}}
