@@ -1,0 +1,9 @@
+{
+  "id": "hugo-post-link",
+  "name": "Hugo Post Link",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Searches the blog's posts and links the selection to the chosen post's URL path.",
+  "author": "gustavobelo",
+  "isDesktopOnly": true
+}
