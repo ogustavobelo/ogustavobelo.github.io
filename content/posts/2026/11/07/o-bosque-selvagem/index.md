@@ -1,7 +1,7 @@
 +++
 title = "O bosque selvagem"
 date = "2026-11-07T21:29:19-03:00"
-draft = true
+draft = false
 tags = ["review", "filmes", "cinema"]
 description = "Animação epicamente deslumbrante indo na contramão do aspecto plastificado de artes de IA"
 images = ["o-bosque-selvagem.webp"]
