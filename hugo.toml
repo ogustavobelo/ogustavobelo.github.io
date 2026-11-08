@@ -3,6 +3,8 @@ locale = 'pt-BR'
 languageName = 'Português'
 title = 'Notas de uma mente inquieta'
 enableRobotsTXT = true
+# content/posts is also an Obsidian vault; keep its config/plugins out of the build.
+ignoreFiles = ['\.obsidian[/\\]']
 
 [markup.goldmark.renderer]
 unsafe = true

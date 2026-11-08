@@ -15,7 +15,14 @@ bear-data/
 __pycache__/
 **/__pycache__/
 
-content/posts/.obsidian/
+# Obsidian vault: track only our own plugins and the enabled-plugins list;
+# workspace/graph state is per-machine noise, third-party plugins are reinstalled.
+content/posts/.obsidian/*
+!content/posts/.obsidian/community-plugins.json
+!content/posts/.obsidian/plugins/
+content/posts/.obsidian/plugins/*
+!content/posts/.obsidian/plugins/hugo-image-shortcode/
+!content/posts/.obsidian/plugins/hugo-spoiler-shortcode/
 # Personal Hugo settings (see config/_default/params.toml.example)
 config/_default/params.toml
 

@@ -1,0 +1,9 @@
+{
+  "id": "hugo-image-shortcode",
+  "name": "Hugo Image Shortcode",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Inserts a Hugo {{< image >}} shortcode instead of a wikilink when an image is dropped or pasted into the editor.",
+  "author": "gustavobelo",
+  "isDesktopOnly": true
+}

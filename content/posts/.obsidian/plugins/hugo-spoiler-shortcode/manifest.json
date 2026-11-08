@@ -1,0 +1,9 @@
+{
+  "id": "hugo-spoiler-shortcode",
+  "name": "Hugo Spoiler Shortcode",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Wraps the selection (or inserts an empty block) in a Hugo {{< admonition spoiler >}} shortcode with Cmd+Shift+P.",
+  "author": "gustavobelo",
+  "isDesktopOnly": true
+}
