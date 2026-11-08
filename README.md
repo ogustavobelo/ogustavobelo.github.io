@@ -73,6 +73,12 @@ creates a dated page bundle under `content/posts/YYYY/MM/DD/`, generates a
 URL-friendly slug, and marks the new post as a draft. Review the generated
 `index.md` and set `draft = false` when it is ready to publish.
 
+### Writing in Obsidian
+
+`content/posts/` can be opened as an Obsidian vault. The repository includes
+plugins that insert Hugo shortcodes for images, spoilers, and YouTube videos,
+and link to other posts. See [Obsidian Plugins](docs/obsidian-plugins.md).
+
 ## Import a Post from Bear
 
 Export the Bear blog data as a CSV and place it at
