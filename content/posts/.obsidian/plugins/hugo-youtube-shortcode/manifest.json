@@ -1,0 +1,9 @@
+{
+  "id": "hugo-youtube-shortcode",
+  "name": "Hugo YouTube Shortcode",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Converts a pasted YouTube URL into a Hugo {{< youtube >}} shortcode.",
+  "author": "gustavobelo",
+  "isDesktopOnly": true
+}
