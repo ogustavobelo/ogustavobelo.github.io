@@ -1,6 +1,7 @@
 +++
 title = "10 previsões sobre tech para os próximos 10 anos"
 date = "2026-11-08T11:32:54-03:00"
+lastmod = "2026-11-10T10:08:42-03:00"
 draft = false
 tags = ["review", "tech", "open-source"]
 description = "Inspirado em vídeo do DioLinux, faço 10 previsões para a área de tecnologia que deverão ser a mudança até 2036"
@@ -53,3 +54,7 @@ Sim, uma grande comparação "de quem tem o maior foguete", se é que você me e
 Por enquanto é isso.
 
 De maneira geral, em 10 anos dificilmente temos rupturas no *modus operandi*. O mais difícil é acertar qual dos caminhos óbvios possíveis será o certo. Sabe o Ovo de Colombo? Pois é.
+
+{{< admonition note "Edição pós-publicação (10/11/2026)" >}}
+Compartilhei a nota no [Órbita](https://orbita.social.br/p/QqA2onw84V) e começou a nascer outras ideias muito boas que valem a pena ser registradas.
+{{< /admonition >}}
