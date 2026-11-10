@@ -111,6 +111,21 @@ edit these directories to fix the site; change the source and build it again.
   already used by the theme. A new dependency must justify its cost, origin,
   and build impact.
 
+### Analytics
+
+- GoatCounter and Firebase Analytics run side by side, only in production
+  builds, each enabled by its own personal setting (see README.md);
+  `layouts/partials/plugin/analytics.html` loads both.
+- Firebase is loaded through gtag.js with the measurement ID only, never the
+  Firebase SDK, so no API key is published. The template fails the build when
+  the ID is not `G-XXXXXXXXXX`.
+- GA4 starts with Consent Mode denied (no cookies), Google Signals and ad
+  personalization off, and a `page_location` without query string except the
+  share `?ref=`, sent as `utm_source`.
+- Click events are declared once, as `data-goatcounter-click`;
+  `assets/js/analytics-events.js` maps the known names to GA4 events (`share`,
+  `select_content`, `contact_click`, `page_not_found`) and drops the rest.
+
 ## SEO and Crawling
 
 - The site language/locale is configured with the top-level `locale` key in

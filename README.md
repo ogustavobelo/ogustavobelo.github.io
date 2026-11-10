@@ -33,6 +33,7 @@ rendered.
 |---|---|---|---|
 | `social.email` | E-mail linked in the contact note at the end of each post | `HUGO_PARAMS_SOCIAL_EMAIL` | `BLOG_EMAIL` |
 | `analytics.goatcounter.code` | GoatCounter site code (`xxx` in `xxx.goatcounter.com`) | `HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE` | `GOATCOUNTER_CODE` |
+| `analytics.google.id` | Firebase Analytics measurement ID (`G-XXXXXXXXXX`) | `HUGO_PARAMS_ANALYTICS_GOOGLE_ID` | `FIREBASE_MEASUREMENT_ID` |
 
 **Locally**, copy the example file and fill in your values. Hugo merges it with
 `hugo.toml` on every `hugo server` and `hugo` run:
@@ -41,8 +42,9 @@ rendered.
 cp config/_default/params.toml.example config/_default/params.toml
 ```
 
-`config/_default/params.toml` is gitignored. GoatCounter is only loaded in
-production builds, so `hugo server` never counts visits.
+`config/_default/params.toml` is gitignored. Analytics (GoatCounter and
+Firebase) is only loaded in production builds, so `hugo server` never counts
+visits.
 
 **In the deploy**, create the GitHub Actions variables under
 **Settings → Secrets and variables → Actions → Variables**; the deploy workflow
