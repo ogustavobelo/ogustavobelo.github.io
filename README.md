@@ -238,12 +238,49 @@ python3 scripts/publish_story.py stories/my-post.json --device 192.168.0.10:4123
 ```
 
 `--no-share` stops right before posting so you can review the story on the
-phone; drop it to post. The script never posts when Instagram attached a
-suggested song to the story, or while it asks for photo access: it stops and
-tells you to fix it on the phone. The device can also come from `STORY_ADB_DEVICE`.
-Every step saves a screenshot under `stories/debug/<slug>/`. When Instagram
-changes its UI and a step fails, the error names the missing element: add a
-matching selector to `SELECTORS` at the top of the script.
+phone; drop it to post. `--confirm` stops at the same point and asks before
+posting, so the review does not cost a second run. The script never posts when
+Instagram attached a suggested song to the story, or while it asks for photo
+access: it stops and tells you to fix it on the phone. The device can also come
+from `STORY_ADB_DEVICE`. Every step saves a screenshot under
+`stories/debug/<slug>/`. When Instagram changes its UI and a step fails, the
+error names the missing element: add a matching selector to `SELECTORS` at the
+top of the script.
+
+### Publishing it from an emulator
+
+Without a phone at hand, `scripts/story_emulator.py` runs an Android emulator
+(`Stories`, a light 720×1600 Play Store image for API 35, created on first use)
+that the script drives the same way:
+
+```sh
+python3 scripts/story_emulator.py start
+python3 scripts/publish_story.py stories/my-post.json --device emulator-5554 --confirm
+python3 scripts/story_emulator.py stop
+```
+
+The first time, sign in to the Play Store on the emulator, install Instagram,
+log in to it, and run `start` again. On every start it:
+
+- sets the language to pt-BR (the system's only from the next boot);
+- grants Instagram photo, camera and microphone access, so no dialog stops the
+  script;
+- turns off animations and the Google apps the script does not need, the Play
+  Store included once Instagram is installed.
+
+`stop` saves a Quick Boot snapshot, so the next `start` resumes in seconds
+instead of cold booting (it warns when the save fails). Once set up,
+`start --no-window` boots without the window. The emulator log goes to
+`stories/debug/emulator.log`.
+
+To update Instagram, run `adb -s emulator-5554 shell pm enable
+com.android.vending` and update it in the Play Store; the next `start` turns the
+store off again. The same `pm enable PACKAGE` brings back any other app it
+turned off.
+
+The emulator needs about 6 GB of the Mac's memory. On an 8 GB Mac, quit Docker
+(`colima stop`) and close heavy apps before publishing, or it ends up in swap
+and Instagram freezes.
 
 ## AI Project Documentation
 

@@ -94,3 +94,53 @@ def test_push_image_copies_and_indexes_the_file(tmp_path, monkeypatch):
     assert target == "/sdcard/DCIM/Stories/meu-post.png"
     assert calls[1] == ["adb", "-s", "dev", "push", str(story.image), target]
     assert calls[2][-2:] == ["-d", f"file://{target}"]
+
+
+class FakeElement:
+    def __init__(self, device, selector):
+        self.device = device
+        self.selector = selector
+
+    @property
+    def exists(self):
+        self.device.queries.append(self.selector)
+        return self.selector in self.device.visible_after and (
+            len(self.device.queries) > self.device.visible_after[self.selector]
+        )
+
+
+class FakeDevice:
+    def __init__(self, visible_after):
+        self.visible_after = visible_after
+        self.queries = []
+
+    def __call__(self, **selector):
+        return FakeElement(self, tuple(selector.items()))
+
+    def screenshot(self, path):
+        Path(path).write_bytes(b"png")
+
+
+def test_find_keeps_trying_every_selector_until_one_shows_up(tmp_path, monkeypatch):
+    module = load_module()
+    monkeypatch.setattr(module.time, "sleep", lambda seconds: None)
+    first = tuple(module.SELECTORS["create"][0].items())
+    # The screen shows up only after a few passes over all the selectors.
+    device = FakeDevice({first: 3 * len(module.SELECTORS["create"])})
+    publisher = module.Publisher(device, "serial", None, tmp_path)
+
+    element = publisher.find("create", timeout=60)
+
+    assert element.selector == first
+    assert len(device.queries) > len(module.SELECTORS["create"])
+
+
+def test_find_gives_up_with_a_screenshot(tmp_path, monkeypatch):
+    module = load_module()
+    monkeypatch.setattr(module.time, "sleep", lambda seconds: None)
+    publisher = module.Publisher(FakeDevice({}), "serial", None, tmp_path)
+
+    with pytest.raises(module.StepFailed, match="'create'"):
+        publisher.find("create", timeout=0)
+
+    assert (tmp_path / "01-missing-create.png").is_file()

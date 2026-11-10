@@ -15,6 +15,8 @@ INSTAGRAM_PACKAGE = "com.instagram.android"
 REMOTE_DIR = "/sdcard/DCIM/Stories"
 DEVICE_ENV = "STORY_ADB_DEVICE"
 WAIT_TIMEOUT = 10
+# A cold start of Instagram can take 45 s on the emulator (story_emulator.py).
+LAUNCH_TIMEOUT = 90
 # Relative height of the link sticker's center: its top clears the band that
 # create_story.py leaves free below the text (from 0.84). The finger holds the
 # sticker by its top edge, so it stays above the trash Instagram shows at the
@@ -197,10 +199,17 @@ class Publisher:
         self.d.screenshot(str(self.debug_dir / f"{self.step:02d}-{name}.png"))
 
     def find(self, key: str, timeout: float = WAIT_TIMEOUT):
-        for selector in SELECTORS[key]:
-            element = self.d(**selector)
-            if element.wait(timeout=timeout / len(SELECTORS[key])):
-                return element
+        # Every selector gets the whole timeout: on a slow device the screen
+        # may only show up after the first selector's share would be over.
+        deadline = time.monotonic() + timeout
+        while True:
+            for selector in SELECTORS[key]:
+                element = self.d(**selector)
+                if element.exists:
+                    return element
+            if time.monotonic() >= deadline:
+                break
+            time.sleep(0.5)
         self.snapshot(f"missing-{key}")
         raise StepFailed(
             f"Could not find '{key}' on screen; see {self.debug_dir} and"
@@ -217,7 +226,7 @@ class Publisher:
 
     def open_story_camera(self) -> None:
         self.d.app_start(INSTAGRAM_PACKAGE, stop=True)
-        self.find("create", timeout=WAIT_TIMEOUT * 2)
+        self.find("create", timeout=LAUNCH_TIMEOUT)
         self.snapshot("home")
         self.tap("create")
         self.check_permission_dialog()
@@ -302,7 +311,13 @@ class Publisher:
         self.snapshot("shared")
 
 
-def publish(story: Story, device: str, debug_dir: Path, share: bool = True) -> None:
+def publish(
+    story: Story,
+    device: str,
+    debug_dir: Path,
+    share: bool = True,
+    confirm: bool = False,
+) -> None:
     try:
         import uiautomator2 as u2
     except ImportError as exc:
@@ -323,6 +338,15 @@ def publish(story: Story, device: str, debug_dir: Path, share: bool = True) -> N
     if not share:
         print("Stopped before sharing (--no-share). Review it on the phone.")
         return
+    # Reviewing with --no-share and running again redoes every step; this
+    # posts the story already on screen.
+    if confirm:
+        answer = input(
+            f"Review the story on the phone (or {debug_dir}). Post it? [y/N] "
+        )
+        if answer.strip().lower() not in ("y", "s"):
+            print("Not shared. Discard the story on the phone.")
+            return
     publisher.share()
     print("Story shared.")
 
@@ -340,13 +364,18 @@ def main() -> int:
         action="store_true",
         help="Stop right before sharing, to review the story on the phone",
     )
+    parser.add_argument(
+        "--confirm",
+        action="store_true",
+        help="Ask before sharing, after the story is ready on the phone",
+    )
     args = parser.parse_args()
 
     try:
         story = load_story(args.story)
         device = resolve_device(args.device)
         debug_dir = repo_root / "stories" / "debug" / story.slug
-        publish(story, device, debug_dir, share=not args.no_share)
+        publish(story, device, debug_dir, share=not args.no_share, confirm=args.confirm)
     except (OSError, ValueError, KeyError, StepFailed) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
