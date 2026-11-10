@@ -112,11 +112,12 @@ hugo = false
 author = true
 copyright = true
 
-# Personal values (contact e-mail, GoatCounter code) are not committed so forks don't inherit them.
+# Personal values (contact e-mail, analytics IDs) are not committed so forks don't inherit them.
 # Locally they come from config/_default/params.toml (gitignored; copy params.toml.example).
 # In the deploy they come from environment variables filled by GitHub Actions repository variables:
 #   HUGO_PARAMS_SOCIAL_EMAIL                 -> e-mail shown in the post contact note
 #   HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE   -> GoatCounter site code (xxx in xxx.goatcounter.com)
+#   HUGO_PARAMS_ANALYTICS_GOOGLE_ID          -> Firebase Analytics measurement ID (G-XXXXXXXXXX)
 [params.social]
 RSS = ''
 

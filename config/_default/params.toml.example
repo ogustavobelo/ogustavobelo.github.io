@@ -7,3 +7,7 @@ email = 'you@example.com'
 
 [analytics.goatcounter]
 code = 'your-site-code'
+
+# Measurement ID of the Firebase web app (Firebase console > Project settings).
+[analytics.google]
+id = 'G-XXXXXXXXXX'

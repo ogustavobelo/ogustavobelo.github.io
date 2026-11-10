@@ -29,6 +29,7 @@ jobs:
         env:
           HUGO_PARAMS_SOCIAL_EMAIL: ${{ vars.BLOG_EMAIL }}
           HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
+          HUGO_PARAMS_ANALYTICS_GOOGLE_ID: ${{ vars.FIREBASE_MEASUREMENT_ID }}
         run: hugo --gc --minify
 
       - name: Deploy to GitHub Pages
