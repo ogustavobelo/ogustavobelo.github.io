@@ -1,13 +1,34 @@
 {{- $analytics := .Scratch.Get "analytics" | default dict -}}
 
 {{- if $analytics.enable -}}
-    {{- /* Google Analytics */ -}}
+    {{- /* Firebase Analytics (the GA4 property of the Firebase web app), loaded via gtag.js only:
+           no Firebase SDK, so no API key is published. Runs alongside GoatCounter. */ -}}
     {{- with $analytics.google.id -}}
+        {{- /* The ID comes from an environment variable and is written into a script; refuse anything
+               that isn't a measurement ID instead of publishing it. */ -}}
+        {{- if not (findRE `^G-[A-Z0-9]{4,20}$` .) -}}
+            {{- errorf "analytics.google.id must be a GA4 measurement ID (G-XXXXXXXXXX), got %q" . -}}
+        {{- end -}}
         <script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', '{{ . }}'{{ if $analytics.google.anonymizeIP }}, { 'anonymize_ip': true }{{ end }});
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+            {{- /* Consent Mode: no cookies are stored; GA4 receives cookieless pings and models the rest. */}}
+            gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+            gtag('js', new Date());
+            {{- /* Query strings are dropped from page_location so nothing typed into a URL reaches GA4;
+                   only ?ref= from share links (see single/share.html) survives, as the campaign source. */}}
+            (function() {
+                var ref = new URLSearchParams(location.search).get('ref');
+                var source = ref && /^[a-z]{1,20}$/.test(ref) ? '?utm_source=' + ref + '&utm_medium=share' : '';
+                gtag('config', '{{ . }}', {
+                    page_location: location.origin + location.pathname + source,
+                    allow_google_signals: false,
+                    allow_ad_personalization_signals: false
+                });
+            })();
         </script>
         {{- printf "https://www.googletagmanager.com/gtag/js?id=%v" . | dict "Async" true "Source" | partial "plugin/script.html" -}}
+        {{- $js := resources.Get "js/analytics-events.js" | minify | fingerprint -}}
+        <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
     {{- end -}}
 
     {{- /* Fathom Analytics */ -}}
