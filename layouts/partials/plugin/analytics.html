@@ -11,7 +11,8 @@
         {{- end -}}
         <script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-            {{- /* Consent Mode: no cookies are stored; GA4 receives cookieless pings and models the rest. */}}
+            {{- /* Consent Mode: no cookies are stored and GA4 only receives cookieless pings; with no consent ever
+                   granted, modeling never kicks in, so standard reports stay sparse (DebugView still shows events). */}}
             gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
             gtag('js', new Date());
             {{- /* Query strings are dropped from page_location so nothing typed into a URL reaches GA4;
