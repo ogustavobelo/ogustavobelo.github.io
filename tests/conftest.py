@@ -8,19 +8,19 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def _build_site(tmp_path, extra_args=None, extra_env=None):
-    destination = tmp_path / "public"
-    result = subprocess.run(
+def _run_hugo(tmp_path, extra_args=None, extra_env=None, quiet=True):
+    """Runs a production build into tmp_path/public and returns the finished process."""
+    return subprocess.run(
         [
             "hugo",
             "--source",
             str(ROOT),
             "--destination",
-            str(destination),
+            str(tmp_path / "public"),
             "--cacheDir",
             str(tmp_path / "cache"),
             "--buildDrafts",
-            "--quiet",
+            *(["--quiet"] if quiet else []),
             *(extra_args or []),
         ],
         capture_output=True,
@@ -30,12 +30,16 @@ def _build_site(tmp_path, extra_args=None, extra_env=None):
             **os.environ,
             "HUGO_PARAMS_SOCIAL_EMAIL": "leitor@example.com",
             "HUGO_PARAMS_ANALYTICS_GOATCOUNTER_CODE": "blog-de-teste",
+            "HUGO_PARAMS_ANALYTICS_GOOGLE_ID": "G-TESTE1234",
             **(extra_env or {}),
         },
     )
 
+
+def _build_site(tmp_path, extra_args=None, extra_env=None):
+    result = _run_hugo(tmp_path, extra_args, extra_env)
     assert result.returncode == 0, result.stderr
-    return destination
+    return tmp_path / "public"
 
 
 @pytest.fixture

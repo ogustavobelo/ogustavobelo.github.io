@@ -207,6 +207,44 @@ def test_hugo_404_page_tracks_requested_route_as_goatcounter_event(built_site_se
     assert page.index("window.goatcounter = {") < page.index('src="https://gc.zgo.at/count.js"')
 
 
+def test_hugo_post_page_loads_firebase_analytics_with_privacy_defaults(built_site_session):
+    post_page = (
+        built_site_session / "posts" / "2025" / "03" / "04" / "flow" / "index.html"
+    ).read_text(encoding="utf-8")
+
+    assert 'src="https://www.googletagmanager.com/gtag/js?id=G-TESTE1234"' in post_page
+    assert "gtag('config', 'G-TESTE1234'" in post_page
+    assert "analytics_storage: 'denied'" in post_page
+    assert "allow_google_signals: false" in post_page
+    assert "allow_ad_personalization_signals: false" in post_page
+    # Consent defaults must be queued before the config call.
+    assert post_page.index("gtag('consent', 'default'") < post_page.index("gtag('config'")
+    assert '<script src="/js/analytics-events.min.' in post_page
+    assert 'integrity="sha256-' in post_page[post_page.index('/js/analytics-events.min.'):]
+    # GoatCounter keeps running alongside.
+    assert 'src="https://gc.zgo.at/count.js"' in post_page
+
+
+def test_hugo_site_without_firebase_id_keeps_only_goatcounter(tmp_path):
+    from conftest import _build_site
+
+    site = _build_site(tmp_path, extra_env={"HUGO_PARAMS_ANALYTICS_GOOGLE_ID": ""})
+    post_page = (site / "posts" / "2025" / "03" / "04" / "flow" / "index.html").read_text(encoding="utf-8")
+
+    assert "googletagmanager" not in post_page
+    assert "analytics-events" not in post_page
+    assert 'src="https://gc.zgo.at/count.js"' in post_page
+
+
+def test_hugo_build_rejects_malformed_firebase_id(tmp_path):
+    from conftest import _run_hugo
+
+    result = _run_hugo(tmp_path, extra_env={"HUGO_PARAMS_ANALYTICS_GOOGLE_ID": "G-1');alert(1)//"}, quiet=False)
+
+    assert result.returncode != 0
+    assert "analytics.google.id must be a GA4 measurement ID" in result.stdout + result.stderr
+
+
 def _most_read_section(page):
     start = page.index('<aside class="related-posts most-read"')
     return page[start:page.index("</aside>", start)]
