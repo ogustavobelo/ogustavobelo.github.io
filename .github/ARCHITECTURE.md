@@ -119,9 +119,14 @@ edit these directories to fix the site; change the source and build it again.
 - Firebase is loaded through gtag.js with the measurement ID only, never the
   Firebase SDK, so no API key is published. The template fails the build when
   the ID is not `G-XXXXXXXXXX`.
-- GA4 starts with Consent Mode denied (no cookies), Google Signals and ad
-  personalization off, and a `page_location` without query string except the
-  share `?ref=`, sent as `utm_source`.
+- GA4 runs cookieless: `client_storage: 'none'` keeps gtag from storing
+  anything in the browser, so `analytics_storage` is granted (denied pings
+  never reach the reports without consented traffic to model from) while the
+  ad consent types stay denied. With no persisted client ID, every page load
+  is a new user and session; page views, pages, referrers and events are
+  reliable, user and session counts are not.
+- Google Signals and ad personalization are off, and `page_location` has no
+  query string except the share `?ref=`, sent as `utm_source`.
 - Click events are declared once, as `data-goatcounter-click`;
   `assets/js/analytics-events.js` maps the known names to GA4 events (`share`,
   `select_content`, `contact_click`, `page_not_found`) and drops the rest.

@@ -214,7 +214,9 @@ def test_hugo_post_page_loads_firebase_analytics_with_privacy_defaults(built_sit
 
     assert 'src="https://www.googletagmanager.com/gtag/js?id=G-TESTE1234"' in post_page
     assert "gtag('config', 'G-TESTE1234'" in post_page
-    assert "analytics_storage: 'denied'" in post_page
+    assert "analytics_storage: 'granted'" in post_page
+    assert "ad_storage: 'denied'" in post_page
+    assert "client_storage: 'none'" in post_page
     assert "allow_google_signals: false" in post_page
     assert "allow_ad_personalization_signals: false" in post_page
     # Consent defaults must be queued before the config call.

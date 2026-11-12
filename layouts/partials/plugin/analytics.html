@@ -11,9 +11,10 @@
         {{- end -}}
         <script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-            {{- /* Consent Mode: no cookies are stored and GA4 only receives cookieless pings; with no consent ever
-                   granted, modeling never kicks in, so standard reports stay sparse (DebugView still shows events). */}}
-            gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+            {{- /* Cookieless measurement: analytics_storage is granted so hits reach the reports (denied pings are
+                   only reported through modeling, which needs consented traffic this site never has), while
+                   client_storage: 'none' below keeps gtag from writing cookies or local storage. Ads stay denied. */}}
+            gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
             gtag('js', new Date());
             {{- /* Query strings are dropped from page_location so nothing typed into a URL reaches GA4;
                    only ?ref= from share links (see single/share.html) survives, as the campaign source. */}}
@@ -22,6 +23,8 @@
                 var source = ref && /^[a-z]{1,20}$/.test(ref) ? '?utm_source=' + ref + '&utm_medium=share' : '';
                 gtag('config', '{{ . }}', {
                     page_location: location.origin + location.pathname + source,
+                    {{- /* No client ID is persisted, so every page load counts as a new user and session. */}}
+                    client_storage: 'none',
                     allow_google_signals: false,
                     allow_ad_personalization_signals: false
                 });
