@@ -1,0 +1,6 @@
+{{- /* Contact e-mail from the personal settings (social.email), so it is not committed in content. */ -}}
+{{- with .Site.Params.social.Email -}}
+    <a href="mailto:{{ . }}">{{ . }}</a>
+{{- else -}}
+    {{- errorf "%s: the contact-email shortcode needs social.email (HUGO_PARAMS_SOCIAL_EMAIL)" .Position -}}
+{{- end -}}

@@ -23,4 +23,9 @@ lead-in line; the body between the tags is already plain Markdown.
 {{- $content = $content | replaceRE `\{\{<\s*admonition\s+\S+\s+"([^"]*)"[^>]*>\}\}` "**$1**" -}}
 {{- $content = $content | replaceRE `\{\{<\s*/admonition\s*>\}\}` "" -}}
 
+{{- /* {{< contact-email >}} (content/privacidade) -> the configured e-mail as an autolink */ -}}
+{{- with $page.Site.Params.social.Email -}}
+    {{- $content = $content | replaceRE `\{\{<\s*contact-email\s*>\}\}` (printf "<%s>" .) -}}
+{{- end -}}
+
 {{- return $content -}}

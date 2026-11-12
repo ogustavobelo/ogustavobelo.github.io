@@ -315,3 +315,14 @@ def test_hugo_post_page_marks_toc_empty_only_without_headings(built_site_session
     assert '<div class="toc toc-empty" id="toc-auto">' in without_headings
     assert '<div class="details toc" id="toc-static"' in with_headings
     assert '<div class="toc" id="toc-auto">' in with_headings
+
+
+def test_hugo_footer_links_privacy_page_with_configured_email(built_site_session):
+    homepage = (built_site_session / "index.html").read_text(encoding="utf-8")
+    privacy_page = (built_site_session / "privacidade" / "index.html").read_text(encoding="utf-8")
+
+    assert '<a class="privacy" href="/privacidade/">Privacidade</a>' in homepage
+    assert '<a href="mailto:leitor@example.com">leitor@example.com</a>' in privacy_page
+    privacy_markdown = (built_site_session / "privacidade" / "index.md").read_text(encoding="utf-8")
+    assert "<leitor@example.com>" in privacy_markdown
+    assert "{{<" not in privacy_markdown
