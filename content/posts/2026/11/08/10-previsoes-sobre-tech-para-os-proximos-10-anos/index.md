@@ -3,7 +3,7 @@ title = "10 previsões sobre tech para os próximos 10 anos"
 date = "2026-11-08T11:32:54-03:00"
 lastmod = "2026-11-10T10:08:42-03:00"
 draft = false
-tags = ["review", "tech", "open-source"]
+tags = ["review", "tech", "open-source", "mais-lidas"]
 description = "Inspirado em vídeo do DioLinux, faço 10 previsões para a área de tecnologia que deverão ser a mudança até 2036"
 +++
 
